@@ -1,0 +1,755 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F7B0110B4C19F16EEECA1B8 /* Pods_RamenMen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512D556894E74E390A651F69 /* Pods_RamenMen.framework */; };
+		5097C01D2487998C005A8BA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097C01C2487998C005A8BA0 /* AppDelegate.swift */; };
+		5097C01F2487998C005A8BA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097C01E2487998C005A8BA0 /* SceneDelegate.swift */; };
+		5097C0212487998C005A8BA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097C0202487998C005A8BA0 /* ContentView.swift */; };
+		5097C02324879993005A8BA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5097C02224879993005A8BA0 /* Assets.xcassets */; };
+		5097C02624879993005A8BA0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5097C02524879993005A8BA0 /* Preview Assets.xcassets */; };
+		5097C02924879993005A8BA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5097C02724879993005A8BA0 /* LaunchScreen.storyboard */; };
+		5097C03424879993005A8BA0 /* RamenMenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097C03324879993005A8BA0 /* RamenMenTests.swift */; };
+		5097C03F24879993005A8BA0 /* RamenMenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097C03E24879993005A8BA0 /* RamenMenUITests.swift */; };
+		5097C04D2487A1A1005A8BA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5097C04C2487A1A1005A8BA0 /* GoogleService-Info.plist */; };
+		5097C04E2487A1A1005A8BA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5097C04C2487A1A1005A8BA0 /* GoogleService-Info.plist */; };
+		5097C04F2487A1A1005A8BA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5097C04C2487A1A1005A8BA0 /* GoogleService-Info.plist */; };
+		906A612E4E75DF022CFFF781 /* Pods_RamenMenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33511043CB91C1C3393367E /* Pods_RamenMenTests.framework */; };
+		C23FE822DBDA3537F73D29C2 /* Pods_RamenMen_RamenMenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDCB9B648A6A82D0084EBF5 /* Pods_RamenMen_RamenMenUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5097C03024879993005A8BA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5097C0112487998C005A8BA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5097C0182487998C005A8BA0;
+			remoteInfo = RamenMen;
+		};
+		5097C03B24879993005A8BA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5097C0112487998C005A8BA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5097C0182487998C005A8BA0;
+			remoteInfo = RamenMen;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		42D3CF8F03C86919A511FA7D /* Pods-RamenMen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.release.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.release.xcconfig"; sourceTree = "<group>"; };
+		5097C0192487998C005A8BA0 /* RamenMen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RamenMen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5097C01C2487998C005A8BA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5097C01E2487998C005A8BA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5097C0202487998C005A8BA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5097C02224879993005A8BA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5097C02524879993005A8BA0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5097C02824879993005A8BA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5097C02A24879993005A8BA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5097C02F24879993005A8BA0 /* RamenMenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RamenMenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5097C03324879993005A8BA0 /* RamenMenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenMenTests.swift; sourceTree = "<group>"; };
+		5097C03524879993005A8BA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5097C03A24879993005A8BA0 /* RamenMenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RamenMenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5097C03E24879993005A8BA0 /* RamenMenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenMenUITests.swift; sourceTree = "<group>"; };
+		5097C04024879993005A8BA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5097C04C2487A1A1005A8BA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		512D556894E74E390A651F69 /* Pods_RamenMen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenMen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ACA2BDFC842B15E6FB7562E /* Pods-RamenMen-RamenMenUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen-RamenMenUITests.debug.xcconfig"; path = "Target Support Files/Pods-RamenMen-RamenMenUITests/Pods-RamenMen-RamenMenUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6ECFB8E3D0ACD7C05748582A /* Pods-RamenMenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMenTests.debug.xcconfig"; path = "Target Support Files/Pods-RamenMenTests/Pods-RamenMenTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8AB973A62D11A8C800E5463A /* Pods-RamenMen-RamenMenUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen-RamenMenUITests.release.xcconfig"; path = "Target Support Files/Pods-RamenMen-RamenMenUITests/Pods-RamenMen-RamenMenUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8BC5616BA26B7CC8F4D3FA01 /* Pods-RamenMen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.debug.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.debug.xcconfig"; sourceTree = "<group>"; };
+		8BDCB9B648A6A82D0084EBF5 /* Pods_RamenMen_RamenMenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenMen_RamenMenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C58E640B979956CD33F5B8BD /* Pods-RamenMenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMenTests.release.xcconfig"; path = "Target Support Files/Pods-RamenMenTests/Pods-RamenMenTests.release.xcconfig"; sourceTree = "<group>"; };
+		D33511043CB91C1C3393367E /* Pods_RamenMenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenMenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5097C0162487998C005A8BA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F7B0110B4C19F16EEECA1B8 /* Pods_RamenMen.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5097C02C24879993005A8BA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				906A612E4E75DF022CFFF781 /* Pods_RamenMenTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5097C03724879993005A8BA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C23FE822DBDA3537F73D29C2 /* Pods_RamenMen_RamenMenUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14C1C4BF37E57C0BFDC376B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				512D556894E74E390A651F69 /* Pods_RamenMen.framework */,
+				8BDCB9B648A6A82D0084EBF5 /* Pods_RamenMen_RamenMenUITests.framework */,
+				D33511043CB91C1C3393367E /* Pods_RamenMenTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5097C0102487998C005A8BA0 = {
+			isa = PBXGroup;
+			children = (
+				5097C01B2487998C005A8BA0 /* RamenMen */,
+				5097C03224879993005A8BA0 /* RamenMenTests */,
+				5097C03D24879993005A8BA0 /* RamenMenUITests */,
+				5097C01A2487998C005A8BA0 /* Products */,
+				707C071E67916613DCD8DD1D /* Pods */,
+				14C1C4BF37E57C0BFDC376B8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5097C01A2487998C005A8BA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5097C0192487998C005A8BA0 /* RamenMen.app */,
+				5097C02F24879993005A8BA0 /* RamenMenTests.xctest */,
+				5097C03A24879993005A8BA0 /* RamenMenUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5097C01B2487998C005A8BA0 /* RamenMen */ = {
+			isa = PBXGroup;
+			children = (
+				5097C04C2487A1A1005A8BA0 /* GoogleService-Info.plist */,
+				5097C01C2487998C005A8BA0 /* AppDelegate.swift */,
+				5097C01E2487998C005A8BA0 /* SceneDelegate.swift */,
+				5097C0202487998C005A8BA0 /* ContentView.swift */,
+				5097C02224879993005A8BA0 /* Assets.xcassets */,
+				5097C02724879993005A8BA0 /* LaunchScreen.storyboard */,
+				5097C02A24879993005A8BA0 /* Info.plist */,
+				5097C02424879993005A8BA0 /* Preview Content */,
+			);
+			path = RamenMen;
+			sourceTree = "<group>";
+		};
+		5097C02424879993005A8BA0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5097C02524879993005A8BA0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5097C03224879993005A8BA0 /* RamenMenTests */ = {
+			isa = PBXGroup;
+			children = (
+				5097C03324879993005A8BA0 /* RamenMenTests.swift */,
+				5097C03524879993005A8BA0 /* Info.plist */,
+			);
+			path = RamenMenTests;
+			sourceTree = "<group>";
+		};
+		5097C03D24879993005A8BA0 /* RamenMenUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5097C03E24879993005A8BA0 /* RamenMenUITests.swift */,
+				5097C04024879993005A8BA0 /* Info.plist */,
+			);
+			path = RamenMenUITests;
+			sourceTree = "<group>";
+		};
+		707C071E67916613DCD8DD1D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8BC5616BA26B7CC8F4D3FA01 /* Pods-RamenMen.debug.xcconfig */,
+				42D3CF8F03C86919A511FA7D /* Pods-RamenMen.release.xcconfig */,
+				6ACA2BDFC842B15E6FB7562E /* Pods-RamenMen-RamenMenUITests.debug.xcconfig */,
+				8AB973A62D11A8C800E5463A /* Pods-RamenMen-RamenMenUITests.release.xcconfig */,
+				6ECFB8E3D0ACD7C05748582A /* Pods-RamenMenTests.debug.xcconfig */,
+				C58E640B979956CD33F5B8BD /* Pods-RamenMenTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5097C0182487998C005A8BA0 /* RamenMen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5097C04324879993005A8BA0 /* Build configuration list for PBXNativeTarget "RamenMen" */;
+			buildPhases = (
+				662B7DBB5369115CB36217F2 /* [CP] Check Pods Manifest.lock */,
+				5097C0152487998C005A8BA0 /* Sources */,
+				5097C0162487998C005A8BA0 /* Frameworks */,
+				5097C0172487998C005A8BA0 /* Resources */,
+				43A6E5836CC1F311CED0BCA8 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RamenMen;
+			productName = RamenMen;
+			productReference = 5097C0192487998C005A8BA0 /* RamenMen.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5097C02E24879993005A8BA0 /* RamenMenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5097C04624879993005A8BA0 /* Build configuration list for PBXNativeTarget "RamenMenTests" */;
+			buildPhases = (
+				E0CE616CC980AC383ED124C1 /* [CP] Check Pods Manifest.lock */,
+				5097C02B24879993005A8BA0 /* Sources */,
+				5097C02C24879993005A8BA0 /* Frameworks */,
+				5097C02D24879993005A8BA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5097C03124879993005A8BA0 /* PBXTargetDependency */,
+			);
+			name = RamenMenTests;
+			productName = RamenMenTests;
+			productReference = 5097C02F24879993005A8BA0 /* RamenMenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5097C03924879993005A8BA0 /* RamenMenUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5097C04924879993005A8BA0 /* Build configuration list for PBXNativeTarget "RamenMenUITests" */;
+			buildPhases = (
+				C1497097C9066D49FD30B267 /* [CP] Check Pods Manifest.lock */,
+				5097C03624879993005A8BA0 /* Sources */,
+				5097C03724879993005A8BA0 /* Frameworks */,
+				5097C03824879993005A8BA0 /* Resources */,
+				549DB882893945EFB8FB4A53 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5097C03C24879993005A8BA0 /* PBXTargetDependency */,
+			);
+			name = RamenMenUITests;
+			productName = RamenMenUITests;
+			productReference = 5097C03A24879993005A8BA0 /* RamenMenUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5097C0112487998C005A8BA0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Ramen Men";
+				TargetAttributes = {
+					5097C0182487998C005A8BA0 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					5097C02E24879993005A8BA0 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 5097C0182487998C005A8BA0;
+					};
+					5097C03924879993005A8BA0 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 5097C0182487998C005A8BA0;
+					};
+				};
+			};
+			buildConfigurationList = 5097C0142487998C005A8BA0 /* Build configuration list for PBXProject "RamenMen" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5097C0102487998C005A8BA0;
+			productRefGroup = 5097C01A2487998C005A8BA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5097C0182487998C005A8BA0 /* RamenMen */,
+				5097C02E24879993005A8BA0 /* RamenMenTests */,
+				5097C03924879993005A8BA0 /* RamenMenUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5097C0172487998C005A8BA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5097C02924879993005A8BA0 /* LaunchScreen.storyboard in Resources */,
+				5097C04D2487A1A1005A8BA0 /* GoogleService-Info.plist in Resources */,
+				5097C02624879993005A8BA0 /* Preview Assets.xcassets in Resources */,
+				5097C02324879993005A8BA0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5097C02D24879993005A8BA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5097C04E2487A1A1005A8BA0 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5097C03824879993005A8BA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5097C04F2487A1A1005A8BA0 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		43A6E5836CC1F311CED0BCA8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RamenMen/Pods-RamenMen-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RamenMen/Pods-RamenMen-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RamenMen/Pods-RamenMen-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		549DB882893945EFB8FB4A53 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RamenMen-RamenMenUITests/Pods-RamenMen-RamenMenUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RamenMen-RamenMenUITests/Pods-RamenMen-RamenMenUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RamenMen-RamenMenUITests/Pods-RamenMen-RamenMenUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		662B7DBB5369115CB36217F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RamenMen-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1497097C9066D49FD30B267 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RamenMen-RamenMenUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0CE616CC980AC383ED124C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RamenMenTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5097C0152487998C005A8BA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5097C01D2487998C005A8BA0 /* AppDelegate.swift in Sources */,
+				5097C01F2487998C005A8BA0 /* SceneDelegate.swift in Sources */,
+				5097C0212487998C005A8BA0 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5097C02B24879993005A8BA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5097C03424879993005A8BA0 /* RamenMenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5097C03624879993005A8BA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5097C03F24879993005A8BA0 /* RamenMenUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5097C03124879993005A8BA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5097C0182487998C005A8BA0 /* RamenMen */;
+			targetProxy = 5097C03024879993005A8BA0 /* PBXContainerItemProxy */;
+		};
+		5097C03C24879993005A8BA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5097C0182487998C005A8BA0 /* RamenMen */;
+			targetProxy = 5097C03B24879993005A8BA0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5097C02724879993005A8BA0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5097C02824879993005A8BA0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5097C04124879993005A8BA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5097C04224879993005A8BA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5097C04424879993005A8BA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BC5616BA26B7CC8F4D3FA01 /* Pods-RamenMen.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"RamenMen/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = RamenMen/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RamenMen.RamenMen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5097C04524879993005A8BA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42D3CF8F03C86919A511FA7D /* Pods-RamenMen.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"RamenMen/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = RamenMen/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RamenMen.RamenMen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5097C04724879993005A8BA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6ECFB8E3D0ACD7C05748582A /* Pods-RamenMenTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RamenMenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RamenMen.RamenMenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RamenMen.app/RamenMen";
+			};
+			name = Debug;
+		};
+		5097C04824879993005A8BA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C58E640B979956CD33F5B8BD /* Pods-RamenMenTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RamenMenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RamenMen.RamenMenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RamenMen.app/RamenMen";
+			};
+			name = Release;
+		};
+		5097C04A24879993005A8BA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6ACA2BDFC842B15E6FB7562E /* Pods-RamenMen-RamenMenUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RamenMenUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RamenMen.RamenMenUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RamenMen;
+			};
+			name = Debug;
+		};
+		5097C04B24879993005A8BA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AB973A62D11A8C800E5463A /* Pods-RamenMen-RamenMenUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RamenMenUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RamenMen.RamenMenUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RamenMen;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5097C0142487998C005A8BA0 /* Build configuration list for PBXProject "RamenMen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5097C04124879993005A8BA0 /* Debug */,
+				5097C04224879993005A8BA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5097C04324879993005A8BA0 /* Build configuration list for PBXNativeTarget "RamenMen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5097C04424879993005A8BA0 /* Debug */,
+				5097C04524879993005A8BA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5097C04624879993005A8BA0 /* Build configuration list for PBXNativeTarget "RamenMenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5097C04724879993005A8BA0 /* Debug */,
+				5097C04824879993005A8BA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5097C04924879993005A8BA0 /* Build configuration list for PBXNativeTarget "RamenMenUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5097C04A24879993005A8BA0 /* Debug */,
+				5097C04B24879993005A8BA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5097C0112487998C005A8BA0 /* Project object */;
+}
