@@ -14,8 +14,7 @@
 		3F12DF29248A580E00C7590B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F12DF28248A580E00C7590B /* Preview Assets.xcassets */; };
 		3F12DF2C248A580E00C7590B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F12DF2A248A580E00C7590B /* LaunchScreen.storyboard */; };
 		3F12DF37248A580F00C7590B /* RamenMenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12DF36248A580F00C7590B /* RamenMenUITests.swift */; };
-		5097C074248B70F4005A8BA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5097C073248B70F4005A8BA0 /* GoogleService-Info.plist */; };
-		5097C075248B70F4005A8BA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5097C073248B70F4005A8BA0 /* GoogleService-Info.plist */; };
+		3F12DF77248B785200C7590B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F12DF76248B785200C7590B /* GoogleService-Info.plist */; };
 		CE7C46361DB7E3F8EDD53258 /* Pods_RamenMen_RamenMenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA93E5CCC46B50B531A58FA5 /* Pods_RamenMen_RamenMenUITests.framework */; };
 		D4327D8D228E8694DAEE9547 /* Pods_RamenMen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4F572860058D8A3B8BABE8 /* Pods_RamenMen.framework */; };
 /* End PBXBuildFile section */
@@ -43,7 +42,7 @@
 		3F12DF32248A580F00C7590B /* RamenMenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RamenMenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F12DF36248A580F00C7590B /* RamenMenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenMenUITests.swift; sourceTree = "<group>"; };
 		3F12DF38248A580F00C7590B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5097C073248B70F4005A8BA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3F12DF76248B785200C7590B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74D2609168509C9ED7EE11EA /* Pods-RamenMen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.release.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.release.xcconfig"; sourceTree = "<group>"; };
 		7C993E9E44B7BDE072C9A3AA /* Pods-RamenMen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.debug.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.debug.xcconfig"; sourceTree = "<group>"; };
 		BE4F572860058D8A3B8BABE8 /* Pods_RamenMen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenMen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +73,7 @@
 		3F12DF13248A580C00C7590B = {
 			isa = PBXGroup;
 			children = (
-				5097C073248B70F4005A8BA0 /* GoogleService-Info.plist */,
+				3F12DF76248B785200C7590B /* GoogleService-Info.plist */,
 				3F12DF1E248A580C00C7590B /* RamenMen */,
 				3F12DF35248A580F00C7590B /* RamenMenUITests */,
 				3F12DF1D248A580C00C7590B /* Products */,
@@ -229,7 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F12DF2C248A580E00C7590B /* LaunchScreen.storyboard in Resources */,
-				5097C074248B70F4005A8BA0 /* GoogleService-Info.plist in Resources */,
+				3F12DF77248B785200C7590B /* GoogleService-Info.plist in Resources */,
 				3F12DF29248A580E00C7590B /* Preview Assets.xcassets in Resources */,
 				3F12DF26248A580E00C7590B /* Assets.xcassets in Resources */,
 			);
@@ -239,7 +238,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5097C075248B70F4005A8BA0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
