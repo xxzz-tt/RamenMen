@@ -15,6 +15,11 @@
 		3F12DF2C248A580E00C7590B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F12DF2A248A580E00C7590B /* LaunchScreen.storyboard */; };
 		3F12DF37248A580F00C7590B /* RamenMenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12DF36248A580F00C7590B /* RamenMenUITests.swift */; };
 		3F12DF77248B785200C7590B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F12DF76248B785200C7590B /* GoogleService-Info.plist */; };
+		3FDDAF96248D0B13006687B6 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF95248D0B13006687B6 /* HomepageView.swift */; };
+		3FDDAF9A248D0B82006687B6 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF99248D0B82006687B6 /* SearchBar.swift */; };
+		3FDDAF9C248D0BAE006687B6 /* RamenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF9B248D0BAE006687B6 /* RamenImage.swift */; };
+		3FDDAF9E248D0BD4006687B6 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF9D248D0BD4006687B6 /* StarRating.swift */; };
+		3FDDAFA0248D0BF6006687B6 /* RamenProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF9F248D0BF6006687B6 /* RamenProfileView.swift */; };
 		CE7C46361DB7E3F8EDD53258 /* Pods_RamenMen_RamenMenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA93E5CCC46B50B531A58FA5 /* Pods_RamenMen_RamenMenUITests.framework */; };
 		D4327D8D228E8694DAEE9547 /* Pods_RamenMen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4F572860058D8A3B8BABE8 /* Pods_RamenMen.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +48,11 @@
 		3F12DF36248A580F00C7590B /* RamenMenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenMenUITests.swift; sourceTree = "<group>"; };
 		3F12DF38248A580F00C7590B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F12DF76248B785200C7590B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3FDDAF95248D0B13006687B6 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
+		3FDDAF99248D0B82006687B6 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		3FDDAF9B248D0BAE006687B6 /* RamenImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenImage.swift; sourceTree = "<group>"; };
+		3FDDAF9D248D0BD4006687B6 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
+		3FDDAF9F248D0BF6006687B6 /* RamenProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenProfileView.swift; sourceTree = "<group>"; };
 		74D2609168509C9ED7EE11EA /* Pods-RamenMen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.release.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.release.xcconfig"; sourceTree = "<group>"; };
 		7C993E9E44B7BDE072C9A3AA /* Pods-RamenMen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.debug.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.debug.xcconfig"; sourceTree = "<group>"; };
 		BE4F572860058D8A3B8BABE8 /* Pods_RamenMen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenMen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,9 +107,12 @@
 				3F12DF1F248A580C00C7590B /* AppDelegate.swift */,
 				3F12DF21248A580C00C7590B /* SceneDelegate.swift */,
 				3F12DF23248A580C00C7590B /* ContentView.swift */,
+				3FDDAF95248D0B13006687B6 /* HomepageView.swift */,
+				3FDDAF9F248D0BF6006687B6 /* RamenProfileView.swift */,
 				3F12DF25248A580E00C7590B /* Assets.xcassets */,
 				3F12DF2A248A580E00C7590B /* LaunchScreen.storyboard */,
 				3F12DF2D248A580E00C7590B /* Info.plist */,
+				3FDDAF98248D0B57006687B6 /* Supporting Views */,
 				3F12DF27248A580E00C7590B /* Preview Content */,
 			);
 			path = RamenMen;
@@ -120,6 +133,17 @@
 				3F12DF38248A580F00C7590B /* Info.plist */,
 			);
 			path = RamenMenUITests;
+			sourceTree = "<group>";
+		};
+		3FDDAF98248D0B57006687B6 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FDDAF99248D0B82006687B6 /* SearchBar.swift */,
+				3FDDAF9B248D0BAE006687B6 /* RamenImage.swift */,
+				3FDDAF9D248D0BD4006687B6 /* StarRating.swift */,
+			);
+			name = "Supporting Views";
+			path = ..;
 			sourceTree = "<group>";
 		};
 		95AAC25CFBCE4C8EB235BED3 /* Frameworks */ = {
@@ -329,8 +353,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FDDAFA0248D0BF6006687B6 /* RamenProfileView.swift in Sources */,
+				3FDDAF9E248D0BD4006687B6 /* StarRating.swift in Sources */,
 				3F12DF20248A580C00C7590B /* AppDelegate.swift in Sources */,
 				3F12DF22248A580C00C7590B /* SceneDelegate.swift in Sources */,
+				3FDDAF9A248D0B82006687B6 /* SearchBar.swift in Sources */,
+				3FDDAF9C248D0BAE006687B6 /* RamenImage.swift in Sources */,
+				3FDDAF96248D0B13006687B6 /* HomepageView.swift in Sources */,
 				3F12DF24248A580C00C7590B /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
