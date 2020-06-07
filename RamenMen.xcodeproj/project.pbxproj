@@ -109,10 +109,12 @@
 				3F12DF23248A580C00C7590B /* ContentView.swift */,
 				3FDDAF95248D0B13006687B6 /* HomepageView.swift */,
 				3FDDAF9F248D0BF6006687B6 /* RamenProfileView.swift */,
+				3FDDAF99248D0B82006687B6 /* SearchBar.swift */,
+				3FDDAF9B248D0BAE006687B6 /* RamenImage.swift */,
+				3FDDAF9D248D0BD4006687B6 /* StarRating.swift */,
 				3F12DF25248A580E00C7590B /* Assets.xcassets */,
 				3F12DF2A248A580E00C7590B /* LaunchScreen.storyboard */,
 				3F12DF2D248A580E00C7590B /* Info.plist */,
-				3FDDAF98248D0B57006687B6 /* Supporting Views */,
 				3F12DF27248A580E00C7590B /* Preview Content */,
 			);
 			path = RamenMen;
@@ -133,17 +135,6 @@
 				3F12DF38248A580F00C7590B /* Info.plist */,
 			);
 			path = RamenMenUITests;
-			sourceTree = "<group>";
-		};
-		3FDDAF98248D0B57006687B6 /* Supporting Views */ = {
-			isa = PBXGroup;
-			children = (
-				3FDDAF99248D0B82006687B6 /* SearchBar.swift */,
-				3FDDAF9B248D0BAE006687B6 /* RamenImage.swift */,
-				3FDDAF9D248D0BD4006687B6 /* StarRating.swift */,
-			);
-			name = "Supporting Views";
-			path = ..;
 			sourceTree = "<group>";
 		};
 		95AAC25CFBCE4C8EB235BED3 /* Frameworks */ = {
