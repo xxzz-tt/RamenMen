@@ -18,6 +18,13 @@
 		3F341D9B2490F5B000D87C5B /* RamenIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F341D9A2490F5B000D87C5B /* RamenIcon.swift */; };
 		3F341D9D2490F60A00D87C5B /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F341D9C2490F60A00D87C5B /* ProfileImage.swift */; };
 		3F341D9F2490F65B00D87C5B /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F341D9E2490F65B00D87C5B /* UserProfileView.swift */; };
+		3F341DB82494F17900D87C5B /* RamenData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F341DB72494F17900D87C5B /* RamenData.json */; };
+		3F341DBA2494F18800D87C5B /* UserData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F341DB92494F18800D87C5B /* UserData.json */; };
+		3F341DBC2494F19A00D87C5B /* ReviewData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F341DBB2494F19A00D87C5B /* ReviewData.json */; };
+		3F341DBF2494F1D000D87C5B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F341DBE2494F1D000D87C5B /* User.swift */; };
+		3F341DC12494F1DA00D87C5B /* Ramen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F341DC02494F1DA00D87C5B /* Ramen.swift */; };
+		3F341DC32494F1E800D87C5B /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F341DC22494F1E800D87C5B /* Review.swift */; };
+		3F341DC52494F1F200D87C5B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F341DC42494F1F200D87C5B /* Data.swift */; };
 		3FDDAF96248D0B13006687B6 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF95248D0B13006687B6 /* HomepageView.swift */; };
 		3FDDAF9A248D0B82006687B6 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF99248D0B82006687B6 /* SearchBar.swift */; };
 		3FDDAF9C248D0BAE006687B6 /* RamenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF9B248D0BAE006687B6 /* RamenImage.swift */; };
@@ -55,6 +62,13 @@
 		3F341D9A2490F5B000D87C5B /* RamenIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenIcon.swift; sourceTree = "<group>"; };
 		3F341D9C2490F60A00D87C5B /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		3F341D9E2490F65B00D87C5B /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		3F341DB72494F17900D87C5B /* RamenData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RamenData.json; sourceTree = "<group>"; };
+		3F341DB92494F18800D87C5B /* UserData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserData.json; sourceTree = "<group>"; };
+		3F341DBB2494F19A00D87C5B /* ReviewData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ReviewData.json; sourceTree = "<group>"; };
+		3F341DBE2494F1D000D87C5B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3F341DC02494F1DA00D87C5B /* Ramen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ramen.swift; sourceTree = "<group>"; };
+		3F341DC22494F1E800D87C5B /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		3F341DC42494F1F200D87C5B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		3FDDAF95248D0B13006687B6 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		3FDDAF99248D0B82006687B6 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		3FDDAF9B248D0BAE006687B6 /* RamenImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenImage.swift; sourceTree = "<group>"; };
@@ -112,6 +126,7 @@
 		3F12DF1E248A580C00C7590B /* RamenMen */ = {
 			isa = PBXGroup;
 			children = (
+				3F341DBD2494F1C200D87C5B /* Models */,
 				50731F1A24922DE200F50C5D /* RatingForm.swift */,
 				3F12DF1F248A580C00C7590B /* AppDelegate.swift */,
 				3F12DF21248A580C00C7590B /* SceneDelegate.swift */,
@@ -123,6 +138,7 @@
 				3F341D972490F56200D87C5B /* Ramen View */,
 				3F341D992490F57900D87C5B /* Profile View */,
 				3F341D962490F52700D87C5B /* Star View */,
+				3F341DB62494F15A00D87C5B /* Resources */,
 				3F12DF25248A580E00C7590B /* Assets.xcassets */,
 				3F12DF2A248A580E00C7590B /* LaunchScreen.storyboard */,
 				3F12DF2D248A580E00C7590B /* Info.plist */,
@@ -171,6 +187,27 @@
 				3F341D9C2490F60A00D87C5B /* ProfileImage.swift */,
 			);
 			path = "Profile View";
+			sourceTree = "<group>";
+		};
+		3F341DB62494F15A00D87C5B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3F341DB72494F17900D87C5B /* RamenData.json */,
+				3F341DB92494F18800D87C5B /* UserData.json */,
+				3F341DBB2494F19A00D87C5B /* ReviewData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3F341DBD2494F1C200D87C5B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F341DBE2494F1D000D87C5B /* User.swift */,
+				3F341DC02494F1DA00D87C5B /* Ramen.swift */,
+				3F341DC22494F1E800D87C5B /* Review.swift */,
+				3F341DC42494F1F200D87C5B /* Data.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		95AAC25CFBCE4C8EB235BED3 /* Frameworks */ = {
@@ -278,8 +315,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F341DBA2494F18800D87C5B /* UserData.json in Resources */,
 				3F12DF2C248A580E00C7590B /* LaunchScreen.storyboard in Resources */,
 				3F12DF77248B785200C7590B /* GoogleService-Info.plist in Resources */,
+				3F341DB82494F17900D87C5B /* RamenData.json in Resources */,
+				3F341DBC2494F19A00D87C5B /* ReviewData.json in Resources */,
 				3F12DF29248A580E00C7590B /* Preview Assets.xcassets in Resources */,
 				3F12DF26248A580E00C7590B /* Assets.xcassets in Resources */,
 			);
@@ -380,9 +420,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F341DBF2494F1D000D87C5B /* User.swift in Sources */,
 				3FDDAFA0248D0BF6006687B6 /* RamenProfileView.swift in Sources */,
 				3FDDAF9E248D0BD4006687B6 /* StarRating.swift in Sources */,
+				3F341DC12494F1DA00D87C5B /* Ramen.swift in Sources */,
 				3F341D9B2490F5B000D87C5B /* RamenIcon.swift in Sources */,
+				3F341DC32494F1E800D87C5B /* Review.swift in Sources */,
 				3F341D9D2490F60A00D87C5B /* ProfileImage.swift in Sources */,
 				50731F1B24922DE200F50C5D /* RatingForm.swift in Sources */,
 				3F12DF20248A580C00C7590B /* AppDelegate.swift in Sources */,
@@ -392,6 +435,7 @@
 				3FDDAF9C248D0BAE006687B6 /* RamenImage.swift in Sources */,
 				3FDDAF96248D0B13006687B6 /* HomepageView.swift in Sources */,
 				3F12DF24248A580C00C7590B /* ContentView.swift in Sources */,
+				3F341DC52494F1F200D87C5B /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

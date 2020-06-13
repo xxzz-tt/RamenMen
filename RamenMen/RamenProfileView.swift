@@ -8,11 +8,14 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct RamenProfileView: View {
+    var ramen: Ramen
     var body: some View {
         VStack {
             VStack {
-                RamenImage(image: Image("ramen1")).padding()
+                RamenImage(image: Image(ramen.image)).padding()
                 
                 Text("Most famous doggiemen")
                 
@@ -54,8 +57,9 @@ struct RamenProfileView: View {
         }
     }
 }
+
 struct RamenProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        RamenProfileView()
+        RamenProfileView(ramen: ramenData[0])
     }
 }

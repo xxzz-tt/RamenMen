@@ -1,0 +1,62 @@
+[
+ {
+   "id": 1,
+   "image": "nissin",
+   "brand": "MenMen",
+   "name": "Spicy Duck Noodles",
+   "style": "Cup",
+   "[review]": "",
+   "average stars": 1,
+   "value": 0,
+   "spiciness": 1,
+   "searchable name": "MenMen Spicy Duck Noodle Cup"
+ },
+ {
+   "id": 2,
+   "image": "nissin",
+   "brand": "MenMen",
+   "name": "Garlic Onion Noodles",
+   "style": "Bowl",
+   "[review]": "",
+   "average stars": 2,
+   "value": 0.3,
+   "spiciness": 2,
+   "searchable name": "MenMen Garlic Onion Noodles Bowl"
+ },
+ {
+   "id": 3,
+   "image": "",
+   "brand": "MenMen",
+   "name": "Soysauce frog",
+   "style": "Tray",
+   "[review]": "",
+   "average stars": 3,
+   "value": 0.4,
+   "spiciness": 3,
+   "searchable name": "MenMen Soysauce frog Tray"
+ },
+ {
+   "id": 4,
+   "image": "",
+   "brand": "MenMen",
+   "name": "Chaodar Men",
+   "style": "Packet",
+   "[review]": "",
+   "average stars": 4,
+   "value": 0.5,
+   "spiciness": 4,
+   "searchable name": "MenMen Chaodar Men Packet"
+ },
+ {
+   "id": 5,
+   "image": "",
+   "brand": "MenMen",
+   "name": "Cookies and Cream",
+   "style": "Packet",
+   "[review]": "",
+   "average stars": 5,
+   "value": 1,
+   "spiciness": 5,
+   "searchable name": "MenMen Cookies and Cream Yay"
+ }
+]
