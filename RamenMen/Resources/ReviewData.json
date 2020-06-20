@@ -1,57 +1,57 @@
-[
- {
-   "date of consumption": "5/9/2020",
-   "date of review": "6/9/2020",
-   "time of review": 1516,
-   "user id": 4,
-   "ramen id": 1,
-   "star": 4,
-   "value": 1,
-   "spiciness": 3,
-   "comments": "\"nah\""
- },
- {
-   "date of consumption": "6/9/2020",
-   "date of review": "7/9/2020",
-   "time of review": 1409,
-   "user id": 2,
-   "ramen id": 2,
-   "star": 3,
-   "value": 0,
-   "spiciness": 5,
-   "comments": "\"yas\""
- },
- {
-   "date of consumption": "6/9/2020",
-   "date of review": "7/9/2020",
-   "time of review": 1902,
-   "user id": 1,
-   "ramen id": 1,
-   "star": 1,
-   "value": 1,
-   "spiciness": 2,
-   "comments": "\"omy\""
- },
- {
-   "date of consumption": "8/9/2020",
-   "date of review": "9/9/2020",
-   "time of review": 1838,
-   "user id": 1,
-   "ramen id": 3,
-   "star": 0,
-   "value": 0,
-   "spiciness": 1,
-   "comments": "\"phew\""
- },
- {
-   "date of consumption": "9/9/2020",
-   "date of review": "18/9/2020",
-   "time of review": 823,
-   "user id": 3,
-   "ramen id": 5,
-   "star": 5,
-   "value": 1,
-   "spiciness": 0,
-   "comments": "\"mua\""
- }
-]
+{
+  "1": {
+    "date of consumption": "5/9/2020",
+    "date of review": "6/9/2020",
+    "time of review": 1516,
+    "user id": 4,
+    "ramen id": 1,
+    "star": 4,
+    "value": 1,
+    "spiciness": 3,
+    "comments": "nah"
+  },
+  "2": {
+    "date of consumption": "6/9/2020",
+    "date of review": "7/9/2020",
+    "time of review": 1409,
+    "user id": 2,
+    "ramen id": 2,
+    "star": 3,
+    "value": 0,
+    "spiciness": 5,
+    "comments": "yas"
+  },
+  "3": {
+    "date of consumption": "6/9/2020",
+    "date of review": "7/9/2020",
+    "time of review": 1902,
+    "user id": 1,
+    "ramen id": 1,
+    "star": 1,
+    "value": 1,
+    "spiciness": 2,
+    "comments": "omy"
+  },
+  "4": {
+    "date of consumption": "8/9/2020",
+    "date of review": "9/9/2020",
+    "time of review": 1838,
+    "user id": 1,
+    "ramen id": 3,
+    "star": 0,
+    "value": 0,
+    "spiciness": 1,
+    "comments": "phew"
+  },
+  "5": {
+    "date of consumption": "9/9/2020",
+    "date of review": "18/9/2020",
+    "time of review": "0823",
+    "user id": 3,
+    "ramen id": 5,
+    "star": 5,
+    "value": 1,
+    "spiciness": 0,
+    "comments": "mua"
+  }
+}

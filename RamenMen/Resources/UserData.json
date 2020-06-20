@@ -1,37 +1,27 @@
-[
- {
-   "id": 1,
-   "username": "ra men",
-   "password": "12345",
-   "[review]": "",
-   "imageName": ""
- },
- {
-   "id": 2,
-   "username": "rojak",
-   "password": "23456",
-   "[review]": "",
-   "imageName": ""
- },
- {
-   "id": 3,
-   "username": "rolan",
-   "password": "abcde",
-   "[review]": "",
-   "imageName": ""
- },
- {
-   "id": 4,
-   "username": "rollin",
-   "password": "nali123",
-   "[review]": "",
-   "imageName": ""
- },
- {
-   "id": 5,
-   "username": "robin",
-   "password": "complicated#",
-   "[review]": "",
-   "imageName": ""
- }
-]
+{
+  "1": {
+    "username": "ra men",
+    "password": 12345,
+    "[review]": ""
+  },
+  "2": {
+    "username": "rojak",
+    "password": 23456,
+    "[review]": ""
+  },
+  "3": {
+    "username": "rolan",
+    "password": "abcde",
+    "[review]": ""
+  },
+  "4": {
+    "username": "rollin",
+    "password": "nali123",
+    "[review]": ""
+  },
+  "5": {
+    "username": "robin",
+    "password": "complicated#",
+    "[review]": ""
+  }
+}
