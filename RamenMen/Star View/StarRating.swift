@@ -10,24 +10,33 @@ import SwiftUI
 
 struct StarRating: View {
     @Binding var rating: Int
-    
+
+    var label = ""
+
     var maximumRating = 5
 
-    var star = Image(systemName: "star.fill")
+    var offImage: Image?
+    var onImage = Image(systemName: "star.fill")
+
+    var offColor = Color.gray
+    var onColor = Color.yellow
     
-    func image(for number: Int) -> some View {
-        
-        let color:Color = self.rating < number ? Color.gray : Color.yellow
-        return Button(action: {
-        }) {
-            self.star.imageScale(.large).foregroundColor(color)
+    func image(for number: Int) -> Image {
+        if number > rating {
+            return offImage ?? onImage
+        } else {
+            return onImage
         }
     }
     
     var body: some View {
         HStack {
-            ForEach(1..<maximumRating + 1) { id in
-                self.image(for: id)
+            ForEach(1..<maximumRating + 1) { number in
+                self.image(for: number)
+                    .foregroundColor(number > self.rating ? self.offColor : self.onColor)
+                    .onTapGesture {
+                        self.rating = number
+                    }
             }
         }
     }
