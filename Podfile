@@ -10,7 +10,10 @@ target 'RamenMen' do
 # add the Firebase pod for Google Analytics
 pod 'Firebase/Analytics'
 # add pods for any other desired Firebase products
-#pod 'Firebase'
+pod 'Firebase'
+pod 'Firebase/Firestore'
+pod 'Firebase/Auth'
+pod 'FirebaseFirestoreSwift'
 # https://firebase.google.com/docs/ios/setup#available-pods
   target 'RamenMenUITests' do
     # Pods for testing

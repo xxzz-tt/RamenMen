@@ -8,11 +8,11 @@
 
 import SwiftUI
 
-struct Ramen: Codable {
+struct Ramen: Codable, Identifiable {
     var id: Int
     var brand: String
     var name: String
-    var style: Style
+//    var style: Style
     var image: String
 //    var reviews: [Review]
     
