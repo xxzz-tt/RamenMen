@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct Review: Codable {
-        
+struct Review: Identifiable, Codable {
+    var id: String
     var dateOfConsumption: String
     var dateOfReview: String
     var timeOfReview: Int

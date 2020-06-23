@@ -9,7 +9,7 @@
 import SwiftUI
 
 //struct RamenProfileView: View {
-//    var ramen: Ramen
+//    @ObservedObject var ramenModel = RamenViewModel()
 //    var body: some View {
 //        VStack {
 //            VStack {

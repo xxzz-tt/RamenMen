@@ -7,38 +7,43 @@
 //
 
 import SwiftUI
+import Foundation
+import FirebaseFirestore
+import Combine
 
 struct SearchBar: View {
-@State private var searchText = ""
-@State private var cancel: Bool = false
-@State private var isEditing = false
-
-var body: some View {
-   HStack {
-        HStack {
-            Image(systemName: "magnifyingglass")
-
-            TextField("Start your search!", text: $searchText, onEditingChanged: { edit in
+    @State private var searchText = ""
+    @State private var cancel: Bool = false
+    @State private var isEditing = false
+    @ObservedObject var ramenModel = RamenViewModel()
+    
+    init() {
+        ramenModel.getCategory("name")
+    }
+    
+    var body: some View {
+        VStack {
+            HStack {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                    TextField("Start your search!", text: $searchText, onEditingChanged: { edit in
                     self.cancel = true
-                }, onCommit: {
+                    }, onCommit: {
                     print("onCommit")
-            }).background(Color(.systemGray6)).onTapGesture {
+                    }).background(Color(.systemGray6)).onTapGesture {
                 self.isEditing = true
-            }
-
-            if isEditing {
-            Button(action: {
-                self.searchText = ""
-            }) {
-                Image(systemName: "multiply.circle.fill").foregroundColor(.gray).padding(.trailing, 8)
+                    }
+                    if isEditing {
+                        Button(action: {
+                            self.searchText = ""
+                        }) {
+                        Image(systemName: "multiply.circle.fill").foregroundColor(.gray).padding(.trailing, 8)
                 }
             }
         }.padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
         .foregroundColor(.secondary)
         .background(Color(.secondarySystemBackground))
         .cornerRadius(15.0)
-    
-            
             if cancel  {
                 Button("Cancel") {
                 UIApplication.shared.endEditing(true)
@@ -48,6 +53,14 @@ var body: some View {
                 }.padding(.trailing, 10)
                 .transition(.move(edge: .trailing))
                 .animation(.default)
+            }
+    }
+            if isEditing {
+                List {
+                    ForEach(ramenModel.holding.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) {
+                        searchText in Text(searchText)
+                    }
+                }
             }
         }.padding(.horizontal)
     }
