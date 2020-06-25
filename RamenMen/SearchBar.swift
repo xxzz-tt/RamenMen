@@ -16,11 +16,11 @@ struct SearchBar: View {
     @State private var cancel: Bool = false
     @State private var isEditing = false
     @ObservedObject var ramenModel = RamenViewModel()
-    
+
     init() {
         ramenModel.getCategory("name")
     }
-    
+
     var body: some View {
         VStack {
             HStack {

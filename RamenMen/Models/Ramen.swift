@@ -14,6 +14,9 @@ struct Ramen: Codable, Identifiable {
     var name: String
 //    var style: Style
     var image: String
+    var searchableName: String
+    var averageStars: Int
+    var spiciness: Int
 //    var reviews: [Review]
     
     enum Style: String, CaseIterable, Codable {

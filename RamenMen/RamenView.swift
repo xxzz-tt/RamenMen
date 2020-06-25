@@ -29,16 +29,19 @@ class RamenViewModel: ObservableObject {
                         let name = i.document.get("name") as! String
                         let brand = i.document.get("brand") as! String
                         let image = i.document.get("image") as! String
+                        let searchableName = i.document.get("searchable name") as? String ?? ""
+                        let averageStars = i.document.get("average stars") as? Int ?? 0
+                        let spiciness = i.document.get("spiciness") as? Int ?? 0
                         let id = i.document.documentID
                         
-                        self.ramens.append(Ramen(id: id, brand: brand, name: name, image: image))
+                        self.ramens.append(Ramen(id: id, brand: brand, name: name, image: image, searchableName: searchableName, averageStars: averageStars, spiciness: spiciness))
                     }
                 }
             }
         }
     }
     
-    func getCategory(_ catName: String){
+    func getCategory<T>(_ catName: T){
         db.collection("ramen").addSnapshotListener {
             (query, err) in
             DispatchQueue.main.async {
@@ -47,7 +50,7 @@ class RamenViewModel: ObservableObject {
                 } else {
                     print("no errors")
                     for i in query!.documentChanges {
-                        let name = i.document.get("name") as! String
+                        let name = i.document.get(catName) as! String
                         
                         self.holding.append(name)
                     }
@@ -63,12 +66,13 @@ struct RamenView: View {
     
     init() {
         viewModel.getCategory("name")
+        viewModel.getData()
     }
     
     var body: some View {
 //        Text("\(viewModel.holding.count)")
-        List(viewModel.holding, id:\.self) { ramen in
-            Text(ramen)
+        List(viewModel.ramens) { ramen in
+            Text(ramen.searchableName)
         }
     }
 }
