@@ -97,6 +97,6 @@ struct RatingForm: View {
 
 struct RatingForm_Previews: PreviewProvider {
     static var previews: some View {
-        RatingForm(review: ReviewTest(user: 1, ramen: 1, star: 1, value: 2, spicy: 3, comments: "no comments"), ramen: RamenTest())
+        RatingForm(review: ReviewTest(id: 1, user: 1, ramen: 1, star: 1, value: 2, spicy: 3, comments: "no comments"), ramen: RamenTest())
     }
 }

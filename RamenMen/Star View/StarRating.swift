@@ -10,6 +10,7 @@ import SwiftUI
 
 struct StarRating: View {
     @Binding var rating: Int
+    var tappable = true
 
     var label = ""
 
@@ -35,7 +36,9 @@ struct StarRating: View {
                 self.image(for: number)
                     .foregroundColor(number > self.rating ? self.offColor : self.onColor)
                     .onTapGesture {
-                        self.rating = number
+                        if (self.tappable) {
+                            self.rating = number
+                        }
                     }
             }
         }

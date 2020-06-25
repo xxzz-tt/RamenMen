@@ -9,7 +9,8 @@
 import Combine
 import SwiftUI
 
-class ReviewTest : ObservableObject {
+class ReviewTest : ObservableObject, Identifiable {
+    var id = 0
     @Published var dateOfConsumption = Date()
     @Published var dateOfReview = Date()
     @Published var timeOfReview : Int = 1000
@@ -31,7 +32,8 @@ class ReviewTest : ObservableObject {
 //        self.comments = comments
 //    }
     
-    init(user: Int, ramen: Int, star: Int, value: Int, spicy spiciness: Int, comments: String) {
+    init(id: Int, user: Int, ramen: Int, star: Int, value: Int, spicy spiciness: Int, comments: String) {
+        self.id = id
         self.user = user
         self.ramen = ramen
         self.star = star
