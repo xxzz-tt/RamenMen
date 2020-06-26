@@ -12,12 +12,12 @@ struct Ramen: Codable, Identifiable {
     var id: String
     var brand: String
     var name: String
-//    var style: Style
+    var style: String
     var image: String
     var searchableName: String
     var averageStars: Int
     var spiciness: Int
-//    var reviews: [Review]
+    var reviews: [String]
     
     enum Style: String, CaseIterable, Codable {
         case packet = "Packet"

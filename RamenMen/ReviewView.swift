@@ -61,7 +61,6 @@ class ReviewViewModel<T>: ObservableObject {
             }
         }
     }
-    
 }
 
 struct ReviewView: View {

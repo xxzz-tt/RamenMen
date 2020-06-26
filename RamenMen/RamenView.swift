@@ -27,14 +27,16 @@ class RamenViewModel: ObservableObject {
                     print("no errors")
                     for i in query!.documentChanges {
                         let name = i.document.get("name") as! String
+                        let style = i.document.get("style") as! String
                         let brand = i.document.get("brand") as! String
                         let image = i.document.get("image") as! String
                         let searchableName = i.document.get("searchable name") as? String ?? ""
                         let averageStars = i.document.get("average stars") as? Int ?? 0
                         let spiciness = i.document.get("spiciness") as? Int ?? 0
+                        let reviews = i.document.get("reviews") as? [String] ?? []
                         let id = i.document.documentID
                         
-                        self.ramens.append(Ramen(id: id, brand: brand, name: name, image: image, searchableName: searchableName, averageStars: averageStars, spiciness: spiciness))
+                        self.ramens.append(Ramen(id: id, brand: brand, name: name, style: style, image: image, searchableName: searchableName, averageStars: averageStars, spiciness: spiciness, reviews: reviews))
                     }
                 }
             }
@@ -42,6 +44,7 @@ class RamenViewModel: ObservableObject {
     }
     
     func getCategory<T>(_ catName: T){
+        
         db.collection("ramen").addSnapshotListener {
             (query, err) in
             DispatchQueue.main.async {
@@ -72,7 +75,8 @@ struct RamenView: View {
     var body: some View {
 //        Text("\(viewModel.holding.count)")
         List(viewModel.ramens) { ramen in
-            Text(ramen.searchableName)
+//            Text("\(ramen.reviews.count)")
+            Text(ramen.reviews[0])
         }
     }
 }
