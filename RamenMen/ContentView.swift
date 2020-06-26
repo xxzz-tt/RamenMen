@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var user: UserTest
     @State private var selection = 0
  
     var body: some View {
@@ -32,7 +33,7 @@ struct ContentView: View {
                 .tag(0)
 
 
-            UserProfileView(text: .constant("")).tabItem {
+            UserProfileView().environmentObject(user).tabItem {
                 VStack {
                     Image("first")
                     Text("My Account")
@@ -44,6 +45,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(user2)
     }
 }

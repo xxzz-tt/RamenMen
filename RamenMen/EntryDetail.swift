@@ -9,14 +9,19 @@
 import SwiftUI
 
 struct EntryDetail: View {
-    @ObservedObject var ramen : RamenTest
-    @ObservedObject var review : ReviewTest
+    @EnvironmentObject var user: UserTest
+    @ObservedObject var ramen: RamenTest
+    @ObservedObject var review: ReviewTest
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
         return formatter
+    }
+    
+    var trailingButton : some View {
+        Button(action: {}, label:{Text("Edit")})
     }
     
     var body: some View {
@@ -59,8 +64,9 @@ struct EntryDetail: View {
                                 Text(review.comments)
                             }.frame(width: 310, height: 100)
                         }.navigationBarTitle(Text("Review on \(review.dateOfReview, formatter: dateFormatter)"), displayMode: .inline)
-                            .navigationBarItems(trailing: Button(action: {},
-                            label: {Text("Edit")}))
+                            .navigationBarItems(trailing: review.user == user2.id
+                                ? AnyView(self.trailingButton)
+                                : AnyView(EmptyView()))
                 }
             }
         }
@@ -69,6 +75,6 @@ struct EntryDetail: View {
 
 struct EntryDetail_Previews: PreviewProvider {
     static var previews: some View {
-        EntryDetail(ramen: ramen1, review: review31)
+        EntryDetail(ramen: ramen1, review: review31).environmentObject(user2)
     }
 }

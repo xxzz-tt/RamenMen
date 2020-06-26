@@ -14,18 +14,17 @@ struct HomepageView: View {
     var body: some View {
             
         VStack {
-//            SearchBar()
-            
+            Spacer().frame(height: 10)
+            SearchBar()
             Spacer()
             
             VStack(alignment: .leading) {
-            Text("Today's best ramen")
+            Text("Top ramen")
                 .font(.title)
                 
                 Image("hold").resizable().scaledToFit().padding()
             
-            Text("Recommended for You")
-                .font(.title)
+                Text("Recommended for You").bold()
                 
                 ScrollView {
                 

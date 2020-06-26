@@ -14,7 +14,7 @@ class UserTest : ObservableObject {
     var username: String = "mehehe"
     var password: String = ""
     var image: Image = Image("profilepic")
-    var reviews: [ReviewTest]? = []
+    var reviews: [ReviewTest] = []
     
     init(id: Int, username: String, image: Image, reviews: [ReviewTest]? = []) {
         self.id = id

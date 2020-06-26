@@ -85,7 +85,7 @@ struct RatingForm: View {
                                 }).frame(width: 100, height: 30)
                                 .background(Color.orange)
                                     .border(Color.orange, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
-                        }.navigationBarTitle(Text("Rate \(ramen.name)"), displayMode: .inline)
+                        }.navigationBarTitle(Text("Rate \(ramen.brand + " " + ramen.name)"), displayMode: .inline)
                         .navigationBarItems(trailing: Button(action: close,
                             label: {Text("Close")}))
                 }
