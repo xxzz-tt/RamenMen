@@ -32,6 +32,12 @@ class ReviewTest : ObservableObject, Identifiable {
 //        self.comments = comments
 //    }
     
+    init(id: Int, user: Int, ramen: Int) {
+        self.id = id
+        self.user = user
+        self.ramen = ramen
+    }
+    
     init(id: Int, user: Int, ramen: Int, star: Int, value: Int, spicy spiciness: Int, comments: String) {
         self.id = id
         self.user = user
@@ -41,7 +47,7 @@ class ReviewTest : ObservableObject, Identifiable {
         self.spiciness = spiciness
         self.comments = comments
     }
-
+    
     init() {}
 }
 

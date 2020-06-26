@@ -39,6 +39,7 @@
 		5024215B24A38EF900B0D3FB /* ReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024215A24A38EF900B0D3FB /* ReviewTest.swift */; };
 		50731F1B24922DE200F50C5D /* RatingForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50731F1A24922DE200F50C5D /* RatingForm.swift */; };
 		50A1492624A48E12004620FB /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A1492524A48E12004620FB /* EntryDetail.swift */; };
+		50A1492824A60A23004620FB /* RamenProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A1492724A60A23004620FB /* RamenProfile.swift */; };
 		CE7C46361DB7E3F8EDD53258 /* Pods_RamenMen_RamenMenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA93E5CCC46B50B531A58FA5 /* Pods_RamenMen_RamenMenUITests.framework */; };
 		D4327D8D228E8694DAEE9547 /* Pods_RamenMen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4F572860058D8A3B8BABE8 /* Pods_RamenMen.framework */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		5024215A24A38EF900B0D3FB /* ReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTest.swift; sourceTree = "<group>"; };
 		50731F1A24922DE200F50C5D /* RatingForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingForm.swift; sourceTree = "<group>"; };
 		50A1492524A48E12004620FB /* EntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetail.swift; sourceTree = "<group>"; };
+		50A1492724A60A23004620FB /* RamenProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenProfile.swift; sourceTree = "<group>"; };
 		74D2609168509C9ED7EE11EA /* Pods-RamenMen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.release.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.release.xcconfig"; sourceTree = "<group>"; };
 		7C993E9E44B7BDE072C9A3AA /* Pods-RamenMen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.debug.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.debug.xcconfig"; sourceTree = "<group>"; };
 		BE4F572860058D8A3B8BABE8 /* Pods_RamenMen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenMen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 				3FDDAF95248D0B13006687B6 /* HomepageView.swift */,
 				3F855FCD24A5E33C00D57DA4 /* ReviewView.swift */,
 				3FDDAF9F248D0BF6006687B6 /* RamenProfileView.swift */,
+				50A1492724A60A23004620FB /* RamenProfile.swift */,
 				3F341D9E2490F65B00D87C5B /* UserProfileView.swift */,
 				3FDDAF99248D0B82006687B6 /* SearchBar.swift */,
 				3F855FCF24A5FF9500D57DA4 /* RamenRow.swift */,
@@ -446,6 +449,7 @@
 			files = (
 				3F341DBF2494F1D000D87C5B /* User.swift in Sources */,
 				3FDDAFA0248D0BF6006687B6 /* RamenProfileView.swift in Sources */,
+				50A1492824A60A23004620FB /* RamenProfile.swift in Sources */,
 				3FDDAF9E248D0BD4006687B6 /* StarRating.swift in Sources */,
 				3F855FCC24A5D78A00D57DA4 /* UserView.swift in Sources */,
 				3F855FD024A5FF9600D57DA4 /* RamenRow.swift in Sources */,

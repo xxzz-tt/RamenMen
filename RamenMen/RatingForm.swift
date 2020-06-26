@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct RatingForm: View {
-    @ObservedObject var review : ReviewTest
-    @ObservedObject var ramen : RamenTest
+    @ObservedObject var review: ReviewTest
+    @ObservedObject var ramen: RamenTest
+    @Binding var showRatingForm: Bool
 //    @Environment(\.presentationMode) var presentationMode
 
     var dateFormatter: DateFormatter {
@@ -20,11 +21,12 @@ struct RatingForm: View {
         return formatter
     }
     
-    init(review: ReviewTest, ramen: RamenTest) {
-        self.review = review
-        self.ramen = ramen
-//        UINavigationBar.appearance().backgroundColor = UIColor(red: 226/255, green: 118/255, blue:69/255, alpha: 1)
-    }
+//    init(review: ReviewTest, ramen: RamenTest, show: Binding<Bool>) {
+//        self.review = review
+//        self.ramen = ramen
+//        self.showRatingForm = show
+////        UINavigationBar.appearance().backgroundColor = UIColor(red: 226/255, green: 118/255, blue:69/255, alpha: 1)
+//    }
     
 //    @State var consumedOn = Date()
 //    @State var deliciousness = 0
@@ -36,6 +38,7 @@ struct RatingForm: View {
     }
     
     func close() {
+        showRatingForm.toggle()
 //        self.presentationMode.wrappedValue.dismiss()
     }
     
@@ -86,7 +89,7 @@ struct RatingForm: View {
                                 .background(Color.orange)
                                     .border(Color.orange, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
                         }.navigationBarTitle(Text("Rate \(ramen.brand + " " + ramen.name)"), displayMode: .inline)
-                        .navigationBarItems(trailing: Button(action: close,
+                            .navigationBarItems(trailing: Button(action: {self.showRatingForm.toggle()},
                             label: {Text("Close")}))
                 }
             }
@@ -97,6 +100,6 @@ struct RatingForm: View {
 
 struct RatingForm_Previews: PreviewProvider {
     static var previews: some View {
-        RatingForm(review: ReviewTest(id: 1, user: 1, ramen: 1, star: 1, value: 2, spicy: 3, comments: "no comments"), ramen: RamenTest())
+        RatingForm(review: ReviewTest(id: 1, user: 1, ramen: 1, star: 1, value: 2, spicy: 3, comments: "no comments"), ramen: ramen1, showRatingForm: .constant(true))
     }
 }
