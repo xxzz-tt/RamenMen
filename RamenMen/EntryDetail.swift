@@ -10,7 +10,7 @@ import SwiftUI
 
 struct EntryDetail: View {
     @EnvironmentObject var user: UserTest
-    @ObservedObject var ramen: RamenTest
+    @ObservedObject var ramen: Ramen
     @ObservedObject var review: ReviewTest
     
     var dateFormatter: DateFormatter {
@@ -30,7 +30,7 @@ struct EntryDetail: View {
                 NavigationView {
                         VStack(alignment: .center) {
                             VStack(alignment: .center, spacing: -5) {
-                                ramen.image.resizable()
+                                Image(ramen.image).resizable()
                                     .scaledToFit()
                                     .frame(height: 200)
                                 Text(ramen.brand + " " + ramen.name).bold()

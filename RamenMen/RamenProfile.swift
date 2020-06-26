@@ -10,7 +10,7 @@ import SwiftUI
 
 struct RamenProfile: View {
 //    var ramen: Ramen
-    @ObservedObject var ramen: RamenTest
+    @ObservedObject var ramen: Ramen
     @State private var showReviewWindow = false
     @State var showRatingForm = false
     
@@ -29,7 +29,7 @@ struct RamenProfile: View {
     var body: some View {
         RamenProfileView(ramen: ramen, showRatingForm:
             self.$showRatingForm).sheet(isPresented: self.$showRatingForm) {
-                RatingForm(review: ReviewTest(id: 0, user: 0, ramen: self.ramen.id), ramen: self.ramen, showRatingForm: self.$showRatingForm)
+                RatingForm(review: Review(id: "999", userId: 0, ramenId: self.ramen.id), ramen: self.ramen, showRatingForm: self.$showRatingForm)
         }
     }
 }

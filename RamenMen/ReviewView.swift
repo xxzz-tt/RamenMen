@@ -30,8 +30,8 @@ class ReviewViewModel<T>: ObservableObject {
                         let dateOfConsumption = i.document.get("date of consumption") as? Timestamp ?? Timestamp()
                         let dateOfReview = i.document.get("date of review") as? Timestamp ?? Timestamp()
                         let timeOfReview = i.document.get("time of review") as? Int ?? -1
-                        let userId = i.document.get("user id") as? Int ?? -1
-                        let ramenId = i.document.get("ramen id") as? Int ?? -1
+                        let userId = i.document.get("user id") as? Int ?? 0
+                        let ramenId = i.document.get("ramen id") as? String ?? ""
                         let star = i.document.get("star") as? Int ?? -1
                         let value = i.document.get("value") as? Int ?? 0
                         let spiciness = i.document.get("spiciness") as? Int ?? 0

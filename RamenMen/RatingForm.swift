@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct RatingForm: View {
-    @ObservedObject var review: ReviewTest
-    @ObservedObject var ramen: RamenTest
+    @ObservedObject var review: Review
+    @ObservedObject var ramen: Ramen
     @Binding var showRatingForm: Bool
 //    @Environment(\.presentationMode) var presentationMode
 
@@ -48,7 +48,7 @@ struct RatingForm: View {
             HStack {
                 NavigationView {
                         VStack(alignment: .center) {
-                            ramen.image.resizable()
+                            Image(ramen.image).resizable()
                                 .scaledToFit()
                                 .frame(height: 200)
                             HStack {
@@ -100,6 +100,6 @@ struct RatingForm: View {
 
 struct RatingForm_Previews: PreviewProvider {
     static var previews: some View {
-        RatingForm(review: ReviewTest(id: 1, user: 1, ramen: 1, star: 1, value: 2, spicy: 3, comments: "no comments"), ramen: ramen1, showRatingForm: .constant(true))
+        RatingForm(review: Review(id: "777", userId: 1, ramenId: "ahdh232", star: 1, value: 2, spicy: 3, comments: "no comments"), ramen: ramen1, showRatingForm: .constant(true))
     }
 }

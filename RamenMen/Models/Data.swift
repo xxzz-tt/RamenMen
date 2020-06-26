@@ -9,15 +9,20 @@
 import UIKit
 import SwiftUI
 
-let ramenData: [Ramen] = load("RamenData.json")
-let userData: [User] = load("UserData.json")
-let reviewData: [Review] = load("ReviewData.json")
+//let ramenData: [Ramen] = load("RamenData.json")
+//let userData: [User] = load("UserData.json")
+//let reviewData: [Review] = load("ReviewData.json")
 
 var review11 = ReviewTest(id: 1, user: 1, ramen: 1, star: 2, value: 2, spicy: 3, comments: "no comments")
 var review21 = ReviewTest(id: 2, user: 2, ramen: 1, star: 4, value: 1, spicy: 3, comments: "hng")
 var review31 = ReviewTest(id: 3, user: 2, ramen: 1, star: 3, value: 1, spicy: 3, comments: "bleh shdiahdajsjfkhsadlajsdkahfahdalsdnsjhg")
+
+var review1 = Review(id: "111", userId: 2, ramenId: "ahdh232", star: 3, value: 2, spicy: 3, comments: "no comments")
+var review2 = Review(id: "211", userId: 2, ramenId: "ahdh232", star: 4, value: 1, spicy: 3, comments: "hnnng")
+var userId = "123g4"
+var userId2 = "2234"
 var reviewArray = [review11, review21, review31]
-var ramen1 = RamenTest(id: 1, brand: "nissin", name: "chicken noodle", image: Image("nissin"), reviews: reviewArray)
+var ramen1 = Ramen(id: "ahdh232", brand: "nissin", name: "chicken noodle", style: "Bowl", image: "nissin", searchableName: "", averageStars: 4, spiciness: 0, reviews: [review1.id, review2.id])
 var user2 = UserTest(id: 2, username: "user2", image: Image("profile pic"), reviews: [review21, review31])
 
 func load<T: Decodable>(_ filename: String) -> T {

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ReviewWindow: View {
-    @ObservedObject var review : ReviewTest
+    @ObservedObject var review : Review
     var userImage : Image
     var userName : String
     
@@ -49,7 +49,7 @@ struct ReviewWindow: View {
 
 struct RamenProfileView: View {
 //    var ramen: Ramen
-    @ObservedObject var ramen: RamenTest
+    @ObservedObject var ramen: Ramen
     @State private var showReviewWindow = false
     @State var reviewWindow: AnyView = AnyView(EmptyView())
     @Binding var showRatingForm: Bool
@@ -66,7 +66,7 @@ struct RamenProfileView: View {
         UserTest()
     }
     
-    func getReviewWindow(review: ReviewTest, image: Image, username: String) -> AnyView {
+    func getReviewWindow(review: Review, image: Image, username: String) -> AnyView {
         return AnyView(ReviewWindow(review: review, userImage: image, userName: username))
     }
         
@@ -75,7 +75,7 @@ struct RamenProfileView: View {
             NavigationView {
                  VStack {
                     VStack {
-                        ramen.image.resizable()
+                        Image(ramen.image).resizable()
                         .scaledToFit()
                         .frame(height: 200)
                         
@@ -84,9 +84,7 @@ struct RamenProfileView: View {
                             Text("Average stars:")
                                 .font(.body)
                                 .fontWeight(.semibold)
-                            
-        //                        Text(String(format: "%.2f", ramen.stars) + "/5")
-                            Text(String(format: "%.2f", Float(ramen.stars/ramen.reviews.count)) + "/5")
+                            Text(String(format: "%.2f", Float(ramen.averageStars/ramen.reviews.count)) + "/5")
         //                        StarRating(rating: $ramen.stars, tappable: false)
                         }
                     }.padding()
@@ -95,29 +93,36 @@ struct RamenProfileView: View {
                         Text("What others say")
                             .padding(.trailing, 120.0)
                         ScrollView() {
-                            ForEach(ramen.reviews) { review in
+                            ForEach(ramen.reviews, id: \.self) { review in
                                 HStack() {
                                     VStack(alignment: .leading) {
-                                        self.getUser(userId: review.user).image.resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
+//                                        self.getUser(userId: review.user).image hardcoded as Auth is not set up yet
+                                            
+                                    Image("profilepic").resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
                                         
-                                        Text(self.getUser(userId: review.user).username)
+//                                    Text(self.getUser(userId: review.user).username)
+                                        Text("mehaha")
                                     }.padding(.trailing).frame(width: 100.0)
                                                                 
                                     VStack(alignment: .leading) {
                                         
                                         VStack(alignment: .leading) {
-                                            StarRating(rating: .constant(review.star), tappable: false)
+                                            StarRating(rating: .constant(4), tappable: false)
                                         Spacer()
                                         
-                                            Text(review.comments)
+//                                    Text(review.comments)
+                                            Text("")
                                             Spacer()
                                         }
                                         
-                                        Text("\(review.dateOfReview, formatter: self.dateFormatter)")
+                                        Text("\(Date(), formatter: self.dateFormatter)")
                                     }.padding([.trailing, .top, .bottom]).frame(width: 150)
                                 }.onTapGesture {
                                     self.showReviewWindow = true
-                                    self.reviewWindow = self.getReviewWindow(review: review, image: self.getUser(userId: review.user).image, username: self.getUser(userId: review.user).username)
+                                    self.reviewWindow = self.getReviewWindow(review: review1, image:
+//                                        self.getUser(userId: review.user).image,
+                                        Image("profilepic"), username: "idk")
+//                                        self.getUser(userId: review.user).username)
                                 }
                             }
                         }

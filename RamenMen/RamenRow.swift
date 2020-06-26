@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct RamenRow: View {
-    var ramen: RamenTest
+    var ramen: Ramen
     var body: some View {
         HStack(alignment: .center) {
-            RamenIcon(image: ramen.image)
+            RamenIcon(image: Image(ramen.image))
             Text(ramen.name)
         }
     }
