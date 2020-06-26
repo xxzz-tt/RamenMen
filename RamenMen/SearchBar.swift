@@ -59,7 +59,7 @@ struct SearchBar: View {
             }
                 if isEditing {
                     List(ramenModel.ramens) { ramen in
-                        NavigationLink(destination: RamenProfile(ramen: ramen1)) {
+                        NavigationLink(destination: RamenProfile(ramen: ramen)) {
                             Text(ramen.name)
                         }
                     }
