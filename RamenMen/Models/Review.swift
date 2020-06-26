@@ -10,8 +10,8 @@ import SwiftUI
 
 struct Review: Identifiable, Codable {
     var id: String
-    var dateOfConsumption: String
-    var dateOfReview: String
+    var dateOfConsumption: Date
+    var dateOfReview: Date
     var timeOfReview: Int
     var userId: Int
     var ramenId: Int

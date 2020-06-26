@@ -41,7 +41,7 @@ class ReviewTest : ObservableObject, Identifiable {
         self.spiciness = spiciness
         self.comments = comments
     }
-    
+
     init() {}
 }
 

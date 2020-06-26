@@ -25,13 +25,15 @@
 		3F341DC12494F1DA00D87C5B /* Ramen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F341DC02494F1DA00D87C5B /* Ramen.swift */; };
 		3F341DC32494F1E800D87C5B /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F341DC22494F1E800D87C5B /* Review.swift */; };
 		3F341DC52494F1F200D87C5B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F341DC42494F1F200D87C5B /* Data.swift */; };
+		3F855FCC24A5D78A00D57DA4 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F855FCB24A5D78A00D57DA4 /* UserView.swift */; };
+		3F855FCE24A5E33C00D57DA4 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F855FCD24A5E33C00D57DA4 /* ReviewView.swift */; };
+		3F855FD024A5FF9600D57DA4 /* RamenRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F855FCF24A5FF9500D57DA4 /* RamenRow.swift */; };
 		3FDDAF96248D0B13006687B6 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF95248D0B13006687B6 /* HomepageView.swift */; };
 		3FDDAF9A248D0B82006687B6 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF99248D0B82006687B6 /* SearchBar.swift */; };
 		3FDDAF9C248D0BAE006687B6 /* RamenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF9B248D0BAE006687B6 /* RamenImage.swift */; };
 		3FDDAF9E248D0BD4006687B6 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF9D248D0BD4006687B6 /* StarRating.swift */; };
 		3FDDAFA0248D0BF6006687B6 /* RamenProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF9F248D0BF6006687B6 /* RamenProfileView.swift */; };
 		3FE3C20324A10B4300E7E709 /* RamenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3C20224A10B4300E7E709 /* RamenView.swift */; };
-		3FE3C20924A25D2400E7E709 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3C20824A25D2300E7E709 /* ReviewView.swift */; };
 		5024215724A38EDB00B0D3FB /* UserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024215624A38EDB00B0D3FB /* UserTest.swift */; };
 		5024215924A38EE500B0D3FB /* RamenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024215824A38EE500B0D3FB /* RamenTest.swift */; };
 		5024215B24A38EF900B0D3FB /* ReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024215A24A38EF900B0D3FB /* ReviewTest.swift */; };
@@ -75,13 +77,15 @@
 		3F341DC02494F1DA00D87C5B /* Ramen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ramen.swift; sourceTree = "<group>"; };
 		3F341DC22494F1E800D87C5B /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		3F341DC42494F1F200D87C5B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		3F855FCB24A5D78A00D57DA4 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		3F855FCD24A5E33C00D57DA4 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		3F855FCF24A5FF9500D57DA4 /* RamenRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenRow.swift; sourceTree = "<group>"; };
 		3FDDAF95248D0B13006687B6 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		3FDDAF99248D0B82006687B6 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		3FDDAF9B248D0BAE006687B6 /* RamenImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenImage.swift; sourceTree = "<group>"; };
 		3FDDAF9D248D0BD4006687B6 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		3FDDAF9F248D0BF6006687B6 /* RamenProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenProfileView.swift; sourceTree = "<group>"; };
 		3FE3C20224A10B4300E7E709 /* RamenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenView.swift; sourceTree = "<group>"; };
-		3FE3C20824A25D2300E7E709 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		5024215624A38EDB00B0D3FB /* UserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
 		5024215824A38EE500B0D3FB /* RamenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenTest.swift; sourceTree = "<group>"; };
 		5024215A24A38EF900B0D3FB /* ReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTest.swift; sourceTree = "<group>"; };
@@ -145,11 +149,11 @@
 				50A1492524A48E12004620FB /* EntryDetail.swift */,
 				3F12DF23248A580C00C7590B /* ContentView.swift */,
 				3FDDAF95248D0B13006687B6 /* HomepageView.swift */,
+				3F855FCD24A5E33C00D57DA4 /* ReviewView.swift */,
 				3FDDAF9F248D0BF6006687B6 /* RamenProfileView.swift */,
-				3FE3C20824A25D2300E7E709 /* ReviewView.swift */,
-				3FE3C20224A10B4300E7E709 /* RamenView.swift */,
 				3F341D9E2490F65B00D87C5B /* UserProfileView.swift */,
 				3FDDAF99248D0B82006687B6 /* SearchBar.swift */,
+				3F855FCF24A5FF9500D57DA4 /* RamenRow.swift */,
 				3F341D972490F56200D87C5B /* Ramen View */,
 				3F341D992490F57900D87C5B /* Profile View */,
 				3F341D962490F52700D87C5B /* Star View */,
@@ -224,6 +228,8 @@
 				5024215624A38EDB00B0D3FB /* UserTest.swift */,
 				5024215824A38EE500B0D3FB /* RamenTest.swift */,
 				5024215A24A38EF900B0D3FB /* ReviewTest.swift */,
+				3F855FCB24A5D78A00D57DA4 /* UserView.swift */,
+				3FE3C20224A10B4300E7E709 /* RamenView.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -440,8 +446,9 @@
 			files = (
 				3F341DBF2494F1D000D87C5B /* User.swift in Sources */,
 				3FDDAFA0248D0BF6006687B6 /* RamenProfileView.swift in Sources */,
-				3FE3C20924A25D2400E7E709 /* ReviewView.swift in Sources */,
 				3FDDAF9E248D0BD4006687B6 /* StarRating.swift in Sources */,
+				3F855FCC24A5D78A00D57DA4 /* UserView.swift in Sources */,
+				3F855FD024A5FF9600D57DA4 /* RamenRow.swift in Sources */,
 				5024215724A38EDB00B0D3FB /* UserTest.swift in Sources */,
 				3F341DC12494F1DA00D87C5B /* Ramen.swift in Sources */,
 				3FE3C20324A10B4300E7E709 /* RamenView.swift in Sources */,
@@ -449,6 +456,7 @@
 				3F341DC32494F1E800D87C5B /* Review.swift in Sources */,
 				50A1492624A48E12004620FB /* EntryDetail.swift in Sources */,
 				5024215B24A38EF900B0D3FB /* ReviewTest.swift in Sources */,
+				3F855FCE24A5E33C00D57DA4 /* ReviewView.swift in Sources */,
 				3F341D9D2490F60A00D87C5B /* ProfileImage.swift in Sources */,
 				50731F1B24922DE200F50C5D /* RatingForm.swift in Sources */,
 				3F12DF20248A580C00C7590B /* AppDelegate.swift in Sources */,

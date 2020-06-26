@@ -35,7 +35,7 @@ class RamenTest : ObservableObject {
             stars += review.star
         }
     }
-    
+
     init(){}
 }
 

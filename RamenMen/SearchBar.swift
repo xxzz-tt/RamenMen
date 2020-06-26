@@ -18,10 +18,12 @@ struct SearchBar: View {
     @ObservedObject var ramenModel = RamenViewModel()
 
     init() {
-        ramenModel.getCategory("name")
+        ramenModel.getCategory("searchable name")
+        
     }
 
     var body: some View {
+        NavigationView {
         VStack {
             HStack {
                 HStack {
@@ -54,15 +56,19 @@ struct SearchBar: View {
                 .transition(.move(edge: .trailing))
                 .animation(.default)
             }
-    }
+        }
             if isEditing {
                 List {
-                    ForEach(ramenModel.holding.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) {
+                    ForEach(ramenModel.holding.filter{$0.hasPrefix(searchText)}, id:\.self) {
                         searchText in Text(searchText)
                     }
                 }
+            } else {
+            
+                HomepageView()
             }
         }.padding(.horizontal)
+        }
     }
 }
 

@@ -2,7 +2,7 @@
 //  ReviewView.swift
 //  RamenMen
 //
-//  Created by XuanZhi on 23/6/20.
+//  Created by XuanZhi on 26/6/20.
 //  Copyright © 2020 Ramen Men. All rights reserved.
 //
 
@@ -26,8 +26,9 @@ class ReviewViewModel<T>: ObservableObject {
                 } else {
                     print("no errors")
                     for i in query!.documentChanges {
-                        let dateOfConsumption = i.document.get("date of consumption") as! String
-                        let dateOfReview = i.document.get("date of review") as! String
+                        
+                        let dateOfConsumption = i.document.get("date of consumption") as? Timestamp ?? Timestamp()
+                        let dateOfReview = i.document.get("date of review") as? Timestamp ?? Timestamp()
                         let timeOfReview = i.document.get("time of review") as? Int ?? -1
                         let userId = i.document.get("user id") as? Int ?? -1
                         let ramenId = i.document.get("ramen id") as? Int ?? -1
@@ -37,7 +38,7 @@ class ReviewViewModel<T>: ObservableObject {
                         let comments = i.document.get("comments") as? String ?? ""
                         let id = i.document.documentID
                         
-                        self.reviews.append(Review(id: id, dateOfConsumption: dateOfConsumption, dateOfReview: dateOfReview, timeOfReview: timeOfReview, userId: userId, ramenId: ramenId, star: star, value: value, spiciness: spiciness, comments: comments))
+                        self.reviews.append(Review(id: id, dateOfConsumption: dateOfConsumption.dateValue(), dateOfReview: dateOfReview.dateValue(), timeOfReview: timeOfReview, userId: userId, ramenId: ramenId, star: star, value: value, spiciness: spiciness, comments: comments))
                     }
                 }
             }
@@ -69,11 +70,17 @@ struct ReviewView: View {
     init() {
         reviewModel.getData()
     }
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        return formatter
+    }
     
     var body: some View {
 //        Text("\(reviewModel.reviews.count)")
         List(reviewModel.reviews) { review in
-            Text("\(review.star)")
+            Text("\(review.dateOfReview, formatter: self.dateFormatter)")
         }
     }
 }
