@@ -62,6 +62,37 @@ class ReviewViewModel<T>: ObservableObject {
             }
         }
     }
+    
+    func addReview(_ newReview: Review) {
+        let id = UUID.init().uuidString
+        let docData: [String: Any] = [
+            "date of consumption": newReview.dateOfConsumption,
+            "date of review": newReview.dateOfReview,
+            "time of review": newReview.timeOfReview,
+            "user id": newReview.userId,
+            "ramen id": newReview.ramenId,
+            "star": newReview.star,
+            "value": newReview.value,
+            "spiciness": newReview.spiciness,
+            "comments": newReview.comments
+        ]
+        // add to reviews collection
+        db.collection("reviews").document(id).setData(docData) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        // update reviews array under ramen
+        db.collection("ramen").document(newReview.ramenId).updateData([
+            "reviews": FieldValue.arrayUnion([id])
+        ])
+    }
+    
+    func getUser(_ userId: Int) {
+        
+    }
 }
 
 struct ReviewView: View {

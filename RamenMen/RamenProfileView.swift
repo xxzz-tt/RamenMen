@@ -84,8 +84,8 @@ struct RamenProfileView: View {
                             Text("Average stars:")
                                 .font(.body)
                                 .fontWeight(.semibold)
-                            Text(String(format: "%.2f", Float(ramen.averageStars/ramen.reviews.count)) + "/5")
-        //                        StarRating(rating: $ramen.stars, tappable: false)
+                            Text(String(format: "%.2f", Float(ramen.star/ramen.reviews.count)) + "/5")
+//                                StarRating(rating: $ramen.star, tappable: false)
                         }
                     }.padding()
                     

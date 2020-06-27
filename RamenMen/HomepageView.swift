@@ -13,10 +13,7 @@ struct HomepageView: View {
     @State private var isTouched: Bool = false
     var body: some View {
         VStack(alignment: .leading) {
-        Text("Top ramen")
-            .font(.title)
-            
-            Image("hold").resizable().scaledToFit().padding()
+            PopularityChart()
         
             Text("Recommended for You").bold()
             

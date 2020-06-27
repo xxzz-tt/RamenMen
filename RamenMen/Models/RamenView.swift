@@ -31,12 +31,12 @@ class RamenViewModel: ObservableObject {
                         let brand = i.document.get("brand") as! String
                         let image = i.document.get("image") as! String
                         let searchableName = i.document.get("searchable name") as? String ?? ""
-                        let averageStars = i.document.get("average stars") as? Int ?? 0
+                        let star = i.document.get("average stars") as? Int ?? 0
                         let spiciness = i.document.get("spiciness") as? Int ?? 0
                         let reviews = i.document.get("reviews") as? [String] ?? []
                         let id = i.document.documentID
                         
-                        self.ramens.append(Ramen(id: id, brand: brand, name: name, style: style, image: image, searchableName: searchableName, averageStars: averageStars, spiciness: spiciness, reviews: reviews))
+                        self.ramens.append(Ramen(id: id, brand: brand, name: name, style: style, image: image, searchableName: searchableName, star: star, spiciness: spiciness, reviews: reviews))
                     }
                 }
             }

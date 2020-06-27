@@ -12,7 +12,7 @@ struct RamenIcon: View {
     var image : Image
     
     var body: some View {
-        image.resizable().frame(width: 80, height: 80, alignment: .center).clipShape(Circle()).overlay(Circle().stroke(Color.orange, lineWidth: 4))
+        image.resizable().frame(width: 60, height: 60, alignment: .center).clipShape(Circle()).overlay(Circle().stroke(Color.orange, lineWidth: 4))
     }
 }
 

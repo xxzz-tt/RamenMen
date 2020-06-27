@@ -60,13 +60,43 @@ struct SearchBar: View {
                 if isEditing {
                     List(ramenModel.ramens) { ramen in
                         NavigationLink(destination: RamenProfile(ramen: ramen)) {
-                            Text(ramen.name)
+                            RamenRow(ramen: ramen)
                         }
-                    }
+                        }.navigationBarTitle("Back").navigationBarHidden(true)
                 } else {
-                    HomepageView()
+                    
+                    VStack(alignment: .leading) {
+                        ForEach(ramenModel.ramens) { ramen in
+                        NavigationLink(destination: RamenProfile(ramen: ramen)) {
+                        HStack {
+                        Text(ramen.name) .frame(width: 200.0, height: 10.0).padding(.trailing, 16.0)
+                        StarRating(rating: .constant(ramen.star)).padding(.trailing)
+                        }.padding(.bottom)
+                            }
+                        }
+                        Spacer()
+                    Text("Recommended for You").bold()
+                    ScrollView {
+                        HStack {
+                        VStack {
+                        RamenIcon(image: Image("nissin"))
+                        Text("Nissin TY")
+                        }.padding([.bottom, .trailing])
+                                    
+                    VStack {
+                    RamenIcon(image: Image("ramen1"))
+                    Text("Doggiemen")
+                    }.padding([.bottom, .trailing])
+                                    
+                    VStack {
+                    RamenIcon(image: Image("ramen1"))
+                    Text("Dogmen x2")
+                    }.padding([.bottom, .trailing])
+                    }.padding()
+                    }
                 }
-                }.navigationBarTitle("").navigationBarHidden(true).padding(.horizontal)
+                }
+                }.navigationBarTitle("Back").navigationBarHidden(true).padding(.horizontal)
         }
     }
 }

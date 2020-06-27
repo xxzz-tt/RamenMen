@@ -15,7 +15,7 @@ class Ramen: ObservableObject, Identifiable {
     var style: String = ""
     var image: String = ""
     var searchableName: String = ""
-    @Published var averageStars: Int = 0
+    @Published var star: Int = 0
     var spiciness: Int = 0
     @Published var reviews: [String] = []
 
@@ -26,7 +26,7 @@ class Ramen: ObservableObject, Identifiable {
         case bowl = "Bowl"
     }
     
-    init(id: String, brand: String, name: String, style: String, image: String, searchableName: String, averageStars: Int, spiciness: Int, reviews: [String]) {
+    init(id: String, brand: String, name: String, style: String, image: String, searchableName: String, star: Int, spiciness: Int, reviews: [String]) {
         self.id = id
         self.brand = brand
         self.name = name
@@ -35,6 +35,8 @@ class Ramen: ObservableObject, Identifiable {
         self.reviews = reviews
         self.searchableName = brand + name + style
         self.spiciness = spiciness
+        self.star = star
+
     }
 
     init(){}
