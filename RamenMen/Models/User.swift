@@ -10,12 +10,22 @@ import SwiftUI
 
 import SwiftUI
 
-struct User: Codable {
-    var id: Int
-    var username: String
-    var password: String
-    var image: String
-//    var reviews: [Review]
+class User: ObservableObject, Identifiable {
+    var id: String = ""
+    @Published var username: String = ""
+    var password: String = ""
+    @Published var image: String = ""
+    @Published var reviews: [String] = []
+    
+    init(id: String, username: String, password: String, image: String, reviews: [String]) {
+        self.id = id
+        self.username = username
+        self.password = password
+        self.image = image
+        self.reviews = reviews
+    }
+    
+    init(){}
         
 }
 

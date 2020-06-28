@@ -46,7 +46,7 @@ struct RatingForm: View {
     func submit() {
         reviewData.getData()
         ramenData.getData()
-        reviewData.addReview(review)
+//        reviewData.addReview(review)
 //        ramen.reviews.append(review)
 //        ramenData.ramens.first(where: {$0 == self.ramen.id}).reviews.append(review)
         showRatingForm.toggle()
@@ -114,6 +114,6 @@ struct RatingForm: View {
 
 struct RatingForm_Previews: PreviewProvider {
     static var previews: some View {
-        RatingForm(review: Review(id: "777", userId: 1, ramenId: "ahdh232", star: 1, value: 2, spicy: 3, comments: "no comments"), ramen: ramen1, showRatingForm: .constant(true))
+        RatingForm(review: Review(id: "777", userId: "1", ramenId: "ahdh232", star: 1, value: 2, spicy: 3, comments: "no comments"), ramen: ramen1, showRatingForm: .constant(true))
     }
 }
