@@ -12,6 +12,8 @@ struct RatingForm: View {
     @ObservedObject var review: Review
     @ObservedObject var ramen: Ramen
     @Binding var showRatingForm: Bool
+    @ObservedObject var reviewData = ReviewViewModel<Any>()
+    @ObservedObject var ramenData = RamenViewModel()
 //    @Environment(\.presentationMode) var presentationMode
 
     var dateFormatter: DateFormatter {
@@ -34,11 +36,23 @@ struct RatingForm: View {
 //    @State var spiciness = 0
 //    @State var comment: String = ""
     
+//    init(review: Review, ramen: Ramen, showRatingForm: Binding<Bool>) {
+//        self.review = review
+//        self.ramen = ramen
+//        self._showRatingForm = showRatingForm
+//        reviewData.getData()
+//    }
+    
     func submit() {
+        reviewData.getData()
+        ramenData.getData()
+        reviewData.addReview(review)
+//        ramen.reviews.append(review)
+//        ramenData.ramens.first(where: {$0 == self.ramen.id}).reviews.append(review)
+        showRatingForm.toggle()
     }
     
     func close() {
-        showRatingForm.toggle()
 //        self.presentationMode.wrappedValue.dismiss()
     }
     

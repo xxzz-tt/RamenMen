@@ -72,14 +72,16 @@ struct RamenProfileView: View {
         
     var body: some View {
         ZStack {
-            NavigationView {
+//            NavigationView {
                  VStack {
                     VStack {
                         Image(ramen.image).resizable()
                         .scaledToFit()
                         .frame(height: 200)
-                        
-                        
+                        Text(ramen.brand + " " + ramen.name).bold()
+                        Button(action: {self.showRatingForm.toggle()},
+                        label: {Text("Add Review")})
+                        Spacer()
                         HStack(spacing: 70.0) {
                             Text("Average stars:")
                                 .font(.body)
@@ -135,10 +137,10 @@ struct RamenProfileView: View {
                                     }
                             }
                     )
-                    .navigationBarTitle(Text(ramen.brand + " " + ramen.name), displayMode: .inline)
-                    .navigationBarItems(trailing: Button(action: {self.showRatingForm.toggle()},
-                        label: {Text("Add Review")}))
-            }
+//                    .navigationBarTitle(Text(ramen.brand + " " + ramen.name), displayMode: .inline)
+//                    .navigationBarItems(trailing: Button(action: {self.showRatingForm.toggle()},
+//                        label: {Text("Add Review")}))
+//            }
             
             if(self.showReviewWindow) {
 //                GeometryReader{_ in

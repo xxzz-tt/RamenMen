@@ -63,7 +63,7 @@ class ReviewViewModel<T>: ObservableObject {
         }
     }
     
-    func addReview(_ newReview: Review) {
+    public func addReview(_ newReview: Review) {
         let id = UUID.init().uuidString
         let docData: [String: Any] = [
             "date of consumption": newReview.dateOfConsumption,
@@ -97,7 +97,7 @@ class ReviewViewModel<T>: ObservableObject {
 
 struct ReviewView: View {
     @ObservedObject var reviewModel = ReviewViewModel<Any>()
-    
+
     init() {
         reviewModel.getData()
     }

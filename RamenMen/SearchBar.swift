@@ -15,6 +15,7 @@ struct SearchBar: View {
     @State private var searchText = ""
     @State private var cancel: Bool = false
     @State private var isEditing = false
+    @State private var shouldReturn = false
     @ObservedObject var ramenModel = RamenViewModel()
 
     init() {
@@ -39,7 +40,7 @@ struct SearchBar: View {
                             Button(action: {
                                 self.searchText = ""
                             }) {
-                            Image(systemName: "multiply.circle.fill").foregroundColor(.gray).padding(.trailing, 8)
+                            Image(systemName: "multiply.circle.fill").foregroundColor(.gray).padding(.horizontal, 8)
                         }
                     }
                 }.padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
@@ -58,45 +59,55 @@ struct SearchBar: View {
                 }
             }
                 if isEditing {
-                    List(ramenModel.ramens) { ramen in
+//                    NavigationView {
+                    Text("Search Result")
+                        List(ramenModel.ramens) { ramen in
                         NavigationLink(destination: RamenProfile(ramen: ramen)) {
                             RamenRow(ramen: ramen)
                         }
-                        }.navigationBarTitle("Back").navigationBarHidden(true)
-                } else {
-                    
-                    VStack(alignment: .leading) {
-                        ForEach(ramenModel.ramens) { ramen in
-                        NavigationLink(destination: RamenProfile(ramen: ramen)) {
-                        HStack {
-                        Text(ramen.name) .frame(width: 200.0, height: 10.0).padding(.trailing, 16.0)
-                        StarRating(rating: .constant(ramen.star)).padding(.trailing)
-                        }.padding(.bottom)
-                            }
                         }
+//                    }
+//                    .navigationBarTitle("Search Results")
+//                    .navigationBarTitle("Back").navigationBarHidden(false)
+                } else {
+                    VStack(alignment: .leading) {
+//                        NavigationView {
+                            ForEach(ramenModel.ramens) { ramen in
+                            NavigationLink(destination: RamenProfile(ramen: ramen)) {
+                            HStack {
+                                Text(ramen.name) .frame(width: 200.0, height: 10.0).padding(.trailing, 16.0)
+                            StarRating(rating: .constant(ramen.star)).padding(.trailing)
+                            }.padding(.bottom)
+                            }
+                            }
+//                        }.navigationBarTitle("Reviews of the week")
                         Spacer()
-                    Text("Recommended for You").bold()
-                    ScrollView {
-                        HStack {
+                        Text("Recommended for You").bold()
+                        ScrollView {
+                            HStack {
+                            VStack {
+                            RamenIcon(image: Image("nissin"))
+                            Text("Nissin TY")
+                            }.padding([.bottom, .trailing])
+
                         VStack {
-                        RamenIcon(image: Image("nissin"))
-                        Text("Nissin TY")
+                        RamenIcon(image: Image("ramen1"))
+                        Text("Doggiemen")
                         }.padding([.bottom, .trailing])
-                                    
-                    VStack {
-                    RamenIcon(image: Image("ramen1"))
-                    Text("Doggiemen")
-                    }.padding([.bottom, .trailing])
-                                    
-                    VStack {
-                    RamenIcon(image: Image("ramen1"))
-                    Text("Dogmen x2")
-                    }.padding([.bottom, .trailing])
-                    }.padding()
+
+                        VStack {
+                        RamenIcon(image: Image("ramen1"))
+                        Text("Dogmen x2")
+                        }.padding([.bottom, .trailing])
+                        }.padding()
+                        }
+//                        PopularityChart()
                     }
                 }
                 }
-                }.navigationBarTitle("Back").navigationBarHidden(true).padding(.horizontal)
+            .navigationBarTitle("Back").navigationBarHidden(true)
+                .padding(.horizontal)
+            Spacer()
         }
     }
 }

@@ -23,7 +23,7 @@ struct ContentView: View {
             }
             .tag(1)
             
-            SearchBar().padding(10).padding(.horizontal, 5)
+            SearchBar().padding(10).padding(.leading, 5)
                 .tabItem {
                     VStack {
                         Text("Home")
