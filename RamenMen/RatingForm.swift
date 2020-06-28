@@ -46,7 +46,7 @@ struct RatingForm: View {
     func submit() {
         reviewData.getData()
         ramenData.getData()
-//        reviewData.addReview(review)
+        reviewData.addReview(review)
 //        ramen.reviews.append(review)
 //        ramenData.ramens.first(where: {$0 == self.ramen.id}).reviews.append(review)
         showRatingForm.toggle()

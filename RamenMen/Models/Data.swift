@@ -22,6 +22,7 @@ var review2 = Review(id: "211", userId: "2", ramenId: "ahdh232", star: 4, value:
 var reviewArray = [review11, review21, review31]
 var ramen1 = Ramen(id: "ahdh232", brand: "nissin", name: "chicken noodle", style: "Bowl", image: "nissin", searchableName: "", star: 4, spiciness: 0, reviews: [review1.id, review2.id])
 var user2 = UserTest(id: 2, username: "user2", image: Image("profile pic"), reviews: [review21, review31])
+var userA = User(id: "2", username: "I wonder", password: "", image: "profile pic", reviews: ["111", "211"])
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data

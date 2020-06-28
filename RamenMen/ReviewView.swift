@@ -45,23 +45,23 @@ class ReviewViewModel<T>: ObservableObject {
         }
     }
     
-    func getCategory(_ catName: T){
-        db.collection("reviews").addSnapshotListener {
-            (query, err) in
-            DispatchQueue.main.async {
-                if err != nil {
-                    print((err?.localizedDescription)!)
-                } else {
-                    print("no errors")
-                    for i in query!.documentChanges {
-                        let name = i.document.get(catName) as! T
-
-                        self.holding.append(name)
-                    }
-                }
-            }
-        }
-    }
+//    func getCategory(_ catName: T){
+//        db.collection("reviews").addSnapshotListener {
+//            (query, err) in
+//            DispatchQueue.main.async {
+//                if err != nil {
+//                    print((err?.localizedDescription)!)
+//                } else {
+//                    print("no errors")
+//                    for i in query!.documentChanges {
+//                        let name = i.document.get(catName) as! T
+//
+//                        self.holding.append(name)
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     public func getUserReviews(_ userReviews: [String]) {
         for i in userReviews {
@@ -88,36 +88,36 @@ class ReviewViewModel<T>: ObservableObject {
         }
     }
     
-//    public func addReview(_ newReview: Review) {
-//        let id = UUID.init().uuidString
-//        let docData: [String: Any] = [
-//            "date of consumption": newReview.dateOfConsumption,
-//            "date of review": newReview.dateOfReview,
-//            "time of review": newReview.timeOfReview,
-//            "user id": newReview.userId,
-//            "ramen id": newReview.ramenId,
-//            "star": newReview.star,
-//            "value": newReview.value,
-//            "spiciness": newReview.spiciness,
-//            "comments": newReview.comments
-//        ]
-//        // add to reviews collection
-//        db.collection("reviews").document(id).setData(docData) { err in
-//            if let err = err {
-//                print("Error writing document: \(err)")
-//            } else {
-//                print("Document successfully written!")
-//            }
-//        }
-//        // update reviews array under ramen
-//        db.collection("ramen").document(newReview.ramenId).updateData([
-//            "reviews": FieldValue.arrayUnion([id])
-//        ])
-//    }
-    
-    func getUser(_ userId: String) {
-        
+    public func addReview(_ newReview: Review) {
+        let id = UUID.init().uuidString
+        let docData: [String: Any] = [
+            "date of consumption": newReview.dateOfConsumption,
+            "date of review": newReview.dateOfReview,
+            "time of review": newReview.timeOfReview,
+            "user id": newReview.userId,
+            "ramen id": newReview.ramenId,
+            "star": newReview.star,
+            "value": newReview.value,
+            "spiciness": newReview.spiciness,
+            "comments": newReview.comments
+        ]
+        // add to reviews collection
+        db.collection("reviews").document(id).setData(docData) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        // update reviews array under ramen
+        db.collection("ramen").document(newReview.ramenId).updateData([
+            "reviews": FieldValue.arrayUnion([id])
+        ])
     }
+    
+//    func getUser(_ userId: String) {
+//
+//    }
 }
 
 struct ReviewView: View {

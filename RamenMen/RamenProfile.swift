@@ -29,7 +29,7 @@ struct RamenProfile: View {
     var body: some View {
         RamenProfileView(ramen: ramen, showRatingForm:
             self.$showRatingForm).sheet(isPresented: self.$showRatingForm) {
-                RatingForm(review: Review(id: "999", userId: 0, ramenId: self.ramen.id), ramen: self.ramen, showRatingForm: self.$showRatingForm)
+                RatingForm(review: Review(id: "999", userId: "0", ramenId: self.ramen.id), ramen: self.ramen, showRatingForm: self.$showRatingForm)
         }
     }
 }
