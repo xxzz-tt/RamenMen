@@ -1,8 +1,8 @@
 //
-//  ReviewView.swift
+//  ReviewData.swift
 //  RamenMen
 //
-//  Created by XuanZhi on 26/6/20.
+//  Created by XuanZhi on 29/6/20.
 //  Copyright © 2020 Ramen Men. All rights reserved.
 //
 
@@ -11,9 +11,9 @@ import Foundation
 import FirebaseFirestore
 import Combine
 
-class ReviewViewModel<T>: ObservableObject {
+class ReviewDataModel: ObservableObject {
     @Published var reviews = [Review]()
-    @Published var holding = [T]()
+    @Published var hold = [String]()
     
     var db = Firestore.firestore()
     
@@ -45,48 +45,49 @@ class ReviewViewModel<T>: ObservableObject {
         }
     }
     
-//    func getCategory(_ catName: T){
-//        db.collection("reviews").addSnapshotListener {
-//            (query, err) in
-//            DispatchQueue.main.async {
-//                if err != nil {
-//                    print((err?.localizedDescription)!)
-//                } else {
-//                    print("no errors")
-//                    for i in query!.documentChanges {
-//                        let name = i.document.get(catName) as! T
-//
-//                        self.holding.append(name)
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
-    public func getUserReviews(_ userReviews: [String]) {
-        for i in userReviews {
-            db.collection("reviews").document(i).addSnapshotListener {
+        func getCategory(_ catName: String){
+            db.collection("reviews").addSnapshotListener {
                 (query, err) in
                 DispatchQueue.main.async {
                     if err != nil {
-                        print("hello")
+                        print((err?.localizedDescription)!)
                     } else {
-                        let dateOfConsumption = query!.get("date of consumption") as? Timestamp ?? Timestamp()
-                        let dateOfReview = query!.get("date of review") as? Timestamp ?? Timestamp()
-                        let timeOfReview = query!.get("time of review") as? Int ?? -1
-                        let userId = query!.get("user id") as? String ?? ""
-                        let ramenId = query!.get("ramen id") as? String ?? ""
-                        let star = query!.get("star") as? Int ?? -1
-                        let value = query!.get("value") as? Int ?? 0
-                        let spiciness = query!.get("spiciness") as? Int ?? 0
-                        let comments = query!.get("comments") as? String ?? ""
-                        self.reviews.append(Review(id: i, dateOfConsumption: dateOfConsumption.dateValue(), dateOfReview: dateOfReview.dateValue(), timeOfReview: timeOfReview, userId: userId, ramenId: ramenId, star: star, value: value, spiciness: spiciness, comments: comments))
-
+                        print("no errors")
+                        for i in query!.documentChanges {
+                            let name = i.document.get(catName) as! String
+    
+                            self.hold.append(name)
+                        }
                     }
                 }
             }
         }
-    }
+        
+        public func getUserReviews(_ userReviews: [String]) {
+            for i in userReviews {
+                db.collection("reviews").document(i).addSnapshotListener {
+                    (query, err) in
+                    DispatchQueue.main.async {
+                        if err != nil {
+                            print("hello")
+                        } else {
+                            let dateOfConsumption = query!.get("date of consumption") as? Timestamp ?? Timestamp()
+                            let dateOfReview = query!.get("date of review") as? Timestamp ?? Timestamp()
+                            let timeOfReview = query!.get("time of review") as? Int ?? -1
+                            let userId = query!.get("user id") as? String ?? ""
+                            let ramenId = query!.get("ramen id") as? String ?? ""
+                            let star = query!.get("star") as? Int ?? -1
+                            let value = query!.get("value") as? Int ?? 0
+                            let spiciness = query!.get("spiciness") as? Int ?? 0
+                            let comments = query!.get("comments") as? String ?? ""
+                            self.reviews.append(Review(id: i, dateOfConsumption: dateOfConsumption.dateValue(), dateOfReview: dateOfReview.dateValue(), timeOfReview: timeOfReview, userId: userId, ramenId: ramenId, star: star, value: value, spiciness: spiciness, comments: comments))
+
+                        }
+                    }
+                }
+            }
+        }
+
     
     public func addReview(_ newReview: Review) {
         let id = UUID.init().uuidString
@@ -119,36 +120,35 @@ class ReviewViewModel<T>: ObservableObject {
             print("Document successfully updated")
         }
         }
+        
+        // update reviews array under user
+        db.collection("users").document(newReview.userId).setData([
+            "reviews": FieldValue.arrayUnion([id])
+        ])
     }
-    
-//    func getUser(_ userId: String) {
-//
-//    }
 }
-
-struct ReviewView: View {
-    @ObservedObject var reviewModel = ReviewViewModel<Any>()
-
+struct ReviewData: View {
+    @ObservedObject var reviewModel = ReviewDataModel()
     init() {
         reviewModel.getData()
     }
     var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .none
-        return formatter
-    }
-    
-    var body: some View {
-//        Text("\(reviewModel.reviews.count)")
-        List(reviewModel.reviews) { review in
-            Text("\(review.dateOfReview, formatter: self.dateFormatter)")
+            let formatter = DateFormatter()
+            formatter.dateStyle = .long
+            formatter.timeStyle = .none
+            return formatter
         }
-    }
+        
+        var body: some View {
+    //        Text("\(reviewModel.reviews.count)")
+            List(reviewModel.reviews) { review in
+                Text("\(review.dateOfReview, formatter: self.dateFormatter)")
+            }
+        }
 }
 
-struct ReviewView_Previews: PreviewProvider {
+struct ReviewData_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewView()
+        ReviewData()
     }
 }

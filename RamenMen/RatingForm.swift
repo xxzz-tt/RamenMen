@@ -12,7 +12,7 @@ struct RatingForm: View {
     @ObservedObject var review: Review
     @ObservedObject var ramen: Ramen
     @Binding var showRatingForm: Bool
-    @ObservedObject var reviewData = ReviewViewModel<Any>()
+    @ObservedObject var reviewData = ReviewDataModel()
     @ObservedObject var ramenData = RamenViewModel()
 //    @Environment(\.presentationMode) var presentationMode
 
