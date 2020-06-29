@@ -111,7 +111,7 @@ class ReviewDataModel: ObservableObject {
             }
         }
         // update reviews array under ramen
-        db.collection("ramen").document(newReview.ramenId).setData([
+        db.collection("ramen").document(newReview.ramenId).updateData([
             "reviews": FieldValue.arrayUnion([id])
         ]) { err in
         if let err = err {
@@ -122,7 +122,7 @@ class ReviewDataModel: ObservableObject {
         }
         
         // update reviews array under user
-        db.collection("users").document(newReview.userId).setData([
+        db.collection("users").document(newReview.userId).updateData([
             "reviews": FieldValue.arrayUnion([id])
         ])
     }
