@@ -26,10 +26,10 @@ class RamenViewModel: ObservableObject {
                 } else {
                     print("no errors")
                     for i in query!.documentChanges {
-                        let name = i.document.get("name") as! String
-                        let style = i.document.get("style") as! String
-                        let brand = i.document.get("brand") as! String
-                        let image = i.document.get("image") as! String
+                        let name = i.document.get("name") as? String ?? ""
+                        let style = i.document.get("style") as? String ?? ""
+                        let brand = i.document.get("brand") as? String ?? ""
+                        let image = i.document.get("image") as? String ?? ""
                         let searchableName = i.document.get("searchable name") as? String ?? ""
                         let star = i.document.get("average stars") as? Int ?? 0
                         let spiciness = i.document.get("spiciness") as? Int ?? 0
@@ -53,7 +53,7 @@ class RamenViewModel: ObservableObject {
                 } else {
                     print("no errors")
                     for i in query!.documentChanges {
-                        let name = i.document.get(catName) as! String
+                        let name = i.document.get(catName) as? String ?? ""
                         
                         self.holding.append(name)
                     }

@@ -33,3 +33,28 @@ class UserViewModel: ObservableObject {
         }
     }
 }
+
+struct UserView: View {
+    var userModel = UserViewModel()
+    var reviewModel = ReviewDataModel()
+    
+    init() {
+        userModel.getData()
+        reviewModel.getUserReviews(userModel.user.reviews)
+    }
+    
+    var body: some View {
+//        List(reviewModel.reviews) { review in
+//            Text(review.id)
+//        }
+        List(userModel.user.reviews, id: \.self) { review in
+            Text(review)
+        }
+    }
+}
+
+struct UserView_Previews: PreviewProvider {
+    static var previews: some View {
+        UserView()
+    }
+}
