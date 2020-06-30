@@ -17,6 +17,7 @@ struct SearchBar: View {
     @State private var isEditing = false
     @State private var shouldReturn = false
     @ObservedObject var ramenModel = RamenViewModel()
+    @EnvironmentObject var user: User
 
     init() {
 //        ramenModel.getCategory("searchable name")
@@ -62,7 +63,7 @@ struct SearchBar: View {
 //                    NavigationView {
                     Text("Search Result")
                         List(ramenModel.ramens) { ramen in
-                        NavigationLink(destination: RamenProfile(ramen: ramen)) {
+                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.user)) {
                             RamenRow(ramen: ramen)
                         }
                         }
@@ -73,7 +74,7 @@ struct SearchBar: View {
                     VStack(alignment: .leading) {
 //                        NavigationView {
                             ForEach(ramenModel.ramens) { ramen in
-                            NavigationLink(destination: RamenProfile(ramen: ramen)) {
+                                NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.user)) {
                             HStack {
                                 Text(ramen.name) .frame(width: 200.0, height: 10.0).padding(.trailing, 16.0)
                             StarRating(rating: .constant(ramen.star)).padding(.trailing)
@@ -115,7 +116,7 @@ struct SearchBar: View {
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar()
+        SearchBar().environmentObject(userA)
     }
 }
 

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var user: UserTest
+    @EnvironmentObject var user: User
     @State private var selection = 0
  
     var body: some View {
@@ -23,7 +23,7 @@ struct ContentView: View {
             }
             .tag(1)
             
-            SearchBar().padding(10).padding(.leading, 5)
+            SearchBar().environmentObject(user).padding(10).padding(.leading, 5)
                 .tabItem {
                     VStack {
                         Text("Home")
@@ -45,6 +45,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(user2)
+        ContentView().environmentObject(userA)
     }
 }

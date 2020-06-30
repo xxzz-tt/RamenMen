@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PopularityChart: View {
-    
+    @EnvironmentObject var user: User
     @ObservedObject var ramenModel = RamenViewModel()
 
     init() {
@@ -20,12 +20,12 @@ struct PopularityChart: View {
     var body: some View {
         NavigationView {
         VStack(alignment: .leading) {
-            ForEach(ramenModel.ramens) { ramen in
-                NavigationLink(destination: RamenProfile(ramen: ramen)) {
+            List(ramenModel.ramens) { ramen in
+                NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.user)) {
                 HStack {
                     Text(ramen.name) .frame(width: 200.0, height: 10.0)
 //                    RamenIcon(image: Image(ramen.image))
-                        .padding(.trailing, 16.0)
+                        .padding(.trailing, 12.0)
                     StarRating(rating: .constant(ramen.star))
                         .padding(.trailing)
                 }.padding(.bottom)
