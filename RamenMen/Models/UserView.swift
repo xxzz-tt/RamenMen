@@ -36,7 +36,7 @@ class UserViewModel: ObservableObject {
 
 struct UserView: View {
     var userModel = UserViewModel()
-    var reviewModel = ReviewDataModel()
+    var reviewModel = ReviewViewModel()
     
     init() {
         userModel.getData()

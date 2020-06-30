@@ -11,9 +11,9 @@ import Foundation
 import FirebaseFirestore
 import Combine
 
-class ReviewViewModel<T>: ObservableObject {
+class ReviewViewModel: ObservableObject {
     @Published var reviews = [Review]()
-    @Published var holding = [T]()
+    @Published var holding = [String]()
     
     var db = Firestore.firestore()
     
@@ -127,7 +127,7 @@ class ReviewViewModel<T>: ObservableObject {
 }
 
 struct ReviewView: View {
-    @ObservedObject var reviewModel = ReviewViewModel<Any>()
+    @ObservedObject var reviewModel = ReviewViewModel()
 
     init() {
         reviewModel.getData()
