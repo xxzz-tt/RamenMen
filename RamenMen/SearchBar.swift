@@ -19,7 +19,7 @@ struct SearchBar: View {
     @ObservedObject var ramenModel = RamenViewModel()
 
     init() {
-        ramenModel.getCategory("searchable name")
+//        ramenModel.getCategory("searchable name")
         ramenModel.getData()
     }
 

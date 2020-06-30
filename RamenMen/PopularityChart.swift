@@ -13,7 +13,7 @@ struct PopularityChart: View {
     @ObservedObject var ramenModel = RamenViewModel()
 
     init() {
-        ramenModel.getCategory("name")
+//        ramenModel.getCategory("name")
         ramenModel.getData()
     }
     

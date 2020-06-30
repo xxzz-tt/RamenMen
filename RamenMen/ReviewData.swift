@@ -14,9 +14,9 @@ import Combine
 class ReviewDataModel: ObservableObject {
     @Published var reviews = [Review]()
     @Published var hold = [String]()
-    
+
     var db = Firestore.firestore()
-    
+
     func getData() {
         db.collection("reviews").addSnapshotListener {
             (query, err) in
@@ -26,7 +26,7 @@ class ReviewDataModel: ObservableObject {
                 } else {
                     print("no errors")
                     for i in query!.documentChanges {
-                        
+
                         let dateOfConsumption = i.document.get("date of consumption") as? Timestamp ?? Timestamp()
                         let dateOfReview = i.document.get("date of review") as? Timestamp ?? Timestamp()
                         let timeOfReview = i.document.get("time of review") as? Int ?? -1
@@ -37,14 +37,14 @@ class ReviewDataModel: ObservableObject {
                         let spiciness = i.document.get("spiciness") as? Int ?? 0
                         let comments = i.document.get("comments") as? String ?? ""
                         let id = i.document.documentID
-                        
+
                         self.reviews.append(Review(id: id, dateOfConsumption: dateOfConsumption.dateValue(), dateOfReview: dateOfReview.dateValue(), timeOfReview: timeOfReview, userId: userId, ramenId: ramenId, star: star, value: value, spiciness: spiciness, comments: comments))
                     }
                 }
             }
         }
     }
-    
+
         func getCategory(_ catName: String){
             db.collection("reviews").addSnapshotListener {
                 (query, err) in
@@ -55,14 +55,14 @@ class ReviewDataModel: ObservableObject {
                         print("no errors")
                         for i in query!.documentChanges {
                             let name = i.document.get(catName) as! String
-    
+
                             self.hold.append(name)
                         }
                     }
                 }
             }
         }
-        
+
         public func getUserReviews(_ userReviews: [String]) {
             for i in userReviews {
                 db.collection("reviews").document(i).addSnapshotListener {
@@ -88,7 +88,7 @@ class ReviewDataModel: ObservableObject {
             }
         }
 
-    
+
     public func addReview(_ newReview: Review) {
         let id = UUID.init().uuidString
         let docData: [String: Any] = [
@@ -120,7 +120,7 @@ class ReviewDataModel: ObservableObject {
             print("Document successfully updated")
         }
         }
-        
+
         // update reviews array under user
         db.collection("users").document(newReview.userId).setData([
             "reviews": FieldValue.arrayUnion([id])
@@ -128,22 +128,13 @@ class ReviewDataModel: ObservableObject {
     }
 }
 struct ReviewData: View {
-    @ObservedObject var reviewModel = ReviewDataModel()
-    init() {
-        reviewModel.getData()
-    }
-    var dateFormatter: DateFormatter {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .long
-            formatter.timeStyle = .none
-            return formatter
-        }
         
         var body: some View {
-    //        Text("\(reviewModel.reviews.count)")
-            List(reviewModel.reviews) { review in
-                Text("\(review.dateOfReview, formatter: self.dateFormatter)")
-            }
+            Text("hello")
+//            List(reviewModel.reviews) { review in
+//                Text("\(review.dateOfReview, formatter: self.dateFormatter)")
+//                Text("hello")
+//            }
         }
 }
 
