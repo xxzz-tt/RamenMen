@@ -30,6 +30,12 @@
 		3F855FD024A5FF9600D57DA4 /* RamenRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F855FCF24A5FF9500D57DA4 /* RamenRow.swift */; };
 		3F855FD424A73A5D00D57DA4 /* PopularityChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F855FD324A73A5C00D57DA4 /* PopularityChart.swift */; };
 		3F855FE024AB795000D57DA4 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F855FDF24AB795000D57DA4 /* Test.swift */; };
+		3F85600D24C1F41700D57DA4 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85600C24C1F41700D57DA4 /* ProgressBar.swift */; };
+		3F85600F24C1F65A00D57DA4 /* SimpleDateBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85600E24C1F65A00D57DA4 /* SimpleDateBar.swift */; };
+		3F85601124C1F9EC00D57DA4 /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85601024C1F9EC00D57DA4 /* Tracker.swift */; };
+		3F85601324C1FAFB00D57DA4 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F85601224C1FAFB00D57DA4 /* Calendar.storyboard */; };
+		3F85601524C2037400D57DA4 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85601424C2037400D57DA4 /* DateCell.swift */; };
+		3F85601724C2041400D57DA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85601624C2041400D57DA4 /* ViewController.swift */; };
 		3FDDAF96248D0B13006687B6 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF95248D0B13006687B6 /* HomepageView.swift */; };
 		3FDDAF9A248D0B82006687B6 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF99248D0B82006687B6 /* SearchBar.swift */; };
 		3FDDAF9C248D0BAE006687B6 /* RamenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDAF9B248D0BAE006687B6 /* RamenImage.swift */; };
@@ -85,6 +91,12 @@
 		3F855FCF24A5FF9500D57DA4 /* RamenRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenRow.swift; sourceTree = "<group>"; };
 		3F855FD324A73A5C00D57DA4 /* PopularityChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularityChart.swift; sourceTree = "<group>"; };
 		3F855FDF24AB795000D57DA4 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		3F85600C24C1F41700D57DA4 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		3F85600E24C1F65A00D57DA4 /* SimpleDateBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDateBar.swift; sourceTree = "<group>"; };
+		3F85601024C1F9EC00D57DA4 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
+		3F85601224C1FAFB00D57DA4 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		3F85601424C2037400D57DA4 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		3F85601624C2041400D57DA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3FDDAF95248D0B13006687B6 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		3FDDAF99248D0B82006687B6 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		3FDDAF9B248D0BAE006687B6 /* RamenImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenImage.swift; sourceTree = "<group>"; };
@@ -156,6 +168,12 @@
 				3F12DF23248A580C00C7590B /* ContentView.swift */,
 				3FDDAF95248D0B13006687B6 /* HomepageView.swift */,
 				3F855FD324A73A5C00D57DA4 /* PopularityChart.swift */,
+				3F85600C24C1F41700D57DA4 /* ProgressBar.swift */,
+				3F85600E24C1F65A00D57DA4 /* SimpleDateBar.swift */,
+				3F85601024C1F9EC00D57DA4 /* Tracker.swift */,
+				3F85601224C1FAFB00D57DA4 /* Calendar.storyboard */,
+				3F85601624C2041400D57DA4 /* ViewController.swift */,
+				3F85601424C2037400D57DA4 /* DateCell.swift */,
 				3FDDAF9F248D0BF6006687B6 /* RamenProfileView.swift */,
 				50A1492724A60A23004620FB /* RamenProfile.swift */,
 				3F855FDF24AB795000D57DA4 /* Test.swift */,
@@ -352,6 +370,7 @@
 				3F12DF2C248A580E00C7590B /* LaunchScreen.storyboard in Resources */,
 				3F12DF77248B785200C7590B /* GoogleService-Info.plist in Resources */,
 				3F341DB82494F17900D87C5B /* RamenData.json in Resources */,
+				3F85601324C1FAFB00D57DA4 /* Calendar.storyboard in Resources */,
 				3F341DBC2494F19A00D87C5B /* ReviewData.json in Resources */,
 				3F12DF29248A580E00C7590B /* Preview Assets.xcassets in Resources */,
 				3F12DF26248A580E00C7590B /* Assets.xcassets in Resources */,
@@ -456,14 +475,18 @@
 				3F341DBF2494F1D000D87C5B /* User.swift in Sources */,
 				3FDDAFA0248D0BF6006687B6 /* RamenProfileView.swift in Sources */,
 				50A1492824A60A23004620FB /* RamenProfile.swift in Sources */,
+				3F85600F24C1F65A00D57DA4 /* SimpleDateBar.swift in Sources */,
 				3F855FD424A73A5D00D57DA4 /* PopularityChart.swift in Sources */,
 				3FDDAF9E248D0BD4006687B6 /* StarRating.swift in Sources */,
 				3F855FCC24A5D78A00D57DA4 /* UserView.swift in Sources */,
+				3F85600D24C1F41700D57DA4 /* ProgressBar.swift in Sources */,
 				3F855FD024A5FF9600D57DA4 /* RamenRow.swift in Sources */,
 				5024215724A38EDB00B0D3FB /* UserTest.swift in Sources */,
 				3F341DC12494F1DA00D87C5B /* Ramen.swift in Sources */,
 				3FE3C20324A10B4300E7E709 /* RamenView.swift in Sources */,
+				3F85601124C1F9EC00D57DA4 /* Tracker.swift in Sources */,
 				3F341D9B2490F5B000D87C5B /* RamenIcon.swift in Sources */,
+				3F85601724C2041400D57DA4 /* ViewController.swift in Sources */,
 				3F341DC32494F1E800D87C5B /* Review.swift in Sources */,
 				50A1492624A48E12004620FB /* EntryDetail.swift in Sources */,
 				5024215B24A38EF900B0D3FB /* ReviewTest.swift in Sources */,
@@ -473,6 +496,7 @@
 				3F855FE024AB795000D57DA4 /* Test.swift in Sources */,
 				3F12DF20248A580C00C7590B /* AppDelegate.swift in Sources */,
 				3F12DF22248A580C00C7590B /* SceneDelegate.swift in Sources */,
+				3F85601524C2037400D57DA4 /* DateCell.swift in Sources */,
 				3FDDAF9A248D0B82006687B6 /* SearchBar.swift in Sources */,
 				5024215924A38EE500B0D3FB /* RamenTest.swift in Sources */,
 				3F341D9F2490F65B00D87C5B /* UserProfileView.swift in Sources */,

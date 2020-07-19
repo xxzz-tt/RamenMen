@@ -14,6 +14,7 @@ pod 'Firebase'
 pod 'Firebase/Firestore'
 pod 'Firebase/Auth'
 pod 'FirebaseFirestoreSwift'
+pod 'JTAppleCalendar'
 # https://firebase.google.com/docs/ios/setup#available-pods
   target 'RamenMenUITests' do
     # Pods for testing
