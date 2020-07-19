@@ -22,7 +22,7 @@ struct ContentView: View {
                 }
             }
             .tag(1)
-            
+
             SearchBar().environmentObject(user).padding(10).padding(.leading, 5)
                 .tabItem {
                     VStack {
@@ -33,7 +33,7 @@ struct ContentView: View {
                 .tag(0)
 
 
-            UserProfileView().environmentObject(user).tabItem {
+            Text("firstview").tabItem {
                 VStack {
                     Image("first")
                     Text("My Account")
@@ -48,4 +48,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environmentObject(userA)
     }
 }
-

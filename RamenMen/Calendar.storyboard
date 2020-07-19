@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="b9l-Pn-ALr">
             <objects>
-                <viewController storyboardIdentifier="Cal" id="tvC-kl-xbd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Cal" id="tvC-kl-xbd" customClass="ViewController" customModule="RamenMen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7jY-LO-obR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,13 +24,13 @@
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nzG-TI-Hbw">
                                     <size key="itemSize" width="78" height="78"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="9po-ff-UyB" customClass="DateCell" customModule="RamenMen" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="78"/>
+                                        <rect key="frame" x="0.0" y="50" width="78" height="78"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="erl-WI-ZK3">
                                             <rect key="frame" x="0.0" y="0.0" width="78" height="78"/>
@@ -42,17 +42,53 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41r-NZ-9rK">
+                                                    <rect key="frame" x="34" y="40" width="10" height="10"/>
+                                                    <color key="backgroundColor" red="1" green="0.68845029339999997" blue="0.54180067389999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="10" id="JRy-J5-XHP"/>
+                                                        <constraint firstAttribute="width" constant="10" id="O0c-eX-WfW"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Hw0-Z3-MAO" firstAttribute="centerY" secondItem="erl-WI-ZK3" secondAttribute="centerY" id="SJq-Ac-cCf"/>
+                                                <constraint firstItem="41r-NZ-9rK" firstAttribute="top" secondItem="erl-WI-ZK3" secondAttribute="top" constant="40" id="gwJ-J2-Eci"/>
+                                                <constraint firstItem="41r-NZ-9rK" firstAttribute="centerX" secondItem="erl-WI-ZK3" secondAttribute="centerX" id="hSE-gJ-Ue8"/>
                                                 <constraint firstItem="Hw0-Z3-MAO" firstAttribute="centerX" secondItem="erl-WI-ZK3" secondAttribute="centerX" id="uL0-CC-lRo"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="dateLabel" destination="Hw0-Z3-MAO" id="KKf-7Q-p6p"/>
+                                            <outlet property="dateLabel" destination="Hw0-Z3-MAO" id="zTA-a2-Ojj"/>
+                                            <outlet property="dotView" destination="41r-NZ-9rK" id="53l-J9-G7X"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DateHeader" id="PN3-4g-5kX" customClass="DateHeader" customModule="RamenMen" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdx-Vc-74f">
+                                            <rect key="frame" x="146" y="14.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.68561733179999995" green="0.96848052740000001" blue="0.84281313940000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstItem="Kdx-Vc-74f" firstAttribute="centerY" secondItem="PN3-4g-5kX" secondAttribute="centerY" id="hjR-nz-hKs"/>
+                                        <constraint firstItem="Kdx-Vc-74f" firstAttribute="centerX" secondItem="PN3-4g-5kX" secondAttribute="centerX" id="qWG-ra-VwI"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="monthTitle" destination="Kdx-Vc-74f" id="LDN-Hx-Oze"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="ibCalendarDataSource" destination="tvC-kl-xbd" id="THz-sT-zVc"/>
                                     <outlet property="ibCalendarDelegate" destination="tvC-kl-xbd" id="SzB-vP-Qmu"/>
@@ -67,6 +103,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0mN-vu-bc7"/>
                     </view>
+                    <connections>
+                        <outlet property="calendarView" destination="G6v-x4-135" id="hyI-9p-H4f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGZ-0P-vVI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

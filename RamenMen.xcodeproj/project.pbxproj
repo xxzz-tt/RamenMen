@@ -48,6 +48,8 @@
 		50731F1B24922DE200F50C5D /* RatingForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50731F1A24922DE200F50C5D /* RatingForm.swift */; };
 		50A1492624A48E12004620FB /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A1492524A48E12004620FB /* EntryDetail.swift */; };
 		50A1492824A60A23004620FB /* RamenProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A1492724A60A23004620FB /* RamenProfile.swift */; };
+		8E03BA0A24C4A2B6005036CF /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA0924C4A2B6005036CF /* DateHeader.swift */; };
+		8E03BA0C24C4A611005036CF /* CalendarUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA0B24C4A611005036CF /* CalendarUI.swift */; };
 		CE7C46361DB7E3F8EDD53258 /* Pods_RamenMen_RamenMenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA93E5CCC46B50B531A58FA5 /* Pods_RamenMen_RamenMenUITests.framework */; };
 		D4327D8D228E8694DAEE9547 /* Pods_RamenMen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4F572860058D8A3B8BABE8 /* Pods_RamenMen.framework */; };
 /* End PBXBuildFile section */
@@ -111,6 +113,8 @@
 		50A1492724A60A23004620FB /* RamenProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenProfile.swift; sourceTree = "<group>"; };
 		74D2609168509C9ED7EE11EA /* Pods-RamenMen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.release.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.release.xcconfig"; sourceTree = "<group>"; };
 		7C993E9E44B7BDE072C9A3AA /* Pods-RamenMen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.debug.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.debug.xcconfig"; sourceTree = "<group>"; };
+		8E03BA0924C4A2B6005036CF /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
+		8E03BA0B24C4A611005036CF /* CalendarUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUI.swift; sourceTree = "<group>"; };
 		BE4F572860058D8A3B8BABE8 /* Pods_RamenMen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenMen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA93E5CCC46B50B531A58FA5 /* Pods_RamenMen_RamenMenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenMen_RamenMenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C96E0337A8E7D001CC370A /* Pods-RamenMen-RamenMenUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen-RamenMenUITests.release.xcconfig"; path = "Target Support Files/Pods-RamenMen-RamenMenUITests/Pods-RamenMen-RamenMenUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,7 +175,9 @@
 				3F85600C24C1F41700D57DA4 /* ProgressBar.swift */,
 				3F85600E24C1F65A00D57DA4 /* SimpleDateBar.swift */,
 				3F85601024C1F9EC00D57DA4 /* Tracker.swift */,
+				8E03BA0B24C4A611005036CF /* CalendarUI.swift */,
 				3F85601224C1FAFB00D57DA4 /* Calendar.storyboard */,
+				8E03BA0924C4A2B6005036CF /* DateHeader.swift */,
 				3F85601624C2041400D57DA4 /* ViewController.swift */,
 				3F85601424C2037400D57DA4 /* DateCell.swift */,
 				3FDDAF9F248D0BF6006687B6 /* RamenProfileView.swift */,
@@ -481,6 +487,7 @@
 				3F855FCC24A5D78A00D57DA4 /* UserView.swift in Sources */,
 				3F85600D24C1F41700D57DA4 /* ProgressBar.swift in Sources */,
 				3F855FD024A5FF9600D57DA4 /* RamenRow.swift in Sources */,
+				8E03BA0A24C4A2B6005036CF /* DateHeader.swift in Sources */,
 				5024215724A38EDB00B0D3FB /* UserTest.swift in Sources */,
 				3F341DC12494F1DA00D87C5B /* Ramen.swift in Sources */,
 				3FE3C20324A10B4300E7E709 /* RamenView.swift in Sources */,
@@ -498,6 +505,7 @@
 				3F12DF22248A580C00C7590B /* SceneDelegate.swift in Sources */,
 				3F85601524C2037400D57DA4 /* DateCell.swift in Sources */,
 				3FDDAF9A248D0B82006687B6 /* SearchBar.swift in Sources */,
+				8E03BA0C24C4A611005036CF /* CalendarUI.swift in Sources */,
 				5024215924A38EE500B0D3FB /* RamenTest.swift in Sources */,
 				3F341D9F2490F65B00D87C5B /* UserProfileView.swift in Sources */,
 				3FDDAF9C248D0BAE006687B6 /* RamenImage.swift in Sources */,
