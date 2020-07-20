@@ -14,32 +14,39 @@ struct ContentView: View {
     @State var notLoggedIn = true
  
     var body: some View {
-        TabView(selection: $selection){
-            Text("first view")
-            .tabItem {
-                VStack {
-                    Image("first")
-                    Text("Health tracker")
-                }
-            }
-            .tag(1)
-            
-            SearchBar().environmentObject(env).padding(10).padding(.leading, 5)
+        ZStack {
+            TabView(selection: $selection){
+                Text("first view")
                 .tabItem {
                     VStack {
-                        Text("Home")
-                        Image(systemName: "plus.circle.fill").font(.largeTitle).foregroundColor(.green)
+                        Image("first")
+                        Text("Health tracker")
                     }
                 }
-                .tag(0)
+                .tag(1)
+                
+                SearchBar().environmentObject(env)
+                    .padding([.top], 10).padding(0.0)
+                    .tabItem {
+                        VStack {
+                            Text("Home")
+                            Image(systemName: "plus.circle.fill").font(.largeTitle).foregroundColor(.green)
+                        }
+                    }
+                    .tag(0)
 
 
-            UserProfileView(notLoggedIn: $notLoggedIn).environmentObject(env).tabItem {
-                VStack {
-                    Image("first")
-                    Text("My Account")
-                }
-            }.tag(2)
+                UserProfileView(notLoggedIn: $notLoggedIn).environmentObject(env).tabItem {
+                    VStack {
+                        Image("first")
+                        Text("My Account")
+                    }
+                }.tag(2)
+            }
+            
+            if(notLoggedIn) {
+                LoginPage(notLoggedIn: $notLoggedIn).environmentObject(self.env)
+            }
         }
     }
 }
