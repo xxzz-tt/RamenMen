@@ -10,8 +10,9 @@ import SwiftUI
 
 struct UserProfileView: View {
 //    @Binding var text: String
-    @EnvironmentObject var user: UserTest
+    @EnvironmentObject var env: Environment
     @State var selection = 0
+    @Binding var notLoggedIn: Bool
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -20,20 +21,28 @@ struct UserProfileView: View {
         return formatter
     }
     
-    func getRamen(id: Int) -> RamenTest {
+    func getRamen(id: String) -> Ramen {
         //to be modified
-        return RamenTest()
+        return env.ramenData.first{
+            (ramen: Ramen) -> Bool in
+            return ramen.id == id
+            }!
     }
 
     var body: some View {
         
         VStack {
-            Spacer()
             VStack {
-                EditButton().frame(width: 350,height: 10, alignment: .trailing).padding(.trailing)
+//                EditButton().frame(width: 350,height: 10, alignment: .trailing).padding(.trailing)
+                HStack {
+                    Spacer()
+                    Button(action: {self.notLoggedIn.toggle()}) {
+                        Text("Logout").foregroundColor(Color.blue)
+                    }
+                }
                 VStack {
                     ProfileImage(image: Image("profilepic")).padding(.horizontal)
-                    Text(user.username)
+                    Text(env.user.username)
     //                VStack {
     //                    TextField("User id", text: $text)
     //                    Divider()
@@ -43,7 +52,6 @@ struct UserProfileView: View {
     //                }
     //                .padding(.trailing)
                 }
-                Spacer()
                 Divider()
                 HStack {
                     Button(action: {self.selection = 0}) {
@@ -67,15 +75,17 @@ struct UserProfileView: View {
                 if self.selection == 1 {
                      ScrollView {
                         Text("No Item")
-                     }.frame(height: 365)
+                     }.frame(height: 310)
                 } else {
                     ScrollView {
-                        ForEach(user.reviews) { review in
+                        ForEach(self.env.getUserReviews(user: self.env.user)) { review in
                             HStack() {
                                 VStack(alignment: .leading) {
-                                    self.getRamen(id: review.ramen).image.resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
+                                Image(self.getRamen(id: review.ramenId).image).resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
 
-                                    Text(self.getRamen(id: review.ramen).name)
+                                    Text(self.getRamen(id: review.ramenId).brand).font(.system(size: 14))
+                                    Text(self.getRamen(id: review.ramenId).name).font(.system(size: 14))
+                                    Text(self.getRamen(id: review.ramenId).style).font(.system(size: 14))
                                 }.padding(.trailing).frame(width: 100.0)
 
                                 VStack(alignment: .leading) {
@@ -90,82 +100,18 @@ struct UserProfileView: View {
                             }
 
                         }
-                    }.frame(height: 365)
+                    }.frame(height: 310)
                 }
-    //            TabView(selection: $selection) {
-    //                ScrollView {
-    //                    ForEach(user.reviews) { review in
-    //                        HStack() {
-    //                            VStack(alignment: .leading) {
-    //                                self.getRamen(id: review.ramen).image.resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
-    //
-    //                                Text(self.getRamen(id: review.ramen).name)
-    //                            }.padding(.trailing).frame(width: 100.0)
-    //
-    //                            VStack(alignment: .leading) {
-    //
-    //                                VStack(alignment: .leading) {
-    //                                    StarRating(rating: .constant(review.star), tappable: false)
-    //                                Spacer()
-    //
-    //                                    Text(review.comments)
-    //                                    Spacer()
-    //                                }
-    //
-    //                                Text("\(review.dateOfReview, formatter: self.dateFormatter)")
-    //                            }.padding([.trailing, .top, .bottom]).frame(width: 150)
-    //                        }
-    //
-    //                    }
-    //                }.tabItem {
-    //                    VStack {
-    //                            Image("first").foregroundColor(.orange)
-    //                    Text("Past Entries")
-    //                        .font(.body).foregroundColor(.orange)
-    //                        }
-    //                }.tag(0)
-    //
-    //                ScrollView {
-    //                    Text("No Item")
-    //                }.tabItem {
-    //                    VStack(alignment: .leading) {
-    //                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-    //                            VStack {
-    //                                Image("first").foregroundColor(.red)
-    //                        Text("Wish List")
-    //                            .font(.body).foregroundColor(.red)
-    //                            }
-    //                        }
-    //                    }
-    //                }.tag(1)
-    //            }
-    //            ScrollView {
-    //            HStack {
-    //
-    ////                VStack(alignment: .leading) {
-    ////                    Button(action: {}) {
-    ////
-    ////                    }
-    ////                }
-    //
-    //                Spacer()
-    //            }.padding(.horizontal)
-    //                Divider()
-    //                VStack(alignment: .leading) {
-    //                    Text("Settings")
-    //                        .font(.title)
-    //                    Circle()
-    //                }.padding()
-    //        }
-                
             }
+            .padding()
         }
+        .padding(.top)
     }
 }
 
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        UserProfileView().environmentObject(user2)
+        UserProfileView(notLoggedIn: .constant(false)).environmentObject(Environment())
     }
 }
 

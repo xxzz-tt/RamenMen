@@ -12,9 +12,13 @@ struct RatingForm: View {
     @ObservedObject var review: Review
     @ObservedObject var ramen: Ramen
     @Binding var showRatingForm: Bool
+<<<<<<< HEAD
     @ObservedObject var reviewData = ReviewViewModel()
     @ObservedObject var ramenData = RamenViewModel()
 //    @Environment(\.presentationMode) var presentationMode
+=======
+    @EnvironmentObject var env: Environment
+>>>>>>> Added database functions
 
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -23,32 +27,8 @@ struct RatingForm: View {
         return formatter
     }
     
-//    init(review: ReviewTest, ramen: RamenTest, show: Binding<Bool>) {
-//        self.review = review
-//        self.ramen = ramen
-//        self.showRatingForm = show
-////        UINavigationBar.appearance().backgroundColor = UIColor(red: 226/255, green: 118/255, blue:69/255, alpha: 1)
-//    }
-    
-//    @State var consumedOn = Date()
-//    @State var deliciousness = 0
-//    @State var value = 0
-//    @State var spiciness = 0
-//    @State var comment: String = ""
-    
-//    init(review: Review, ramen: Ramen, showRatingForm: Binding<Bool>) {
-//        self.review = review
-//        self.ramen = ramen
-//        self._showRatingForm = showRatingForm
-//        reviewData.getData()
-//    }
-    
     func submit() {
-        reviewData.getData()
-        ramenData.getData()
-        reviewData.addReview(review)
-//        ramen.reviews.append(review)
-//        ramenData.ramens.first(where: {$0 == self.ramen.id}).reviews.append(review)
+        env.addReview(review: self.review)
         showRatingForm.toggle()
     }
     
@@ -114,6 +94,6 @@ struct RatingForm: View {
 
 struct RatingForm_Previews: PreviewProvider {
     static var previews: some View {
-        RatingForm(review: Review(id: "777", userId: "1", ramenId: "ahdh232", star: 1, value: 2, spicy: 3, comments: "no comments"), ramen: ramen1, showRatingForm: .constant(true))
+        RatingForm(review: Review(id: "777", userId: "1", ramenId: "ahdh232", star: 1, value: 2, spicy: 3, comments: "no comments"), ramen: ramen1, showRatingForm: .constant(true)).environmentObject(Environment())
     }
 }

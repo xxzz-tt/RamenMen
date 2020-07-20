@@ -46,6 +46,8 @@
 		5024215924A38EE500B0D3FB /* RamenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024215824A38EE500B0D3FB /* RamenTest.swift */; };
 		5024215B24A38EF900B0D3FB /* ReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024215A24A38EF900B0D3FB /* ReviewTest.swift */; };
 		50731F1B24922DE200F50C5D /* RatingForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50731F1A24922DE200F50C5D /* RatingForm.swift */; };
+		509DCAB924B85E78000AAA37 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DCAB824B85E78000AAA37 /* Environment.swift */; };
+		509DCABB24B85EA3000AAA37 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DCABA24B85EA3000AAA37 /* LoginPage.swift */; };
 		50A1492624A48E12004620FB /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A1492524A48E12004620FB /* EntryDetail.swift */; };
 		50A1492824A60A23004620FB /* RamenProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A1492724A60A23004620FB /* RamenProfile.swift */; };
 		8E03BA0A24C4A2B6005036CF /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA0924C4A2B6005036CF /* DateHeader.swift */; };
@@ -109,6 +111,8 @@
 		5024215824A38EE500B0D3FB /* RamenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenTest.swift; sourceTree = "<group>"; };
 		5024215A24A38EF900B0D3FB /* ReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTest.swift; sourceTree = "<group>"; };
 		50731F1A24922DE200F50C5D /* RatingForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingForm.swift; sourceTree = "<group>"; };
+		509DCAB824B85E78000AAA37 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		509DCABA24B85EA3000AAA37 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		50A1492524A48E12004620FB /* EntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetail.swift; sourceTree = "<group>"; };
 		50A1492724A60A23004620FB /* RamenProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamenProfile.swift; sourceTree = "<group>"; };
 		74D2609168509C9ED7EE11EA /* Pods-RamenMen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.release.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			children = (
 				3F341DBD2494F1C200D87C5B /* Models */,
 				50731F1A24922DE200F50C5D /* RatingForm.swift */,
+				509DCABA24B85EA3000AAA37 /* LoginPage.swift */,
 				3F12DF1F248A580C00C7590B /* AppDelegate.swift */,
 				3F12DF21248A580C00C7590B /* SceneDelegate.swift */,
 				50A1492524A48E12004620FB /* EntryDetail.swift */,
@@ -259,6 +264,7 @@
 				3F341DC22494F1E800D87C5B /* Review.swift */,
 				3F341DC42494F1F200D87C5B /* Data.swift */,
 				5024215624A38EDB00B0D3FB /* UserTest.swift */,
+				509DCAB824B85E78000AAA37 /* Environment.swift */,
 				5024215824A38EE500B0D3FB /* RamenTest.swift */,
 				5024215A24A38EF900B0D3FB /* ReviewTest.swift */,
 				3F855FCB24A5D78A00D57DA4 /* UserView.swift */,
@@ -480,6 +486,7 @@
 			files = (
 				3F341DBF2494F1D000D87C5B /* User.swift in Sources */,
 				3FDDAFA0248D0BF6006687B6 /* RamenProfileView.swift in Sources */,
+				509DCAB924B85E78000AAA37 /* Environment.swift in Sources */,
 				50A1492824A60A23004620FB /* RamenProfile.swift in Sources */,
 				3F85600F24C1F65A00D57DA4 /* SimpleDateBar.swift in Sources */,
 				3F855FD424A73A5D00D57DA4 /* PopularityChart.swift in Sources */,
@@ -510,6 +517,7 @@
 				3F341D9F2490F65B00D87C5B /* UserProfileView.swift in Sources */,
 				3FDDAF9C248D0BAE006687B6 /* RamenImage.swift in Sources */,
 				3FDDAF96248D0B13006687B6 /* HomepageView.swift in Sources */,
+				509DCABB24B85EA3000AAA37 /* LoginPage.swift in Sources */,
 				3F12DF24248A580C00C7590B /* ContentView.swift in Sources */,
 				3F341DC52494F1F200D87C5B /* Data.swift in Sources */,
 			);

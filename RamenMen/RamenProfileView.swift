@@ -49,6 +49,7 @@ struct ReviewWindow: View {
 
 struct RamenProfileView: View {
 //    var ramen: Ramen
+    @EnvironmentObject var env: Environment
     @ObservedObject var ramen: Ramen
     @State private var showReviewWindow = false
     @State var reviewWindow: AnyView = AnyView(EmptyView())
@@ -61,9 +62,12 @@ struct RamenProfileView: View {
         return formatter
     }
     
-    func getUser(userId: Int) -> UserTest {
-        //To be modified
-        UserTest()
+    func getUser(id: String) -> User {
+        //to be modified
+        return env.userData.first{
+            (user: User) -> Bool in
+            return user.id == id
+            }!
     }
     
     func getReviewWindow(review: Review, image: Image, username: String) -> AnyView {
@@ -86,7 +90,7 @@ struct RamenProfileView: View {
                             Text("Average stars:")
                                 .font(.body)
                                 .fontWeight(.semibold)
-                            Text(String(format: "%.2f", Float(ramen.star/ramen.reviews.count)) + "/5")
+                            Text(String(format: "%.2f", ramen.star) + "/5")
 //                                StarRating(rating: $ramen.star, tappable: false)
                         }
                     }.padding()
@@ -95,21 +99,21 @@ struct RamenProfileView: View {
                         Text("What others say")
                             .padding(.trailing, 120.0)
                         ScrollView() {
-                            ForEach(ramen.reviews, id: \.self) { review in
+                            ForEach(env.getRamenReviews(ramen: ramen)) { review in
                                 HStack() {
                                     VStack(alignment: .leading) {
 //                                        self.getUser(userId: review.user).image hardcoded as Auth is not set up yet
                                             
-                                    Image("profilepic").resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
+                                    Image(self.getUser(id: review.userId).image).resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
                                         
 //                                    Text(self.getUser(userId: review.user).username)
-                                        Text("mehaha")
+                                        Text(self.getUser(id: review.userId).username)
                                     }.padding(.trailing).frame(width: 100.0)
                                                                 
                                     VStack(alignment: .leading) {
                                         
                                         VStack(alignment: .leading) {
-                                            StarRating(rating: .constant(4), tappable: false)
+                                            StarRating(rating: .constant(review.star), tappable: false)
                                         Spacer()
                                         
 //                                    Text(review.comments)
@@ -121,9 +125,9 @@ struct RamenProfileView: View {
                                     }.padding([.trailing, .top, .bottom]).frame(width: 150)
                                 }.onTapGesture {
                                     self.showReviewWindow = true
-                                    self.reviewWindow = self.getReviewWindow(review: review1, image:
+                                    self.reviewWindow = self.getReviewWindow(review: review, image:
 //                                        self.getUser(userId: review.user).image,
-                                        Image("profilepic"), username: "idk")
+                                        Image(self.getUser(id: review.userId).image), username: self.getUser(id: review.userId).username)
 //                                        self.getUser(userId: review.user).username)
                                 }
                             }
@@ -163,6 +167,6 @@ struct RamenProfileView: View {
 
 struct RamenProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        RamenProfileView(ramen: ramen1, showRatingForm: .constant(false))
+        RamenProfileView(ramen: Environment().ramenData[0], showRatingForm: .constant(false)).environmentObject(Environment())
     }
 }

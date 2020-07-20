@@ -16,13 +16,7 @@ struct SearchBar: View {
     @State private var cancel: Bool = false
     @State private var isEditing = false
     @State private var shouldReturn = false
-    @ObservedObject var ramenModel = RamenViewModel()
-    @EnvironmentObject var user: User
-
-    init() {
-//        ramenModel.getCategory("searchable name")
-        ramenModel.getData()
-    }
+    @EnvironmentObject var env: Environment
 
     var body: some View {
         NavigationView {
@@ -62,8 +56,8 @@ struct SearchBar: View {
                 if isEditing {
 //                    NavigationView {
                     Text("Search Result")
-                        List(ramenModel.ramens) { ramen in
-                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.user)) {
+                    List(env.ramenData) { ramen in
+                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.env)) {
                             RamenRow(ramen: ramen)
                         }
                         }
@@ -73,11 +67,11 @@ struct SearchBar: View {
                 } else {
                     VStack(alignment: .leading) {
 //                        NavigationView {
-                            ForEach(ramenModel.ramens) { ramen in
-                                NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.user)) {
+                        ForEach(env.ramenData) { ramen in
+                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.env)) {
                             HStack {
                                 Text(ramen.name) .frame(width: 200.0, height: 10.0).padding(.trailing, 16.0)
-                            StarRating(rating: .constant(ramen.star)).padding(.trailing)
+                                StarRating(rating: .constant(Int(ramen.star))).padding(.trailing)
                             }.padding(.bottom)
                             }
                             }
@@ -108,7 +102,6 @@ struct SearchBar: View {
                 }
             .navigationBarTitle("Back").navigationBarHidden(true)
                 .padding(.horizontal)
-            Spacer()
         }
     }
 }
@@ -116,7 +109,7 @@ struct SearchBar: View {
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar().environmentObject(userA)
+        SearchBar().environmentObject(Environment())
     }
 }
 

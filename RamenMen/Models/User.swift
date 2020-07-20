@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 class User: ObservableObject, Identifiable {
     var id: String = ""
     @Published var username: String = ""
@@ -26,7 +24,10 @@ class User: ObservableObject, Identifiable {
     }
     
     init(){}
-        
+    
+    func addReview(review: Review) {
+        self.reviews.append(review.id)
+    }
 }
 
 //extension User {

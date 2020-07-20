@@ -9,24 +9,18 @@
 import SwiftUI
 
 struct PopularityChart: View {
-    @EnvironmentObject var user: User
-    @ObservedObject var ramenModel = RamenViewModel()
+    @EnvironmentObject var env: Environment
 
-    init() {
-//        ramenModel.getCategory("name")
-        ramenModel.getData()
-    }
-    
     var body: some View {
         NavigationView {
         VStack(alignment: .leading) {
-            List(ramenModel.ramens) { ramen in
-                NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.user)) {
+            List(env.ramenData) { ramen in
+                NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.env)) {
                 HStack {
                     Text(ramen.name) .frame(width: 200.0, height: 10.0)
 //                    RamenIcon(image: Image(ramen.image))
                         .padding(.trailing, 12.0)
-                    StarRating(rating: .constant(ramen.star))
+                    StarRating(rating: .constant(Int(ramen.star)))
                         .padding(.trailing)
                 }.padding(.bottom)
                 }
@@ -54,6 +48,7 @@ struct PopularityChart: View {
                 }.padding()
             }
             }.navigationBarTitle("Rating of the week")
+            .navigationBarHidden(true)
         }
 //        List(ramenModel.ramens) { ramen in
 //            HStack {
@@ -68,6 +63,6 @@ struct PopularityChart: View {
 
 struct PopularityChart_Previews: PreviewProvider {
     static var previews: some View {
-        PopularityChart()
+        PopularityChart().environmentObject(Environment())
     }
 }

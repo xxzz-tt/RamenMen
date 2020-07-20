@@ -10,7 +10,7 @@ import SwiftUI
 
 struct RamenProfile: View {
 //    var ramen: Ramen
-    @EnvironmentObject var user: User
+    @EnvironmentObject var env: Environment
     @ObservedObject var ramen: Ramen
     @State private var showReviewWindow = false
     @State var showRatingForm = false
@@ -30,13 +30,13 @@ struct RamenProfile: View {
     var body: some View {
         RamenProfileView(ramen: ramen, showRatingForm:
             self.$showRatingForm).sheet(isPresented: self.$showRatingForm) {
-                RatingForm(review: Review(id: "999", userId: self.user.id, ramenId: self.ramen.id), ramen: self.ramen, showRatingForm: self.$showRatingForm)
+                RatingForm(review: Review(id: String(self.env.nextId), userId: self.env.user.id, ramenId: self.ramen.id), ramen: self.ramen, showRatingForm: self.$showRatingForm).environmentObject(self.env)
         }
     }
 }
 
 struct RamenProfile_Previews: PreviewProvider {
     static var previews: some View {
-        RamenProfile(ramen: ramen1).environmentObject(userA)
+        RamenProfile(ramen: ramen1).environmentObject(Environment())
     }
 }

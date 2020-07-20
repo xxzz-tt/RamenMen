@@ -15,8 +15,9 @@ class Ramen: ObservableObject, Identifiable {
     var style: String = ""
     var image: String = ""
     var searchableName: String = ""
-    @Published var star: Int = 0
-    var spiciness: Int = 0
+    @Published var star: Float = 0
+    var spiciness: Float = 0
+    var value: Float = 0
     @Published var reviews: [String] = []
 
     enum Style: String, CaseIterable, Codable {
@@ -26,7 +27,7 @@ class Ramen: ObservableObject, Identifiable {
         case bowl = "Bowl"
     }
     
-    init(id: String, brand: String, name: String, style: String, image: String, searchableName: String, star: Int, spiciness: Int, reviews: [String]) {
+    init(id: String, brand: String, name: String, style: String, image: String, searchableName: String, star: Float, spiciness: Float, reviews: [String]) {
         self.id = id
         self.brand = brand
         self.name = name
@@ -38,6 +39,29 @@ class Ramen: ObservableObject, Identifiable {
         self.star = star
 
     }
+    
+    init(id: String, brand: String, name: String, style: String, image: String, searchableName: String, star: Float, spiciness: Float, value: Float, reviews: [String]) {
+        self.id = id
+        self.brand = brand
+        self.name = name
+        self.style = style
+        self.image = image
+        self.reviews = reviews
+        self.searchableName = brand + name + style
+        self.spiciness = spiciness
+        self.star = star
+        self.value = value
+
+    }
+    private func math(oldbase: Float, oldstar: Float, star: Float) -> Float {
+        return (oldbase * oldstar + star) / (oldbase + 1)
+    }
+    func addReview(review: Review) {
+        self.star = math(oldbase: Float(self.reviews.count), oldstar: self.star, star: Float(review.star))
+        self.value = math(oldbase: Float(self.reviews.count), oldstar: self.value, star: Float(review.value))
+        self.spiciness = math(oldbase: Float(self.reviews.count), oldstar: self.spiciness, star: Float(review.spiciness))
+        self.reviews.append(review.id)
+    }
 
     init(){}
 }
@@ -47,3 +71,9 @@ class Ramen: ObservableObject, Identifiable {
 //        ImageStore.shared.image(name: image)
 //    }
 //}
+
+struct Ramen_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}
