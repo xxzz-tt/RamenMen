@@ -11,52 +11,6 @@
 //import FirebaseFirestore
 //import Combine
 //
-<<<<<<< HEAD
-//  Created by XuanZhi on 26/6/20.
-//  Copyright © 2020 Ramen Men. All rights reserved.
-//
-
-import SwiftUI
-import Foundation
-import FirebaseFirestore
-import Combine
-
-class ReviewViewModel: ObservableObject {
-    @Published var reviews = [Review]()
-    @Published var holding = [String]()
-    
-    var db = Firestore.firestore()
-    
-    func getData() {
-        db.collection("reviews").addSnapshotListener {
-            (query, err) in
-            DispatchQueue.main.async {
-                if err != nil {
-                    print((err?.localizedDescription)!)
-                } else {
-                    print("no errors")
-                    for i in query!.documentChanges {
-                        
-                        let dateOfConsumption = i.document.get("date of consumption") as? Timestamp ?? Timestamp()
-                        let dateOfReview = i.document.get("date of review") as? Timestamp ?? Timestamp()
-                        let timeOfReview = i.document.get("time of review") as? Int ?? -1
-                        let userId = i.document.get("user id") as? String ?? ""
-                        let ramenId = i.document.get("ramen id") as? String ?? ""
-                        let star = i.document.get("star") as? Int ?? -1
-                        let value = i.document.get("value") as? Int ?? 0
-                        let spiciness = i.document.get("spiciness") as? Int ?? 0
-                        let comments = i.document.get("comments") as? String ?? ""
-                        let id = i.document.documentID
-                        
-                        self.reviews.append(Review(id: id, dateOfConsumption: dateOfConsumption.dateValue(), dateOfReview: dateOfReview.dateValue(), timeOfReview: timeOfReview, userId: userId, ramenId: ramenId, star: star, value: value, spiciness: spiciness, comments: comments))
-                    }
-                }
-            }
-        }
-    }
-    
-//    func getCategory(_ catName: T){
-=======
 //class ReviewViewModel<T>: ObservableObject {
 //    @Published var reviews = [Review]()
 //    @Published var holding = [T]()
@@ -64,7 +18,6 @@ class ReviewViewModel: ObservableObject {
 //    var db = Firestore.firestore()
 //    
 //    func getData() {
->>>>>>> Added database functions
 //        db.collection("reviews").addSnapshotListener {
 //            (query, err) in
 //            DispatchQueue.main.async {
@@ -198,35 +151,5 @@ class ReviewViewModel: ObservableObject {
 //    static var previews: some View {
 //        ReviewView()
 //    }
-<<<<<<< HEAD
-}
-
-struct ReviewView: View {
-    @ObservedObject var reviewModel = ReviewViewModel()
-
-    init() {
-        reviewModel.getData()
-    }
-    var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .none
-        return formatter
-    }
-    
-    var body: some View {
-//        Text("\(reviewModel.reviews.count)")
-        List(reviewModel.reviews) { review in
-            Text("\(review.dateOfReview, formatter: self.dateFormatter)")
-        }
-    }
-}
-
-struct ReviewView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReviewView()
-    }
-}
-=======
 //}
->>>>>>> Added database functions
+////

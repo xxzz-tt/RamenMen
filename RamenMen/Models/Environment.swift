@@ -19,77 +19,77 @@ class Environment: ObservableObject {
     @Published var nextId: Int = 10
     
     //database functions (has errors! comment out if needed)
-    var db = Firestore.firestore()
-
-    func getRamenData() {
-        db.collection("ramen").addSnapshotListener {
-            (query, err) in
-            DispatchQueue.main.async {
-                if err != nil {
-                    print((err?.localizedDescription)!)
-                } else {
-                    print("no errors")
-                    for i in query!.documentChanges {
-                        let name = i.document.get("name") as? String ?? ""
-                        let style = i.document.get("style") as? String ?? ""
-                        let brand = i.document.get("brand") as? String ?? ""
-                        let image = i.document.get("image") as? String ?? ""
-                        let searchableName = i.document.get("searchable name") as? String ?? ""
-                        let star = i.document.get("average stars") as? Int ?? 0
-                        let spiciness = i.document.get("spiciness") as? Int ?? 0
-                        let reviews = i.document.get("reviews") as? [String] ?? []
-                        let id = i.document.documentID
-
-                        self.ramenData.append(Ramen(id: id, brand: brand, name: name, style: style, image: image, searchableName: searchableName, star: Float(star), spiciness: Float(spiciness), reviews: reviews))
-                    }
-                }
-            }
-        }
-    }
-    
-    func getUserData() {
-        db.collection("users").document("CfKgJyx5N3jt8kMkQFUd").addSnapshotListener {
-            (query, err) in
-            DispatchQueue.main.async {
-                if err != nil {
-                    print((err?.localizedDescription)!)
-                } else {
-                    let id = query!.documentID
-                    let anUser = query!.data()
-
-                    self.user = User(id: id, username: anUser!["username"] as! String, password: anUser?["password"] as! String, image: anUser?["image"] as! String, reviews:anUser!["reviews"] as! [String])
-                }
-            }
-        }
-    }
-    
-    func getData() {
-        db.collection("reviews").addSnapshotListener {
-            (query, err) in
-            DispatchQueue.main.async {
-                if err != nil {
-                    print((err?.localizedDescription)!)
-                } else {
-                    print("no errors")
-                    for i in query!.documentChanges {
-
-                        let dateOfConsumption = i.document.get("date of consumption") as? Timestamp ?? Timestamp()
-                        let dateOfReview = i.document.get("date of review") as? Timestamp ?? Timestamp()
-                        let timeOfReview = i.document.get("time of review") as? Int ?? -1
-                        let userId = i.document.get("user id") as? String ?? ""
-                        let ramenId = i.document.get("ramen id") as? String ?? ""
-                        let star = i.document.get("star") as? Int ?? -1
-                        let value = i.document.get("value") as? Int ?? 0
-                        let spiciness = i.document.get("spiciness") as? Int ?? 0
-                        let comments = i.document.get("comments") as? String ?? ""
-                        let id = i.document.documentID
-
-                        self.reviewData.append(Review(id: id, dateOfConsumption: dateOfConsumption.dateValue(), dateOfReview: dateOfReview.dateValue(), timeOfReview: timeOfReview, userId: userId, ramenId: ramenId, star: star, value: value, spiciness: spiciness, comments: comments))
-                    }
-                }
-            }
-        }
-    }
+//    var db = Firestore.firestore()
+//
+//    func getRamenData() {
+//        db.collection("ramen").addSnapshotListener {
+//            (query, err) in
+//            DispatchQueue.main.async {
+//                if err != nil {
+//                    print((err?.localizedDescription)!)
+//                } else {
+//                    print("no errors")
+//                    for i in query!.documentChanges {
+//                        let name = i.document.get("name") as? String ?? ""
+//                        let style = i.document.get("style") as? String ?? ""
+//                        let brand = i.document.get("brand") as? String ?? ""
+//                        let image = i.document.get("image") as? String ?? ""
+//                        let searchableName = i.document.get("searchable name") as? String ?? ""
+//                        let star = i.document.get("average stars") as? Int ?? 0
+//                        let spiciness = i.document.get("spiciness") as? Int ?? 0
+//                        let reviews = i.document.get("reviews") as? [String] ?? []
+//                        let id = i.document.documentID
+//
+//                        self.ramenData.append(Ramen(id: id, brand: brand, name: name, style: style, image: image, searchableName: searchableName, star: Float(star), spiciness: Float(spiciness), reviews: reviews))
+//                    }
+//                }
+//            }
+//        }
+//    }
+//    
+//    func getUserData() {
+//        db.collection("users").document("CfKgJyx5N3jt8kMkQFUd").addSnapshotListener {
+//            (query, err) in
+//            DispatchQueue.main.async {
+//                if err != nil {
+//                    print((err?.localizedDescription)!)
+//                } else {
+//                    let id = query!.documentID
+//                    let anUser = query!.data()
+//
+//                    self.user = User(id: id, username: anUser!["username"] as! String, password: anUser?["password"] as! String, image: anUser?["image"] as! String, reviews:anUser!["reviews"] as! [String])
+//                }
+//            }
+//        }
+//    }
+//    
+//    func getData() {
+//        db.collection("reviews").addSnapshotListener {
+//            (query, err) in
+//            DispatchQueue.main.async {
+//                if err != nil {
+//                    print((err?.localizedDescription)!)
+//                } else {
+//                    print("no errors")
+//                    for i in query!.documentChanges {
+//
+//                        let dateOfConsumption = i.document.get("date of consumption") as? Timestamp ?? Timestamp()
+//                        let dateOfReview = i.document.get("date of review") as? Timestamp ?? Timestamp()
+//                        let timeOfReview = i.document.get("time of review") as? Int ?? -1
+//                        let userId = i.document.get("user id") as? String ?? ""
+//                        let ramenId = i.document.get("ramen id") as? String ?? ""
+//                        let star = i.document.get("star") as? Int ?? -1
+//                        let value = i.document.get("value") as? Int ?? 0
+//                        let spiciness = i.document.get("spiciness") as? Int ?? 0
+//                        let comments = i.document.get("comments") as? String ?? ""
+//                        let id = i.document.documentID
+//
+//                        self.reviewData.append(Review(id: id, dateOfConsumption: dateOfConsumption.dateValue(), dateOfReview: dateOfReview.dateValue(), timeOfReview: timeOfReview, userId: userId, ramenId: ramenId, star: star, value: value, spiciness: spiciness, comments: comments))
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     //local functions
     func getUserReviews(user: User) -> [Review] {

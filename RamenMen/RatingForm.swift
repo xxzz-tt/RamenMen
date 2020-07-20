@@ -12,13 +12,7 @@ struct RatingForm: View {
     @ObservedObject var review: Review
     @ObservedObject var ramen: Ramen
     @Binding var showRatingForm: Bool
-<<<<<<< HEAD
-    @ObservedObject var reviewData = ReviewViewModel()
-    @ObservedObject var ramenData = RamenViewModel()
-//    @Environment(\.presentationMode) var presentationMode
-=======
     @EnvironmentObject var env: Environment
->>>>>>> Added database functions
 
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
