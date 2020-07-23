@@ -41,7 +41,7 @@ struct SearchBar: View {
                 }.padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
                 .foregroundColor(.secondary)
                 .background(Color(.secondarySystemBackground))
-                .cornerRadius(15.0)
+                        .cornerRadius(15.0)
                 if cancel  {
                     Button("Cancel") {
                     UIApplication.shared.endEditing(true)
@@ -52,7 +52,7 @@ struct SearchBar: View {
                     .transition(.move(edge: .trailing))
                     .animation(.default)
                 }
-            }
+            }.frame(width: 340, height: 60, alignment: .center)
                 if isEditing {
 //                    NavigationView {
                     Text("Search Result")

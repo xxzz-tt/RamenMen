@@ -52,6 +52,11 @@
 		50A1492824A60A23004620FB /* RamenProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A1492724A60A23004620FB /* RamenProfile.swift */; };
 		8E03BA0A24C4A2B6005036CF /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA0924C4A2B6005036CF /* DateHeader.swift */; };
 		8E03BA0C24C4A611005036CF /* CalendarUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA0B24C4A611005036CF /* CalendarUI.swift */; };
+		8E03BA3B24C800CE005036CF /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA3A24C800CE005036CF /* SessionStore.swift */; };
+		8E03BA3F24C83D22005036CF /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA3E24C83D22005036CF /* AuthenticationState.swift */; };
+		8E03BA4124C83E26005036CF /* AuthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA4024C83E26005036CF /* AuthenticationType.swift */; };
+		8E03BA4324C8560F005036CF /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA4224C8560F005036CF /* LoginForm.swift */; };
+		8E03BA4524C8A04F005036CF /* HomeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA4424C8A04F005036CF /* HomeTab.swift */; };
 		CE7C46361DB7E3F8EDD53258 /* Pods_RamenMen_RamenMenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA93E5CCC46B50B531A58FA5 /* Pods_RamenMen_RamenMenUITests.framework */; };
 		D4327D8D228E8694DAEE9547 /* Pods_RamenMen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4F572860058D8A3B8BABE8 /* Pods_RamenMen.framework */; };
 /* End PBXBuildFile section */
@@ -119,6 +124,11 @@
 		7C993E9E44B7BDE072C9A3AA /* Pods-RamenMen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.debug.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.debug.xcconfig"; sourceTree = "<group>"; };
 		8E03BA0924C4A2B6005036CF /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		8E03BA0B24C4A611005036CF /* CalendarUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUI.swift; sourceTree = "<group>"; };
+		8E03BA3A24C800CE005036CF /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		8E03BA3E24C83D22005036CF /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
+		8E03BA4024C83E26005036CF /* AuthenticationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationType.swift; sourceTree = "<group>"; };
+		8E03BA4224C8560F005036CF /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
+		8E03BA4424C8A04F005036CF /* HomeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTab.swift; sourceTree = "<group>"; };
 		BE4F572860058D8A3B8BABE8 /* Pods_RamenMen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenMen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA93E5CCC46B50B531A58FA5 /* Pods_RamenMen_RamenMenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenMen_RamenMenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C96E0337A8E7D001CC370A /* Pods-RamenMen-RamenMenUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen-RamenMenUITests.release.xcconfig"; path = "Target Support Files/Pods-RamenMen-RamenMenUITests/Pods-RamenMen-RamenMenUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +181,8 @@
 				3F341DBD2494F1C200D87C5B /* Models */,
 				50731F1A24922DE200F50C5D /* RatingForm.swift */,
 				509DCABA24B85EA3000AAA37 /* LoginPage.swift */,
+				8E03BA4224C8560F005036CF /* LoginForm.swift */,
+				8E03BA4424C8A04F005036CF /* HomeTab.swift */,
 				3F12DF1F248A580C00C7590B /* AppDelegate.swift */,
 				3F12DF21248A580C00C7590B /* SceneDelegate.swift */,
 				50A1492524A48E12004620FB /* EntryDetail.swift */,
@@ -263,6 +275,9 @@
 				3F341DC02494F1DA00D87C5B /* Ramen.swift */,
 				3F341DC22494F1E800D87C5B /* Review.swift */,
 				3F341DC42494F1F200D87C5B /* Data.swift */,
+				8E03BA3A24C800CE005036CF /* SessionStore.swift */,
+				8E03BA3E24C83D22005036CF /* AuthenticationState.swift */,
+				8E03BA4024C83E26005036CF /* AuthenticationType.swift */,
 				5024215624A38EDB00B0D3FB /* UserTest.swift */,
 				509DCAB824B85E78000AAA37 /* Environment.swift */,
 				5024215824A38EE500B0D3FB /* RamenTest.swift */,
@@ -493,9 +508,13 @@
 				3FDDAF9E248D0BD4006687B6 /* StarRating.swift in Sources */,
 				3F855FCC24A5D78A00D57DA4 /* UserView.swift in Sources */,
 				3F85600D24C1F41700D57DA4 /* ProgressBar.swift in Sources */,
+				8E03BA3B24C800CE005036CF /* SessionStore.swift in Sources */,
+				8E03BA4324C8560F005036CF /* LoginForm.swift in Sources */,
 				3F855FD024A5FF9600D57DA4 /* RamenRow.swift in Sources */,
+				8E03BA4524C8A04F005036CF /* HomeTab.swift in Sources */,
 				8E03BA0A24C4A2B6005036CF /* DateHeader.swift in Sources */,
 				5024215724A38EDB00B0D3FB /* UserTest.swift in Sources */,
+				8E03BA4124C83E26005036CF /* AuthenticationType.swift in Sources */,
 				3F341DC12494F1DA00D87C5B /* Ramen.swift in Sources */,
 				3FE3C20324A10B4300E7E709 /* RamenView.swift in Sources */,
 				3F85601124C1F9EC00D57DA4 /* Tracker.swift in Sources */,
@@ -505,6 +524,7 @@
 				50A1492624A48E12004620FB /* EntryDetail.swift in Sources */,
 				5024215B24A38EF900B0D3FB /* ReviewTest.swift in Sources */,
 				3F855FCE24A5E33C00D57DA4 /* ReviewView.swift in Sources */,
+				8E03BA3F24C83D22005036CF /* AuthenticationState.swift in Sources */,
 				3F341D9D2490F60A00D87C5B /* ProfileImage.swift in Sources */,
 				50731F1B24922DE200F50C5D /* RatingForm.swift in Sources */,
 				3F855FE024AB795000D57DA4 /* Test.swift in Sources */,
