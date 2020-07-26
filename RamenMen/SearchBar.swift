@@ -58,11 +58,14 @@ struct SearchBar: View {
                 if isEditing {
 //                    NavigationView {
 //                    Text("Search Result")
-                    List(authState.ramens) { ramen in
-//                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.env)) {
+                    List(self.authState.ramens) { ramen in
+                        NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.authState)) {
 //                            RamenRow(ramen: ramen)
                         Text(ramen.name)
+//                        ForEach(self.authState.searchNames.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) {
+//                            searchText in Text(searchText)
 //                        }
+                        }
                         }
 //                    }
 //                    .navigationBarTitle("Search Results")
@@ -70,14 +73,14 @@ struct SearchBar: View {
                 } else {
                     VStack(alignment: .leading) {
 //                        NavigationView {
-//                        ForEach(env.ramenData) { ramen in
-//                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.env)) {
-//                            HStack {
-//                                Text(ramen.name) .frame(width: 200.0, height: 10.0).padding(.trailing, 16.0)
-//                                StarRating(rating: .constant(Int(ramen.star))).padding(.trailing)
-//                            }.padding(.bottom)
-//                            }
-//                            }
+                        ForEach(authState.ramens) { ramen in
+                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.authState)) {
+                            HStack {
+                                Text(ramen.name) .frame(width: 200.0, height: 10.0).padding(.trailing, 16.0)
+                                StarRating(rating: .constant(Int(ramen.star))).padding(.trailing)
+                            }.padding(.bottom)
+                            }
+                            }
 //                        }.navigationBarTitle("Reviews of the week")
                         Spacer()
                         Text("Recommended for You").bold()

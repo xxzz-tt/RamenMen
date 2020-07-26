@@ -139,9 +139,7 @@ struct RamenProfileView: View {
                                     }.padding([.trailing, .top, .bottom]).frame(width: 150)
                         }.onTapGesture {
                             self.showReviewWindow = true
-                            self.reviewWindow = self.getReviewWindow(review: review, image:
-//                                        self.getUser(userId: review.user).image,
-                            Image(self.getUser(id: review.userId).image), username: self.getUser(id: review.userId).username)
+                            self.reviewWindow = self.getReviewWindow(review: review, image: Image(self.user.image), username: self.getUser(id: review.userId).username)
 //                                        self.getUser(userId: review.user).username)
                                 }
                             }

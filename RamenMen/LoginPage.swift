@@ -38,7 +38,7 @@ struct LoginPage: View {
 struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {
 //        LoginPage(notLoggedIn: .constant(true)).environmentObject(Environment())
-        LoginPage()
+        LoginPage().environmentObject(AuthenticationState.shared)
     }
 }
 

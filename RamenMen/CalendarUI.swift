@@ -10,7 +10,12 @@ import SwiftUI
 
 struct CalendarUI: View {
     var body: some View {
-        CalController()
+        VStack {
+            CalController()
+            VStack {
+                Text("Past Consumption")
+            }
+        }
     }
 }
 

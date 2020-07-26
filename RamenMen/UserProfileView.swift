@@ -11,8 +11,13 @@ import SwiftUI
 struct UserProfileView: View {
 //    @Binding var text: String
     @EnvironmentObject var env: Environment
+    @EnvironmentObject var authState: AuthenticationState
+
     @State var selection = 0
     @Binding var notLoggedIn: Bool
+    
+    @State var reviews = [Review]()
+    @State var ramen = Ramen()
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -33,16 +38,18 @@ struct UserProfileView: View {
         
         VStack {
             VStack {
-//                EditButton().frame(width: 350,height: 10, alignment: .trailing).padding(.trailing)
                 HStack {
                     Spacer()
-                    Button(action: {self.notLoggedIn.toggle()}) {
+//                    Button(action: {self.notLoggedIn.toggle()}) {
+//                        Text("Logout").foregroundColor(Color.blue)
+//                    }
+                    Button(action: {self.authState.signout()}) {
                         Text("Logout").foregroundColor(Color.blue)
                     }
                 }
                 VStack {
                     ProfileImage(image: Image("profilepic")).padding(.horizontal)
-                    Text(env.user.username)
+                    Text(self.authState.user.username)
     //                VStack {
     //                    TextField("User id", text: $text)
     //                    Divider()
@@ -78,14 +85,19 @@ struct UserProfileView: View {
                      }.frame(height: 310)
                 } else {
                     ScrollView {
-                        ForEach(self.env.getUserReviews(user: self.env.user)) { review in
+                        ForEach(self.authState.myReviews) { review in
                             HStack() {
                                 VStack(alignment: .leading) {
-                                Image(self.getRamen(id: review.ramenId).image).resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
+                                Image(self.ramen.image).resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
 
-                                    Text(self.getRamen(id: review.ramenId).brand).font(.system(size: 14))
-                                    Text(self.getRamen(id: review.ramenId).name).font(.system(size: 14))
-                                    Text(self.getRamen(id: review.ramenId).style).font(.system(size: 14))
+                                    Text(self.ramen.brand).font(.system(size: 14))
+                                    Text(self.ramen.name).font(.system(size: 14))
+                                    Text(self.ramen.style).font(.system(size: 14))
+                                }.onAppear{
+                                    self.authState.getRamenUser(review: review) {
+                                        result in
+                                        self.ramen = result
+                                    }
                                 }.padding(.trailing).frame(width: 100.0)
 
                                 VStack(alignment: .leading) {
@@ -111,7 +123,7 @@ struct UserProfileView: View {
 
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        UserProfileView(notLoggedIn: .constant(false)).environmentObject(Environment())
+        UserProfileView(notLoggedIn: .constant(false)).environmentObject(AuthenticationState.shared)
     }
 }
 

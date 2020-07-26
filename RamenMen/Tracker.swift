@@ -29,7 +29,7 @@ struct Tracker: View {
                     .padding([.leading, .bottom, .trailing], 30.0)
                     
                     NavigationLink(destination: CalendarUI()) {
-                    SimpleDateBar()
+                        SimpleDateBar()
                     }
                     VStack(alignment: .leading) {
                     Text("\nHealth Recommendations for You").font(.system(size: 25)).fontWeight(.semibold).padding(.bottom)

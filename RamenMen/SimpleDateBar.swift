@@ -18,7 +18,7 @@ struct SimpleDateBar: View {
     }
     var body: some View {
         VStack {
-            Text(" \(Date(), formatter: dateFormatter)").font(.system(size: 30)).fontWeight(.bold).padding()
+            Text(" \(Date(), formatter: dateFormatter)").font(.system(size: 20)).fontWeight(.bold).padding()
             }.background(Color.blue.opacity(0.4)).cornerRadius(50)
     }
 }

@@ -23,7 +23,8 @@ struct RatingForm: View {
     }
     
     func submit() {
-        env.addReview(review: self.review)
+//        env.addReview(review: self.review)
+        authState.addAReview(review: self.review)
         showRatingForm.toggle()
     }
     

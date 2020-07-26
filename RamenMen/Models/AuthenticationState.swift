@@ -22,6 +22,9 @@ class AuthenticationState: NSObject, ObservableObject {
     
     @Published var ramens = [Ramen]()
     @Published var ramenReviews = [Review]()
+    @Published var user = RamenMen.User()
+    @Published var myReviews = [Review]()
+    @Published var searchNames = [String]()
     
     var db = Firestore.firestore()
     
@@ -114,6 +117,53 @@ class AuthenticationState: NSObject, ObservableObject {
         }
     }
     
+    func getRamenUser(review: Review, completion: @escaping(Ramen) ->()) {
+        let id = review.ramenId
+        var ramen: Ramen = Ramen()
+        let group = DispatchGroup()
+        group.enter()
+        db.collection("users").document(id).getDocument {
+            (query, err) in
+            DispatchQueue.main.async {
+                if err != nil {
+                    print("hello")
+                } else {
+
+                    let name = query!.get("name") as? String ?? ""
+                    let style = query!.get("style") as? String ?? ""
+                    let brand = query!.get("brand") as? String ?? ""
+                    let image = query!.get("image") as? String ?? ""
+                    let searchableName = query!.get("searchable name") as? String ?? ""
+                    let star = query!.get("average stars") as? Float ?? 0
+                    let spiciness = query!.get("spiciness") as? Float ?? 0
+                    let reviews = query!.get("reviews") as? [String] ?? []
+                    ramen = Ramen(id: id, brand: brand, name: name, style: style, image: image, searchableName: searchableName, star: star, spiciness: spiciness, reviews: reviews)
+                }
+            }
+            group.leave()
+        }
+        group.notify(queue: .main) {
+            completion(ramen)
+        }
+    }
+    
+    func getCategory() {
+        db.collection("ramen").addSnapshotListener {
+            (query, err) in
+            DispatchQueue.main.async {
+                if err != nil {
+                    print((err?.localizedDescription)!)
+                } else {
+                    print("no errors")
+                    for i in query!.documentChanges {
+                        let name = i.document.get("searchable name") as! String
+        
+                        self.searchNames.append(name)
+                    }
+                }
+            }
+        }
+    }
     func addAReview(review: Review) {
         let id = UUID.init().uuidString
         let docData: [String: Any] = [
@@ -138,15 +188,79 @@ class AuthenticationState: NSObject, ObservableObject {
 
         // update reviews array under ramen
         
-//        db.collection("ramen").document(review.ramenId).updateData([
-//            "reviews": FieldValue.arrayUnion(["id"])
-//        ])
+        db.collection("ramen").document(review.ramenId).updateData([
+            AnyHashable("reviews"): FieldValue.arrayUnion([id])
+        ]){ err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
 
         // update user
-        let temp = db.collection("users").document("IV9vtchAAcKykGmUXc93")
-        temp.updateData([
-            "reviews": FieldValue.arrayUnion([id])
-        ])
+        db.collection("users").document(review.userId).updateData([
+            AnyHashable("reviews"): FieldValue.arrayUnion([id])
+        ]){ err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+    
+    func getMe() {
+        let userID = self.loggedInUser?.uid
+        
+        if (userID != nil) {
+            db.collection("users").document(userID!).addSnapshotListener {
+                (query, err) in
+                DispatchQueue.main.async {
+                    if err != nil {
+                        print((err?.localizedDescription)!)
+                    } else {
+                        print("no errors")
+                        let username = query!.get("username") as? String ?? ""
+                        let password = query!.get("password") as? String ?? ""
+                        let image = query!.get("image") as? String ?? ""
+                        let reviews = query!.get("reviews") as? [String] ?? []
+                        self.user = User(id: userID!, username: username, password: password, image: image, reviews: reviews)
+                    }
+                }
+            }
+        }
+        
+    }
+    func getMyReviews() {
+        if (self.loggedInUser?.uid != nil) {
+            self.getMe()
+            let reviewID = user.reviews
+//            var reviews: [Review] = [Review]()
+//            let group = DispatchGroup()
+            for i in reviewID {
+//                group.enter()
+                db.collection("reviews").document(i).addSnapshotListener {
+                (query, err) in
+            //                DispatchQueue.main.async {
+                    print("hello", i)
+                    if err != nil {
+                        print("hello")
+                    } else {
+                        let dateOfConsumption = query!.get("date of consumption") as? Timestamp ?? Timestamp()
+                        let dateOfReview = query!.get("date of review") as? Timestamp ?? Timestamp()
+                        let timeOfReview = query!.get("time of review") as? Int ?? -1
+                        let userId = query!.get("user id") as? String ?? ""
+                        let ramenId = query!.get("ramen id") as? String ?? ""
+                        let star = query!.get("star") as? Int ?? -1
+                        let value = query!.get("value") as? Int ?? 0
+                        let spiciness = query!.get("spiciness") as? Int ?? 0
+                        let comments = query!.get("comments") as? String ?? "where"
+                        self.myReviews.append(Review(id: i, dateOfConsumption: dateOfConsumption.dateValue(), dateOfReview: dateOfReview.dateValue(), timeOfReview: timeOfReview, userId: userId, ramenId: ramenId, star: star, value: value, spiciness: spiciness, comments: comments))
+                    }
+                }
+            }
+        }
     }
     
     @Published var loggedInUser: FirebaseAuth.User?
@@ -163,11 +277,8 @@ class AuthenticationState: NSObject, ObservableObject {
         super.init()
         
         self.getRamenData()
-        
-//        self.getAllRamenReviews(ramen: ramen1) { result in
-//            print("show result if any")
-//            print(result)
-//        }
+        self.getMyReviews()
+        self.getCategory()
         auth.addStateDidChangeListener(authStateChanged)
     }
     private func authStateChanged(with auth: Auth, user: FirebaseAuth.User?) {
