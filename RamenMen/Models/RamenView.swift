@@ -14,6 +14,7 @@ import Combine
 class RamenViewModel: ObservableObject {
     @Published var ramens = [Ramen]()
     @Published var holding = [String]()
+    @Published var ramenReviews = [Review]()
     
     var db = Firestore.firestore()
     
@@ -42,41 +43,27 @@ class RamenViewModel: ObservableObject {
             }
         }
     }
-    
-    func getCategory<T>(_ catName: T){
-        
-        db.collection("ramen").addSnapshotListener {
-            (query, err) in
-            DispatchQueue.main.async {
-                if err != nil {
-                    print((err?.localizedDescription)!)
-                } else {
-                    print("no errors")
-                    for i in query!.documentChanges {
-                        let name = i.document.get(catName) as? String ?? ""
-                        
-                        self.holding.append(name)
-                    }
-                }
-            }
-        }
-    }
-    
+
 }
 
 struct RamenView: View {
     @ObservedObject var viewModel = RamenViewModel()
     
     init() {
-        viewModel.getCategory("name")
         viewModel.getData()
     }
     
     var body: some View {
-//        Text("\(viewModel.holding.count)")
-        List(viewModel.holding, id:\.self) { ramen in
-//            Text("\(ramen.reviews.count)")
-            Text(ramen)
+        VStack {
+        Text("hello")
+//        List(viewModel.ramens) { ramen in
+//            Text(ramen.brand)
+//            Text(ramen.reviews[0])
+////            Text("\((self.authState.getAllRamenReviews(ramen: ramen)).count) items")
+//            List(self.viewModel.getAllRamenReviews(ramen: ramen)) { review in
+//                Text(review.comments)
+//            }
+//        }
         }
     }
 }

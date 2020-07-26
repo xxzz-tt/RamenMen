@@ -11,6 +11,7 @@ import SwiftUI
 struct RamenProfile: View {
 //    var ramen: Ramen
     @EnvironmentObject var env: Environment
+    @EnvironmentObject var authState: AuthenticationState
     @ObservedObject var ramen: Ramen
     @State private var showReviewWindow = false
     @State var showRatingForm = false

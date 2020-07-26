@@ -50,10 +50,14 @@ struct ReviewWindow: View {
 struct RamenProfileView: View {
 //    var ramen: Ramen
     @EnvironmentObject var env: Environment
+    @EnvironmentObject var authState: AuthenticationState
     @ObservedObject var ramen: Ramen
     @State private var showReviewWindow = false
     @State var reviewWindow: AnyView = AnyView(EmptyView())
     @Binding var showRatingForm: Bool
+    
+    @State var reviews = [Review]()
+    @State var user = RamenMen.User()
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -97,41 +101,58 @@ struct RamenProfileView: View {
                     
                     VStack(alignment: .leading) {
                         Text("What others say")
-                            .padding(.trailing, 120.0)
+                            .padding(.leading, 40.0)
                         ScrollView() {
-                            ForEach(env.getRamenReviews(ramen: ramen)) { review in
+//                            ForEach(env.getRamenReviews(ramen: ramen)) { review in
+                        if (!reviews.isEmpty) {
+//                            Text("just testing")
+                            ForEach(reviews) { review in
                                 HStack() {
+//                                    Text("anything")
                                     VStack(alignment: .leading) {
-//                                        self.getUser(userId: review.user).image hardcoded as Auth is not set up yet
-                                            
-                                    Image(self.getUser(id: review.userId).image).resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
-                                        
-//                                    Text(self.getUser(userId: review.user).username)
-                                        Text(self.getUser(id: review.userId).username)
+
+    //TODO: fix how user is passed in - suspect value is overwritten each time
+
+                                    Image(self.user.image).resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
+                                    Text(self.user.username)
+
+                                    }.onAppear {
+                                    self.authState.getReviewUser(review: review) { result in
+                                        print("yoz")
+                                        print(result.username)
+                                        self.user = result
+                                    }
                                     }.padding(.trailing).frame(width: 100.0)
-                                                                
+
                                     VStack(alignment: .leading) {
-                                        
+
                                         VStack(alignment: .leading) {
                                             StarRating(rating: .constant(review.star), tappable: false)
                                         Spacer()
-                                        
-//                                    Text(review.comments)
-                                            Text("")
-                                            Spacer()
-                                        }
-                                        
-                                        Text("\(Date(), formatter: self.dateFormatter)")
+
+                                    Text(review.comments)
+                                Text("")
+                                Spacer()
+                            }
+
+                                Text("\(Date(), formatter: self.dateFormatter)")
                                     }.padding([.trailing, .top, .bottom]).frame(width: 150)
-                                }.onTapGesture {
-                                    self.showReviewWindow = true
-                                    self.reviewWindow = self.getReviewWindow(review: review, image:
+                        }.onTapGesture {
+                            self.showReviewWindow = true
+                            self.reviewWindow = self.getReviewWindow(review: review, image:
 //                                        self.getUser(userId: review.user).image,
-                                        Image(self.getUser(id: review.userId).image), username: self.getUser(id: review.userId).username)
+                            Image(self.getUser(id: review.userId).image), username: self.getUser(id: review.userId).username)
 //                                        self.getUser(userId: review.user).username)
                                 }
                             }
+                            }
+                            }
+                        }.onAppear {
+                        self.authState.getAllRamenReviews(ramen: self.ramen) { result in
+                            print(result)
+                            self.reviews = result
                         }
+
                     }
                     }.background(
                             Color.white
@@ -167,6 +188,6 @@ struct RamenProfileView: View {
 
 struct RamenProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        RamenProfileView(ramen: Environment().ramenData[0], showRatingForm: .constant(false)).environmentObject(Environment())
+        RamenProfileView(ramen: AuthenticationState.shared.ramens[0], showRatingForm: .constant(false)).environmentObject(AuthenticationState.shared)
     }
 }

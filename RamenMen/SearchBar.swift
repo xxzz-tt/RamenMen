@@ -17,6 +17,7 @@ struct SearchBar: View {
     @State private var isEditing = false
     @State private var shouldReturn = false
     @EnvironmentObject var env: Environment
+    @EnvironmentObject var authState: AuthenticationState
 
     var body: some View {
         NavigationView {
@@ -53,13 +54,15 @@ struct SearchBar: View {
                     .animation(.default)
                 }
             }.frame(width: 340, height: 60, alignment: .center)
+                
                 if isEditing {
 //                    NavigationView {
-                    Text("Search Result")
-                    List(env.ramenData) { ramen in
-                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.env)) {
-                            RamenRow(ramen: ramen)
-                        }
+//                    Text("Search Result")
+                    List(authState.ramens) { ramen in
+//                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.env)) {
+//                            RamenRow(ramen: ramen)
+                        Text(ramen.name)
+//                        }
                         }
 //                    }
 //                    .navigationBarTitle("Search Results")
@@ -67,14 +70,14 @@ struct SearchBar: View {
                 } else {
                     VStack(alignment: .leading) {
 //                        NavigationView {
-                        ForEach(env.ramenData) { ramen in
-                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.env)) {
-                            HStack {
-                                Text(ramen.name) .frame(width: 200.0, height: 10.0).padding(.trailing, 16.0)
-                                StarRating(rating: .constant(Int(ramen.star))).padding(.trailing)
-                            }.padding(.bottom)
-                            }
-                            }
+//                        ForEach(env.ramenData) { ramen in
+//                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.env)) {
+//                            HStack {
+//                                Text(ramen.name) .frame(width: 200.0, height: 10.0).padding(.trailing, 16.0)
+//                                StarRating(rating: .constant(Int(ramen.star))).padding(.trailing)
+//                            }.padding(.bottom)
+//                            }
+//                            }
 //                        }.navigationBarTitle("Reviews of the week")
                         Spacer()
                         Text("Recommended for You").bold()
@@ -109,7 +112,7 @@ struct SearchBar: View {
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar().environmentObject(Environment())
+        SearchBar().environmentObject(AuthenticationState.shared)
     }
 }
 

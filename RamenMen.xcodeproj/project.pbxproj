@@ -52,7 +52,6 @@
 		50A1492824A60A23004620FB /* RamenProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A1492724A60A23004620FB /* RamenProfile.swift */; };
 		8E03BA0A24C4A2B6005036CF /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA0924C4A2B6005036CF /* DateHeader.swift */; };
 		8E03BA0C24C4A611005036CF /* CalendarUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA0B24C4A611005036CF /* CalendarUI.swift */; };
-		8E03BA3B24C800CE005036CF /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA3A24C800CE005036CF /* SessionStore.swift */; };
 		8E03BA3F24C83D22005036CF /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA3E24C83D22005036CF /* AuthenticationState.swift */; };
 		8E03BA4124C83E26005036CF /* AuthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA4024C83E26005036CF /* AuthenticationType.swift */; };
 		8E03BA4324C8560F005036CF /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA4224C8560F005036CF /* LoginForm.swift */; };
@@ -124,7 +123,6 @@
 		7C993E9E44B7BDE072C9A3AA /* Pods-RamenMen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen.debug.xcconfig"; path = "Target Support Files/Pods-RamenMen/Pods-RamenMen.debug.xcconfig"; sourceTree = "<group>"; };
 		8E03BA0924C4A2B6005036CF /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		8E03BA0B24C4A611005036CF /* CalendarUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUI.swift; sourceTree = "<group>"; };
-		8E03BA3A24C800CE005036CF /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		8E03BA3E24C83D22005036CF /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
 		8E03BA4024C83E26005036CF /* AuthenticationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationType.swift; sourceTree = "<group>"; };
 		8E03BA4224C8560F005036CF /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 				3F341DC02494F1DA00D87C5B /* Ramen.swift */,
 				3F341DC22494F1E800D87C5B /* Review.swift */,
 				3F341DC42494F1F200D87C5B /* Data.swift */,
-				8E03BA3A24C800CE005036CF /* SessionStore.swift */,
 				8E03BA3E24C83D22005036CF /* AuthenticationState.swift */,
 				8E03BA4024C83E26005036CF /* AuthenticationType.swift */,
 				5024215624A38EDB00B0D3FB /* UserTest.swift */,
@@ -508,7 +505,6 @@
 				3FDDAF9E248D0BD4006687B6 /* StarRating.swift in Sources */,
 				3F855FCC24A5D78A00D57DA4 /* UserView.swift in Sources */,
 				3F85600D24C1F41700D57DA4 /* ProgressBar.swift in Sources */,
-				8E03BA3B24C800CE005036CF /* SessionStore.swift in Sources */,
 				8E03BA4324C8560F005036CF /* LoginForm.swift in Sources */,
 				3F855FD024A5FF9600D57DA4 /* RamenRow.swift in Sources */,
 				8E03BA4524C8A04F005036CF /* HomeTab.swift in Sources */,

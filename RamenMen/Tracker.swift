@@ -22,7 +22,7 @@ struct Tracker: View {
                 VStack {
                     
                     ProgressBar(progress: self.$progressValue)
-                    .frame(width: 175.0, height: 200.0)
+                    .frame(width: 175.0, height: 175.0)
                     .padding(.bottom, 20.0)
                     
                     Text("\nYou have eaten more ramen than \(Int(progressValue*100))% of the our users in the past month")
