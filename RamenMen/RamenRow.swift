@@ -13,7 +13,7 @@ struct RamenRow: View {
     var body: some View {
         HStack(alignment: .center) {
             RamenIcon(image: Image(ramen.image))
-            Text(ramen.name)
+            Text(ramen.searchableName)
         }
     }
 }

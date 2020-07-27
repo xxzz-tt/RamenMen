@@ -18,11 +18,12 @@ struct SearchBar: View {
     @State private var shouldReturn = false
     @EnvironmentObject var env: Environment
     @EnvironmentObject var authState: AuthenticationState
-
+    @State var ramen: Ramen?
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
+                    Text("hello")
                     HStack {
                         Image(systemName: "magnifyingglass")
                         TextField("Start your search!", text: $searchText, onEditingChanged: { edit in
@@ -58,14 +59,24 @@ struct SearchBar: View {
                 if isEditing {
 //                    NavigationView {
 //                    Text("Search Result")
-                    List(self.authState.ramens) { ramen in
+                    List(self.authState.ramens.filter({ searchText.isEmpty ? true : $0.searchableName.contains(searchText)})) { ramen in
+//                        Text(ramen.name)
                         NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.authState)) {
-//                            RamenRow(ramen: ramen)
-                        Text(ramen.name)
-//                        ForEach(self.authState.searchNames.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) {
-//                            searchText in Text(searchText)
-//                        }
+                            RamenRow(ramen: ramen)
+//                        Text(ramen.name)
                         }
+//                            ForEach(self.authState.searchNames.filter{$0.hasPrefix(self.searchText) || self.searchText == ""}, id:\.self) {
+//                                searchText in
+//                                NavigationLink(destination: RamenProfile(ramen: self.authState.getRamenByName(id: searchText) ).environmentObject(self.authState)) {
+//                                    Text(searchText)
+//                                }
+//                                Button(action: {
+//
+//                                }) {
+//                                    Text(searchText)
+//                                }
+//                        }
+//                        }
                         }
 //                    }
 //                    .navigationBarTitle("Search Results")

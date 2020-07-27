@@ -34,7 +34,7 @@ class Ramen: ObservableObject, Identifiable {
         self.style = style
         self.image = image
         self.reviews = reviews
-        self.searchableName = brand + name + style
+        self.searchableName = brand + " " + name +  " " + style
         self.spiciness = spiciness
         self.star = star
 
@@ -47,7 +47,7 @@ class Ramen: ObservableObject, Identifiable {
         self.style = style
         self.image = image
         self.reviews = reviews
-        self.searchableName = brand + name + style
+        self.searchableName = brand + " " + name + " " + style
         self.spiciness = spiciness
         self.star = star
         self.value = value

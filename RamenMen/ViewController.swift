@@ -33,6 +33,12 @@ class ViewController: UIViewController {
         calendarView.reloadData()
     }
     
+    func addDate() {
+        let today = "27-Jul-2020"
+        calendarDataSource[today] = "hello"
+        calendarView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         calendarView.scrollDirection = .horizontal

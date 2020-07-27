@@ -273,6 +273,15 @@ class AuthenticationState: NSObject, ObservableObject {
         }
         
     }
+    
+    func getRamenByName(id: String) -> Ramen {
+        //to be modified
+        return self.ramens.first{
+            (ramen: Ramen) -> Bool in
+            return ramen.searchableName == id
+            }!
+    }
+    
     func getMyReviews() {
         if (self.loggedInUser?.uid != nil) {
             self.getMe()
