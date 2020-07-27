@@ -18,7 +18,7 @@ struct HomeTab: View {
                 Tracker()
                 .tabItem {
                 VStack {
-                    Image("first")
+                    Image(systemName: "waveform.path.ecg").font(.title)
                     Text("Health tracker")
                 }
             }.tag(1)
@@ -28,15 +28,15 @@ struct HomeTab: View {
                 .tabItem {
                     VStack {
                         Text("Home")
-                        Image(systemName: "plus.circle.fill").font(.largeTitle).foregroundColor(.green)
+                        Image(systemName: "house.fill").font(.title).foregroundColor(.green)
                     }
                 }.tag(0)
         
         
                 UserProfileView(notLoggedIn: .constant(false)).environmentObject(AuthenticationState.shared).tabItem {
                     VStack {
-                        Image("first")
-                            Text("My Account")
+                        Image(systemName: "person.fill").font(.title)
+                        Text("My Account")
                     }
                 }.tag(2)
                     }

@@ -149,11 +149,16 @@ class Environment: ObservableObject {
     var review925 = Review(id: "9", userId: "2", ramenId: "5", star: 4, value: 1, spicy: 2, comments: "no comments")
     
     //5 ramens
-    var ramen1 = Ramen(id: "1", brand: "MenMen", name: "Chicken Noodle", style: "Bowl", image: "ramen1", searchableName: "", star: (3+4+4)/3, spiciness: (3+3+2)/3, value: (2+2+1)/3, reviews: ["1","2","3"])
-    var ramen2 = Ramen(id: "2", brand: "MenMen", name: "Soysauce Noodle", style: "Packet", image: "ramen1", searchableName: "", star: Float(3.5), spiciness: Float(3), value: Float(4), reviews: ["4","5"])
-    var ramen3 = Ramen(id: "3", brand: "MenMen", name: "Dry Noodle", style: "Tray", image: "ramen1", searchableName: "", star: Float(3.4), spiciness: Float(2.5), value: Float(1.5), reviews: ["6","7"])
-    var ramen4 = Ramen(id: "4", brand: "MenMen", name: "Tomyam Noodle", style: "Yay", image: "ramen1", searchableName: "", star: Float(4), spiciness: Float(2), value: Float(3), reviews: ["8"])
-    var ramen5 = Ramen(id: "5", brand: "MenMen", name: "Curry Noodle", style: "Bowl", image: "ramen1", searchableName: "", star: Float(4), spiciness: Float(1), value: Float(2), reviews: ["9"])
+    var ramen1 = Ramen(id: "1", brand: "Mama", name: "Tom Yum Shrimp", style: "Packet", image: "ramen1", searchableName: "", star: (3+4+4)/3, spiciness: (3+3+2)/3, value: (2+2+1)/3, reviews: ["1","2","3"])
+    var ramen2 = Ramen(id: "2", brand: "A1", name: "Abalone Instant Noodle", style: "Packet", image: "ramen1", searchableName: "", star: Float(3.5), spiciness: Float(3), value: Float(4), reviews: ["4","5"])
+    var ramen3 = Ramen(id: "3", brand: "Samyang", name: "Spicy Fire Chicken Noodle", style: "Packet", image: "ramen1", searchableName: "", star: Float(3.4), spiciness: Float(2.5), value: Float(1.5), reviews: ["6","7"])
+    var ramen4 = Ramen(id: "4", brand: "Nissin", name: "Tomyam Seafood", style: "Cup", image: "ramen1", searchableName: "", star: Float(4), spiciness: Float(2), value: Float(3), reviews: ["8"])
+    var ramen5 = Ramen(id: "5", brand: "Nissin", name: "Chili Crab", style: "Bowl", image: "ramen1", searchableName: "", star: Float(4), spiciness: Float(1), value: Float(2), reviews: ["9"])
+    var ramen6 = Ramen(id: "6", brand: "Nongshim", name: "Kimchi Noodle", style: "Bowl", image: "ramen1", searchableName: "", star: Float(0), spiciness: Float(0), value: Float(0), reviews: [])
+    var ramen7 = Ramen(id: "7", brand: "Samyang", name: "2x Spicy Fire Chicken Noodle", style: "Bowl", image: "ramen1", searchableName: "", star: Float(0), spiciness: Float(0), value: Float(0), reviews: [])
+    var ramen8 = Ramen(id: "8", brand: "Samyang", name: "Fire Chicken Noodle - Carbo", style: "Bowl", image: "ramen1", searchableName: "", star: Float(0), spiciness: Float(0), value: Float(0), reviews: [])
+    var ramen9 = Ramen(id: "9", brand: "Samyang", name: "Fire Chicken Noodle - Cheese", style: "Bowl", image: "ramen1", searchableName: "", star: Float(0), spiciness: Float(0), value: Float(0), reviews: [])
+    var ramen10 = Ramen(id: "9", brand: "Myojo", name: "Dry Mala Noodle", style: "Bowl", image: "ramen1", searchableName: "", star: Float(0), spiciness: Float(0), value: Float(0), reviews: [])
     
     //3 users
     var user1s = User(id: "1", username: "I wonder", password: "", image: "profilepic", reviews: ["1", "2", "4", "5"])

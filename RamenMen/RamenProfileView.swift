@@ -94,8 +94,11 @@ struct RamenProfileView: View {
                             Text("Average stars:")
                                 .font(.body)
                                 .fontWeight(.semibold)
-                            Text(String(format: "%.2f", ramen.star) + "/5")
+                            Text(String(format: "%.2f", Float(ramen.star)) + "/5")
+                            
 //                                StarRating(rating: $ramen.star, tappable: false)
+                        }.onAppear{
+                            print(self.ramen.name)
                         }
                     }.padding()
                     
@@ -186,6 +189,6 @@ struct RamenProfileView: View {
 
 struct RamenProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        RamenProfileView(ramen: AuthenticationState.shared.ramens[0], showRatingForm: .constant(false)).environmentObject(AuthenticationState.shared)
+        RamenProfileView(ramen: AuthenticationState.shared.bestRamens[1], showRatingForm: .constant(false)).environmentObject(AuthenticationState.shared)
     }
 }

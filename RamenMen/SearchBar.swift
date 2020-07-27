@@ -73,17 +73,23 @@ struct SearchBar: View {
                 } else {
                     VStack(alignment: .leading) {
 //                        NavigationView {
-                        ForEach(authState.ramens) { ramen in
+                        VStack(alignment: .leading) {
+                            Text("Best ramen of the week").bold()
+                                .padding(.leading)
+                        ForEach(authState.bestRamens) { ramen in
                             NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.authState)) {
                             HStack {
                                 Text(ramen.name) .frame(width: 200.0, height: 10.0).padding(.trailing, 16.0)
                                 StarRating(rating: .constant(Int(ramen.star))).padding(.trailing)
                             }.padding(.bottom)
                             }
-                            }
+                        }
+                        }
+                        Text("Spice up your week!").bold()
+                        .padding(.leading)
 //                        }.navigationBarTitle("Reviews of the week")
                         Spacer()
-                        Text("Recommended for You").bold()
+                        Text("Recommended for You").bold().padding(.leading)
                         ScrollView {
                             HStack {
                             VStack {

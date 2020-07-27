@@ -25,6 +25,7 @@ class AuthenticationState: NSObject, ObservableObject {
     @Published var user = RamenMen.User()
     @Published var myReviews = [Review]()
     @Published var searchNames = [String]()
+    @Published var bestRamens = [Ramen]()
     
     var db = Firestore.firestore()
     
@@ -49,6 +50,34 @@ class AuthenticationState: NSObject, ObservableObject {
                         let id = i.document.documentID
                         
                         self.ramens.append(Ramen(id: id, brand: brand, name: name, style: style, image: image, searchableName: searchableName, star: star, spiciness: spiciness, reviews: reviews))
+                    }
+                }
+            }
+        }
+    }
+    
+    // get best ramen data
+    func getBestRamen() {
+        db.collection("bestRamen").addSnapshotListener {
+            (query, err) in
+            DispatchQueue.main.async {
+                if err != nil {
+                    print((err?.localizedDescription)!)
+                } else {
+                    print("no errors")
+                    for i in query!.documentChanges {
+                        let name = i.document.get("name") as? String ?? ""
+                        let style = i.document.get("style") as? String ?? ""
+                        let brand = i.document.get("brand") as? String ?? ""
+                        let image = i.document.get("image") as? String ?? ""
+                        let searchableName = i.document.get("searchable name") as? String ?? ""
+                        let star = i.document.get("average stars") as? Float ?? 0
+                        let spiciness = i.document.get("spiciness") as? Float ?? 0
+                        let reviews = i.document.get("reviews") as? [String] ?? []
+                        let id = i.document.documentID
+                        print("here??")
+                        print("star", star)
+                        self.bestRamens.append(Ramen(id: id, brand: brand, name: name, style: style, image: image, searchableName: searchableName, star: star, spiciness: spiciness, reviews: reviews))
                     }
                 }
             }
@@ -197,6 +226,18 @@ class AuthenticationState: NSObject, ObservableObject {
                 print("Document successfully updated")
             }
         }
+        
+        if (!db.collection("bestRamen").document(review.ramenId).path.isEmpty) {
+            db.collection("bestRamen").document(review.ramenId).updateData([
+                AnyHashable("reviews"): FieldValue.arrayUnion([id])
+            ]){ err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
+            }
+        }
 
         // update user
         db.collection("users").document(review.userId).updateData([
@@ -279,6 +320,7 @@ class AuthenticationState: NSObject, ObservableObject {
         self.getRamenData()
         self.getMyReviews()
         self.getCategory()
+        self.getBestRamen()
         auth.addStateDidChangeListener(authStateChanged)
     }
     private func authStateChanged(with auth: Auth, user: FirebaseAuth.User?) {
@@ -305,7 +347,7 @@ class AuthenticationState: NSObject, ObservableObject {
 
     func signup(email: String, password: String, passwordConfirmation: String) {
         guard password == passwordConfirmation else {
-            self.error = NSError(domain: "", code: 9210, userInfo: [NSLocalizedDescriptionKey: "Password and confirmation does not match"])
+            self.error = NSError(domain: "", code: 9210, userInfo: [NSLocalizedDescriptionKey: "Password and confirmation does not match!"])
             return
         }
 

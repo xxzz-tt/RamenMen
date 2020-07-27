@@ -14,6 +14,7 @@ struct LoginForm: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var passwordConf: String = ""
+    @State var username: String = ""
     @State var isShowingPassword = false
 
     @Binding var authType: AuthenticationType
@@ -49,6 +50,10 @@ struct LoginForm: View {
             TextField("Email address", text: $email).textContentType(.emailAddress)
             .keyboardType(.emailAddress)
             .autocapitalization(.none).textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 288, height: 40, alignment: .center)
+            
+            if authType == .signup {
+                TextField("Username", text: $username).autocapitalization(.none).textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 288, height: 40, alignment: .center)
+            }
             
             if isShowingPassword {
                 TextField("Password", text: $password)
@@ -101,6 +106,6 @@ struct XCAButtonStyle: ButtonStyle {
 
 struct LoginForm_Previews: PreviewProvider {
     static var previews: some View {
-        LoginForm(authType: .constant(.signup))
+        LoginForm(authType: .constant(.signup)).environmentObject(AuthenticationState.shared)
     }
 }
