@@ -66,13 +66,13 @@ struct RamenProfileView: View {
         return formatter
     }
     
-    func getUser(id: String) -> User {
-        //to be modified
-        return env.userData.first{
-            (user: User) -> Bool in
-            return user.id == id
-            }!
-    }
+//    func getUser(id: String) -> User {
+//        //to be modified
+//        return env.userData.first{
+//            (user: User) -> Bool in
+//            return user.id == id
+//            }!
+//    }
     
     func getReviewWindow(review: Review, image: Image, username: String) -> AnyView {
         return AnyView(ReviewWindow(review: review, userImage: image, userName: username))
@@ -94,7 +94,7 @@ struct RamenProfileView: View {
                             Text("Average stars:")
                                 .font(.body)
                                 .fontWeight(.semibold)
-                            Text(String(format: "%.2f", Float(ramen.star)) + "/5")
+                            Text(String(format: "%.2f", Float(3.5)) + "/5")
                             
 //                                StarRating(rating: $ramen.star, tappable: false)
                         }.onAppear{
@@ -116,8 +116,8 @@ struct RamenProfileView: View {
 
     //TODO: fix how user is passed in - suspect value is overwritten each time
 
-                                    Image(self.user.image).resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
-                                    Text(self.user.username)
+                                    Image("profilepic").resizable().scaledToFit().frame(width: 70, height: 70, alignment: .leading)
+                                    Text("ra men")
 
                                     }.onAppear {
                                     self.authState.getReviewUser(review: review) { result in
@@ -142,7 +142,7 @@ struct RamenProfileView: View {
                                     }.padding([.trailing, .top, .bottom]).frame(width: 150)
                         }.onTapGesture {
                             self.showReviewWindow = true
-                            self.reviewWindow = self.getReviewWindow(review: review, image: Image(self.user.image), username: self.getUser(id: review.userId).username)
+//                            self.reviewWindow = self.getReviewWindow(review: review, image: Image(self.user.image), username: self.getUser(id: review.userId).username)
 //                                        self.getUser(userId: review.user).username)
                                 }
                             }
@@ -189,6 +189,6 @@ struct RamenProfileView: View {
 
 struct RamenProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        RamenProfileView(ramen: AuthenticationState.shared.bestRamens[1], showRatingForm: .constant(false)).environmentObject(AuthenticationState.shared)
+        RamenProfileView(ramen: AuthenticationState.shared.ramens[6], showRatingForm: .constant(false)).environmentObject(AuthenticationState.shared)
     }
 }

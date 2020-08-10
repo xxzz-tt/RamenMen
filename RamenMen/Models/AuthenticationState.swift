@@ -75,8 +75,7 @@ class AuthenticationState: NSObject, ObservableObject {
                         let spiciness = i.document.get("spiciness") as? Float ?? 0
                         let reviews = i.document.get("reviews") as? [String] ?? []
                         let id = i.document.documentID
-                        print("here??")
-                        print("star", star)
+                        
                         self.bestRamens.append(Ramen(id: id, brand: brand, name: name, style: style, image: image, searchableName: searchableName, star: star, spiciness: spiciness, reviews: reviews))
                     }
                 }
@@ -252,10 +251,11 @@ class AuthenticationState: NSObject, ObservableObject {
     }
     
     func getMe() {
-        let userID = self.loggedInUser?.uid
+//        let userID = self.loggedInUser?.uid
+        let userID = "YW81c1zMagNETt3JLZEvf8aqiOd2"
         
-        if (userID != nil) {
-            db.collection("users").document(userID!).addSnapshotListener {
+//        if (userID != nil) {
+            db.collection("users").document(userID).addSnapshotListener {
                 (query, err) in
                 DispatchQueue.main.async {
                     if err != nil {
@@ -266,10 +266,11 @@ class AuthenticationState: NSObject, ObservableObject {
                         let password = query!.get("password") as? String ?? ""
                         let image = query!.get("image") as? String ?? ""
                         let reviews = query!.get("reviews") as? [String] ?? []
-                        self.user = User(id: userID!, username: username, password: password, image: image, reviews: reviews)
+                        print("hello, \(reviews.count)")
+                        self.user = User(id: userID, username: username, password: password, image: image, reviews: reviews)
                     }
                 }
-            }
+//            }
         }
         
     }
@@ -283,17 +284,16 @@ class AuthenticationState: NSObject, ObservableObject {
     }
     
     func getMyReviews() {
-        if (self.loggedInUser?.uid != nil) {
+//        if (self.loggedInUser?.uid != nil) {
             self.getMe()
             let reviewID = user.reviews
-//            var reviews: [Review] = [Review]()
-//            let group = DispatchGroup()
+        print("hi ", user.username)
+        print("counting, \(reviewID.count)")
             for i in reviewID {
 //                group.enter()
                 db.collection("reviews").document(i).addSnapshotListener {
                 (query, err) in
             //                DispatchQueue.main.async {
-                    print("hello", i)
                     if err != nil {
                         print("hello")
                     } else {
@@ -306,16 +306,18 @@ class AuthenticationState: NSObject, ObservableObject {
                         let value = query!.get("value") as? Int ?? 0
                         let spiciness = query!.get("spiciness") as? Int ?? 0
                         let comments = query!.get("comments") as? String ?? "where"
+                        print("yoz", comments)
                         self.myReviews.append(Review(id: i, dateOfConsumption: dateOfConsumption.dateValue(), dateOfReview: dateOfReview.dateValue(), timeOfReview: timeOfReview, userId: userId, ramenId: ramenId, star: star, value: value, spiciness: spiciness, comments: comments))
                     }
                 }
             }
-        }
+//        }
     }
     
     @Published var loggedInUser: FirebaseAuth.User?
     @Published var isAuthenticating = false
     @Published var error: NSError?
+    @Published var myUser: RamenMen.User?
 
     static let shared = AuthenticationState()
 
@@ -324,12 +326,13 @@ class AuthenticationState: NSObject, ObservableObject {
     
     override private init() {
         loggedInUser = auth.currentUser
+        
         super.init()
         
         self.getRamenData()
-        self.getMyReviews()
         self.getCategory()
         self.getBestRamen()
+        self.getMyReviews()
         auth.addStateDidChangeListener(authStateChanged)
     }
     private func authStateChanged(with auth: Auth, user: FirebaseAuth.User?) {
@@ -394,22 +397,18 @@ struct AuthView: View {
     var body: some View {
         VStack {
         Text("hello")
-            Text("\(reviews.count) items")
-        List(reviews) { review in
+            Text("\(self.authState.myReviews.count) items")
+            List(self.authState.myReviews) { review in
             Text("hello how r u just testing")
             Text(review.comments)
-            Text(self.user.image).onAppear {
-            self.authState.getReviewUser(review: review) { result in
-                self.user = result
             }
-            }
-            }
-        }.onAppear {
-            self.authState.getAllRamenReviews(ramen: self.authState.ramens[0]) { result in
-                print(result[0].comments)
-            self.reviews = result
         }
-        }
+//        .onAppear {
+//            self.authState.getAllRamenReviews(ramen: self.authState.ramens[0]) { result in
+//                print(result[0].comments)
+//            self.reviews = result
+//        }
+//        }
     }
 }
 

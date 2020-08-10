@@ -56,6 +56,7 @@
 		8E03BA4124C83E26005036CF /* AuthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA4024C83E26005036CF /* AuthenticationType.swift */; };
 		8E03BA4324C8560F005036CF /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA4224C8560F005036CF /* LoginForm.swift */; };
 		8E03BA4524C8A04F005036CF /* HomeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03BA4424C8A04F005036CF /* HomeTab.swift */; };
+		8E837A3824CEE9D700567B0C /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E837A3724CEE9D600567B0C /* ProgressView.swift */; };
 		CE7C46361DB7E3F8EDD53258 /* Pods_RamenMen_RamenMenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA93E5CCC46B50B531A58FA5 /* Pods_RamenMen_RamenMenUITests.framework */; };
 		D4327D8D228E8694DAEE9547 /* Pods_RamenMen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4F572860058D8A3B8BABE8 /* Pods_RamenMen.framework */; };
 /* End PBXBuildFile section */
@@ -127,6 +128,7 @@
 		8E03BA4024C83E26005036CF /* AuthenticationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationType.swift; sourceTree = "<group>"; };
 		8E03BA4224C8560F005036CF /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
 		8E03BA4424C8A04F005036CF /* HomeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTab.swift; sourceTree = "<group>"; };
+		8E837A3724CEE9D600567B0C /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		BE4F572860058D8A3B8BABE8 /* Pods_RamenMen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenMen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA93E5CCC46B50B531A58FA5 /* Pods_RamenMen_RamenMenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenMen_RamenMenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C96E0337A8E7D001CC370A /* Pods-RamenMen-RamenMenUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenMen-RamenMenUITests.release.xcconfig"; path = "Target Support Files/Pods-RamenMen-RamenMenUITests/Pods-RamenMen-RamenMenUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				509DCABA24B85EA3000AAA37 /* LoginPage.swift */,
 				8E03BA4224C8560F005036CF /* LoginForm.swift */,
 				8E03BA4424C8A04F005036CF /* HomeTab.swift */,
+				8E837A3724CEE9D600567B0C /* ProgressView.swift */,
 				3F12DF1F248A580C00C7590B /* AppDelegate.swift */,
 				3F12DF21248A580C00C7590B /* SceneDelegate.swift */,
 				50A1492524A48E12004620FB /* EntryDetail.swift */,
@@ -511,6 +514,7 @@
 				8E03BA0A24C4A2B6005036CF /* DateHeader.swift in Sources */,
 				5024215724A38EDB00B0D3FB /* UserTest.swift in Sources */,
 				8E03BA4124C83E26005036CF /* AuthenticationType.swift in Sources */,
+				8E837A3824CEE9D700567B0C /* ProgressView.swift in Sources */,
 				3F341DC12494F1DA00D87C5B /* Ramen.swift in Sources */,
 				3FE3C20324A10B4300E7E709 /* RamenView.swift in Sources */,
 				3F85601124C1F9EC00D57DA4 /* Tracker.swift in Sources */,
@@ -688,8 +692,10 @@
 			baseConfigurationReference = 7C993E9E44B7BDE072C9A3AA /* Pods-RamenMen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RamenMen/Preview Content\"";
+				DEVELOPMENT_TEAM = GC996444M8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RamenMen/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -697,8 +703,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.RamenMen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.RamenMenV1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -711,6 +718,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RamenMen/Preview Content\"";
+				DEVELOPMENT_TEAM = GC996444M8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RamenMen/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -718,7 +726,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.RamenMen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.RamenMenV1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -730,7 +738,9 @@
 			baseConfigurationReference = 083F4FC31381AD01152C01B8 /* Pods-RamenMen-RamenMenUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GC996444M8;
 				INFOPLIST_FILE = RamenMenUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -751,7 +761,9 @@
 			baseConfigurationReference = E4C96E0337A8E7D001CC370A /* Pods-RamenMen-RamenMenUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GC996444M8;
 				INFOPLIST_FILE = RamenMenUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (

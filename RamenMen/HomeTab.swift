@@ -33,7 +33,7 @@ struct HomeTab: View {
                 }.tag(0)
         
         
-                UserProfileView(notLoggedIn: .constant(false)).environmentObject(AuthenticationState.shared).tabItem {
+                UserProfileView().environmentObject(AuthenticationState.shared).tabItem {
                     VStack {
                         Image(systemName: "person.fill").font(.title)
                         Text("My Account")

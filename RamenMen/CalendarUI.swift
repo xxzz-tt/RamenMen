@@ -12,9 +12,6 @@ struct CalendarUI: View {
     var body: some View {
         VStack {
             CalController()
-            VStack {
-                Text("Past Consumption")
-            }
         }
     }
 }

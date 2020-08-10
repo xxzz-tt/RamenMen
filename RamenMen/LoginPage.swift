@@ -31,7 +31,7 @@ struct LoginPage: View {
 //                self.authState.login(with: .signInWithApple)
 //            }
 //            .frame(width: 130, height: 44)
-        }.offset(y: UIScreen.main.bounds.width > 320 ? -75 : 0)
+        }
     }
 }
 

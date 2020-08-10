@@ -23,7 +23,7 @@ struct SearchBar: View {
         NavigationView {
             VStack {
                 HStack {
-                    Text("hello")
+                    Image(systemName: "viewfinder").resizable().frame(width: 20, height: 20).padding(.trailing, 15)
                     HStack {
                         Image(systemName: "magnifyingglass")
                         TextField("Start your search!", text: $searchText, onEditingChanged: { edit in
@@ -85,40 +85,60 @@ struct SearchBar: View {
                     VStack(alignment: .leading) {
 //                        NavigationView {
                         VStack(alignment: .leading) {
-                            Text("Best ramen of the week").bold()
+                            Text("Best ramen of the week").bold().font(.title)
                                 .padding(.leading)
+                            VStack {
                         ForEach(authState.bestRamens) { ramen in
                             NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.authState)) {
                             HStack {
-                                Text(ramen.name) .frame(width: 200.0, height: 10.0).padding(.trailing, 16.0)
+                                Text(ramen.name) .frame(width: 200.0, height: 15.0).padding(.leading, 8.0)
                                 StarRating(rating: .constant(Int(ramen.star))).padding(.trailing)
                             }.padding(.bottom)
                             }
                         }
+                            }.background(Color.orange.opacity(0.1))
+                            VStack(alignment:.leading) {
+                                Text("Spice up your week!").bold().font(.title)
+                            .padding(.leading)
+                            ForEach(env.spicy) { ramen in
+                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.authState)) {
+                            
+                                HStack {
+                                Text(ramen.name) .frame(width: 250.0, height: 35.0).padding(.leading, 8.0)
+                                    Spacer().frame(width: 100, height: 25, alignment: .leading)
+                                }
+                            
+                            }
+                        }.background(Color.red.opacity(0.2))
+                                }
+
                         }
-                        Text("Spice up your week!").bold()
-                        .padding(.leading)
-//                        }.navigationBarTitle("Reviews of the week")
+                        //                        }.navigationBarTitle("Reviews of the week")
                         Spacer()
-                        Text("Recommended for You").bold().padding(.leading)
+                        Text("Recommended for You").bold().font(.title).padding(.leading)
                         ScrollView {
                             HStack {
-                            VStack {
-                            RamenIcon(image: Image("nissin"))
-                            Text("Nissin TY")
-                            }.padding([.bottom, .trailing])
-
-                        VStack {
-                        RamenIcon(image: Image("ramen1"))
-                        Text("Doggiemen")
-                        }.padding([.bottom, .trailing])
-
-                        VStack {
-                        RamenIcon(image: Image("ramen1"))
-                        Text("Dogmen x2")
-                        }.padding([.bottom, .trailing])
+                            Text("Not enough reviews given to calculate! Start a new review now or browse through our collection")
+                            }
                         }.padding()
-                        }
+//                        ScrollView {
+//                            HStack {
+//                            VStack {
+//                            RamenIcon(image: Image("nissin"))
+//                            Text("Nissin TY")
+//                            }.padding([.bottom, .trailing])
+//
+//                        VStack {
+//                        RamenIcon(image: Image("ramen1"))
+//                        Text("Doggiemen")
+//                        }.padding([.bottom, .trailing])
+//
+//                        VStack {
+//                        RamenIcon(image: Image("ramen1"))
+//                        Text("Dogmen x2")
+//                        }.padding([.bottom, .trailing])
+//                        }.padding()
+//                        }
 //                        PopularityChart()
                     }
                 }
@@ -132,7 +152,7 @@ struct SearchBar: View {
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar().environmentObject(AuthenticationState.shared)
+        SearchBar().environmentObject(AuthenticationState.shared).environmentObject(Environment())
     }
 }
 

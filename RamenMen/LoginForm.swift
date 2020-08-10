@@ -79,7 +79,7 @@ struct LoginForm: View {
                 .font(.callout)
             }
             .buttonStyle(XCAButtonStyle())
-            .disabled(email.count == 0 && password.count == 0)
+            .disabled(email.count == 0 && password.count == 0).padding()
             
             Button(action: footerButtonTapped) {
                 Text(authType.footerText)

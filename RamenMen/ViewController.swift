@@ -24,20 +24,21 @@ class ViewController: UIViewController {
         // You can get the data from a server.
         // Then convert that data into a form that can be used by the calendar.
         calendarDataSource = [
-            "07-Jan-2020": "SomeData",
-            "15-Jan-2020": "SomeMoreData",
-            "15-Feb-2020": "MoreData",
-            "21-Feb-2020": "onlyData",
+            "07-Jun-2020": "SomeData",
+            "15-Jun-2020": "SomeMoreData",
+            "15-Jul-2020": "MoreData",
+            "21-Jul-2020": "onlyData",
+            "27-Jul-2020": "hello",
         ]
         // update the calendar
         calendarView.reloadData()
     }
     
-    func addDate() {
-        let today = "27-Jul-2020"
-        calendarDataSource[today] = "hello"
-        calendarView.reloadData()
-    }
+//    func addDate() {
+//        let today = "27-Jul-2020"
+//        calendarDataSource[today] = "hello"
+//        calendarView.reloadData()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
 
 extension ViewController: JTACMonthViewDataSource {
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
-        let startDate = formatter.date(from: "01-jan-2020")!
+        let startDate = formatter.date(from: "01-jun-2020")!
         let endDate = Date()
         return ConfigurationParameters(startDate: startDate, endDate: endDate)
     }
