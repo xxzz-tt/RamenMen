@@ -17,7 +17,7 @@ struct HomeTab: View {
         VStack {
         ZStack {
             TabView(selection: $selection){
-                Tracker()
+                Tracker().environmentObject(authState)
                 .tabItem {
                 VStack {
                     Image(systemName: "waveform.path.ecg").font(.title)
@@ -35,7 +35,7 @@ struct HomeTab: View {
                 }.tag(0)
         
         
-                UserProfileView().environmentObject(AuthenticationState.shared).tabItem {
+                UserProfileView().environmentObject(authState).tabItem {
                     VStack {
                         Image(systemName: "person.fill").font(.title)
                         Text("My Account")

@@ -12,6 +12,7 @@ import FirebaseAuth
 import Foundation
 import FirebaseFirestore
 import Combine
+import FirebaseFirestoreSwift
 
 enum LoginOption {
     case signInWithApple
@@ -250,32 +251,6 @@ class AuthenticationState: NSObject, ObservableObject {
             }
         }
     }
-    
-    func getMe() {
-//        let userID = self.loggedInUser?.uid
-        let userID = "YW81c1zMagNETt3JLZEvf8aqiOd2"
-        
-//        if (userID != nil) {
-            db.collection("users").document(userID).addSnapshotListener {
-                (query, err) in
-                DispatchQueue.main.async {
-                    if err != nil {
-                        print((err?.localizedDescription)!)
-                    } else {
-                        print("no errors")
-                        let username = query!.get("username") as? String ?? ""
-                        let password = query!.get("password") as? String ?? ""
-                        let image = query!.get("image") as? String ?? ""
-                        let reviews = query!.get("reviews") as? [String] ?? []
-                        print("hello, \(reviews.count)")
-                        self.user = User(id: userID, username: username, password: password, image: image, reviews: reviews)
-                    }
-                }
-//            }
-        }
-        
-    }
-    
     func getRamenByName(id: String) -> Ramen {
         //to be modified
 //        return self.ramens.first{
@@ -285,41 +260,12 @@ class AuthenticationState: NSObject, ObservableObject {
         return Ramen(id: "1", brand: "Prima Taste", name: "Chili Crab Noodle", style: "Bowl", image: "chillicrab", searchableName: "Prima Taste Chili Crab Noodle", star: Float(4.0), spiciness: Float(2), value: Float(2), reviews: [])
     }
     
-    func getMyReviews() {
-//        if (self.loggedInUser?.uid != nil) {
-            self.getMe()
-            let reviewID = user.reviews
-        print("hi ", user.username)
-        print("counting, \(reviewID.count)")
-            for i in reviewID {
-//                group.enter()
-                db.collection("reviews").document(i).addSnapshotListener {
-                (query, err) in
-            //                DispatchQueue.main.async {
-                    if err != nil {
-                        print("hello")
-                    } else {
-                        let dateOfConsumption = query!.get("date of consumption") as? Timestamp ?? Timestamp()
-                        let dateOfReview = query!.get("date of review") as? Timestamp ?? Timestamp()
-                        let timeOfReview = query!.get("time of review") as? Int ?? -1
-                        let userId = query!.get("user id") as? String ?? ""
-                        let ramenId = query!.get("ramen id") as? String ?? ""
-                        let star = query!.get("star") as? Int ?? -1
-                        let value = query!.get("value") as? Int ?? 0
-                        let spiciness = query!.get("spiciness") as? Int ?? 0
-                        let comments = query!.get("comments") as? String ?? "where"
-                        print("yoz", comments)
-                        self.myReviews.append(Review(id: i, dateOfConsumption: dateOfConsumption.dateValue(), dateOfReview: dateOfReview.dateValue(), timeOfReview: timeOfReview, userId: userId, ramenId: ramenId, star: star, value: value, spiciness: spiciness, comments: comments))
-                    }
-                }
-            }
-//        }
-    }
-    
     @Published var loggedInUser: FirebaseAuth.User?
     @Published var isAuthenticating = false
     @Published var error: NSError?
-    @Published var myUser: RamenMen.User?
+    
+    @Published var profile: UserProfile?
+    private var profileRepository = UserProfileRepository()
 
     static let shared = AuthenticationState()
 
@@ -334,12 +280,13 @@ class AuthenticationState: NSObject, ObservableObject {
         self.getRamenData()
         self.getCategory()
         self.getBestRamen()
-        self.getMyReviews()
         auth.addStateDidChangeListener(authStateChanged)
     }
+    
     private func authStateChanged(with auth: Auth, user: FirebaseAuth.User?) {
         guard user != self.loggedInUser else { return }
         self.loggedInUser = user
+
     }
 
     func login(with loginOption: LoginOption) {
@@ -351,15 +298,47 @@ class AuthenticationState: NSObject, ObservableObject {
                 handleSignInWithApple()
 
             case let .emailAndPassword(email, password):
-                handleSignInWith(email: email, password: password)
+                handleSignInWith(email: email, password: password) { (result, error) in
+            }
         }
     }
 
-    private func handleSignInWith(email: String, password: String) {
-        auth.signIn(withEmail: email, password: password, completion: handleAuthResultCompletion)
+    private func handleSignInWith(email: String, password: String, completion: @escaping (_ profile: UserProfile?, _ error: Error?) -> Void) {
+//        auth.signIn(withEmail: email, password: password, completion: handleAuthResultCompletion)
+        auth.signIn(withEmail: email, password: password) { (result, error) in
+          if let error = error {
+            print("Error signing in: \(error)")
+            completion(nil, error)
+            return
+          }
+
+          guard let user = result?.user else { return }
+          print("User \(user.uid) signed in.")
+            self.isAuthenticating = false
+            if let user = result?.user {
+                self.loggedInUser = user
+            } else if let error = error {
+                self.error = error as NSError
+            }
+
+          self.profileRepository.fetchProfile(userId: user.uid) { (profile, error) in
+            print(user.uid)
+            if let error = error {
+              print("Error while fetching the user profile: \(error)")
+              completion(nil, error)
+              return
+            }
+
+            print(profile?.username ?? "erm hi")
+            self.profile = profile
+            completion(profile, nil)
+            print(self.profile?.username ?? "nope")
+          }
+        }
+        
     }
 
-    func signup(email: String, password: String, passwordConfirmation: String) {
+    func signup(email: String, password: String, username: String, passwordConfirmation: String, completion: @escaping (_ profile: UserProfile?, _ error: Error?) -> Void) {
         guard password == passwordConfirmation else {
             self.error = NSError(domain: "", code: 9210, userInfo: [NSLocalizedDescriptionKey: "Password and confirmation does not match!"])
             return
@@ -368,7 +347,31 @@ class AuthenticationState: NSObject, ObservableObject {
         self.isAuthenticating = true
         self.error = nil
 
-        auth.createUser(withEmail: email, password: password, completion: handleAuthResultCompletion)
+//        auth.createUser(withEmail: email, password: password, completion: handleAuthResultCompletion)
+        
+        auth.createUser(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("Error signing up: \(error)")
+                completion(nil, error)
+                return
+            }
+            guard let user = result?.user else { return }
+            print("User \(user.uid) signed up.")
+            print(self.isAuthenticating)
+            print((self.loggedInUser?.email ?? "nope"))
+
+            let userProfile = UserProfile(id: user.uid, username: username, password: password, image: "profilepic", reviews: [])
+            self.profileRepository.createProfile(profile: userProfile) { (profile, error) in
+                if let error = error {
+                    print("Error while fetching the user profile: \(error)")
+                    completion(nil, error)
+                    return
+                }
+                self.profile = profile
+                completion(profile, nil)
+            }
+        }
+        self.isAuthenticating = false
     }
     
     private func handleAuthResultCompletion(auth: AuthDataResult?, error: Error?) {
@@ -384,11 +387,44 @@ class AuthenticationState: NSObject, ObservableObject {
     
     func signout() {
         try? auth.signOut()
+        self.profile = nil
     }
     
     private func handleSignInWithApple() {
         // TODO
     }
+}
+
+struct UserProfile: Codable {
+    var id: String
+    var username: String
+    var password: String
+    var image: String
+    var reviews: [String]
+}
+
+class UserProfileRepository: ObservableObject {
+  private var db = Firestore.firestore()
+
+  func createProfile(profile: UserProfile, completion: @escaping (_ profile: UserProfile?, _ error: Error?) -> Void) {
+    do {
+      try
+    db.collection("users").document(profile.id).setData(from: profile)
+      completion(profile, nil)
+    }
+    catch let error {
+      print("Error writing city to Firestore: \(error)")
+      completion(nil, error)
+    }
+  }
+
+  func fetchProfile(userId: String, completion: @escaping (_ profile: UserProfile?, _ error: Error?) -> Void) {
+    db.collection("users").document(userId).getDocument { (snapshot, error) in
+        let profile = try? snapshot?.data(as: UserProfile.self)
+        print(profile?.username ?? "test fetch")
+      completion(profile, error)
+    }
+  }
 }
 
 struct AuthView: View {
@@ -399,10 +435,10 @@ struct AuthView: View {
     var body: some View {
         VStack {
         Text("hello")
-            Text("\(self.authState.myReviews.count) items")
-            List(self.authState.myReviews) { review in
+            Text("\(self.authState.ramens.count) items")
+            List(self.authState.ramens) { ramen in
             Text("hello how r u just testing")
-            Text(review.comments)
+            Text(ramen.style)
             }
         }
 //        .onAppear {

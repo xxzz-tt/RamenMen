@@ -55,7 +55,7 @@ struct UserProfileView: View {
                 }
                 VStack {
                     ProfileImage(image: Image("profilepic")).padding(.horizontal)
-                    Text(self.authState.user.username).bold().padding(.top)
+                    Text(self.authState.profile?.username ?? "nothing").bold().padding(.top)
                 }
                 Divider()
                 HStack {

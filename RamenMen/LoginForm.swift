@@ -25,7 +25,13 @@ struct LoginForm: View {
             authState.login(with: .emailAndPassword(email: email, password: password))
 
         case .signup:
-            authState.signup(email: email, password: password, passwordConfirmation: passwordConf)
+            authState.signup(email: email, password: password, username: username, passwordConfirmation: passwordConf) {
+                (profile, error) in
+                if let error = error {
+                  print("Error when signing up: \(error)")
+                  return
+                }
+            }
         }
     }
 
