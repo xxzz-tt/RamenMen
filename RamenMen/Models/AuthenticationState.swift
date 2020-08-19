@@ -26,6 +26,7 @@ class AuthenticationState: NSObject, ObservableObject {
     @Published var myReviews = [Review]()
     @Published var searchNames = [String]()
     @Published var bestRamens = [Ramen]()
+    @Published var spicyRamens = [Ramen]()
     
     var db = Firestore.firestore()
     
@@ -277,10 +278,11 @@ class AuthenticationState: NSObject, ObservableObject {
     
     func getRamenByName(id: String) -> Ramen {
         //to be modified
-        return self.ramens.first{
-            (ramen: Ramen) -> Bool in
-            return ramen.searchableName == id
-            }!
+//        return self.ramens.first{
+//            (ramen: Ramen) -> Bool in
+//            return ramen.searchableName == id
+//            }!
+        return Ramen(id: "1", brand: "Prima Taste", name: "Chili Crab Noodle", style: "Bowl", image: "chillicrab", searchableName: "Prima Taste Chili Crab Noodle", star: Float(4.0), spiciness: Float(2), value: Float(2), reviews: [])
     }
     
     func getMyReviews() {

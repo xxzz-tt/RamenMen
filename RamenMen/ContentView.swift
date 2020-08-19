@@ -9,16 +9,24 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var env: Environment
+//    @EnvironmentObject var env: Environment
     @State private var selection = 0
     @State var notLoggedIn = false
+    @State var showRamenProfile = false
+    @State var ramen: Ramen?
 
     @EnvironmentObject var authState: AuthenticationState
  
     var body: some View {
         Group {
           if (authState.loggedInUser != nil) {
-            HomeTab()
+            ZStack {
+                HomeTab(showRamenProfile: self.$showRamenProfile, ramen: self.$ramen).environmentObject(authState)
+                
+                if (self.showRamenProfile && self.ramen != nil) {
+                    RamenProfile(ramen: self.ramen!, showRamenProfile: self.$showRamenProfile).environmentObject(authState)
+                }
+            }
           } else {
             LoginPage(authType: .login)
           }

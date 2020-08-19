@@ -16,16 +16,17 @@ struct SearchBar: View {
     @State private var cancel: Bool = false
     @State private var isEditing = false
     @State private var shouldReturn = false
-    @EnvironmentObject var env: Environment
+    @Binding var showRamenProfile: Bool
+    @Binding var ramenn: Ramen?
+//    @EnvironmentObject var env: Environment
     @EnvironmentObject var authState: AuthenticationState
     @State var ramen: Ramen?
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    Image(systemName: "viewfinder").resizable().frame(width: 20, height: 20).padding(.trailing, 15)
+                    ScanButton(showRamenProfile: self.$showRamenProfile, ramen: self.$ramenn).environmentObject(self.authState)
                     HStack {
-                        Image(systemName: "magnifyingglass")
                         TextField("Start your search!", text: $searchText, onEditingChanged: { edit in
                         self.cancel = true
                     }, onCommit: {
@@ -61,7 +62,7 @@ struct SearchBar: View {
 //                    Text("Search Result")
                     List(self.authState.ramens.filter({ searchText.isEmpty ? true : $0.searchableName.contains(searchText)})) { ramen in
 //                        Text(ramen.name)
-                        NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.authState)) {
+                        NavigationLink(destination: RamenProfile(ramen: ramen, showRamenProfile: .constant(true)).environmentObject(self.authState)) {
                             RamenRow(ramen: ramen)
 //                        Text(ramen.name)
                         }
@@ -89,7 +90,7 @@ struct SearchBar: View {
                                 .padding(.leading)
                             VStack {
                         ForEach(authState.bestRamens) { ramen in
-                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.authState)) {
+                            NavigationLink(destination: RamenProfile(ramen: ramen, showRamenProfile: .constant(true)).environmentObject(self.authState)) {
                             HStack {
                                 Text(ramen.name) .frame(width: 200.0, height: 15.0).padding(.leading, 8.0)
                                 StarRating(rating: .constant(Int(ramen.star))).padding(.trailing)
@@ -100,8 +101,9 @@ struct SearchBar: View {
                             VStack(alignment:.leading) {
                                 Text("Spice up your week!").bold().font(.title)
                             .padding(.leading)
-                            ForEach(env.spicy) { ramen in
-                            NavigationLink(destination: RamenProfile(ramen: ramen).environmentObject(self.authState)) {
+//spicyRamens is empty!!
+                            ForEach(authState.spicyRamens) { ramen in
+                                NavigationLink(destination: RamenProfile(ramen: ramen, showRamenProfile:.constant(true)).environmentObject(self.authState)) {
                             
                                 HStack {
                                 Text(ramen.name) .frame(width: 250.0, height: 35.0).padding(.leading, 8.0)
@@ -152,7 +154,8 @@ struct SearchBar: View {
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar().environmentObject(AuthenticationState.shared).environmentObject(Environment())
+        SearchBar(showRamenProfile: .constant(false), ramenn: .constant(Ramen())).environmentObject(AuthenticationState.shared)
+//            .environmentObject(Environment())
     }
 }
 

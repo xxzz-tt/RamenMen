@@ -35,7 +35,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            window.rootViewController = UIHostingController(rootView: contentView.environmentObject(Environment()))
         let authState = AuthenticationState.shared
         window.rootViewController = UIHostingController(
-            rootView: ContentView().environmentObject(authState).environmentObject(Environment()))
+//            rootView: ContentView().environmentObject(authState).environmentObject(Environment())
+            rootView: ContentView().environmentObject(authState)
+            )
             self.window = window
             window.makeKeyAndVisible()
 

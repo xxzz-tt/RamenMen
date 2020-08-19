@@ -49,12 +49,14 @@ struct ReviewWindow: View {
 
 struct RamenProfileView: View {
 //    var ramen: Ramen
-    @EnvironmentObject var env: Environment
+//    @EnvironmentObject var env: Environment
     @EnvironmentObject var authState: AuthenticationState
     @ObservedObject var ramen: Ramen
     @State private var showReviewWindow = false
     @State var reviewWindow: AnyView = AnyView(EmptyView())
     @Binding var showRatingForm: Bool
+    @State var cameFromScanner = false
+    @Binding var showRamenProfile: Bool
     
     @State var reviews = [Review]()
     @State var user = RamenMen.User()
@@ -82,6 +84,12 @@ struct RamenProfileView: View {
         ZStack {
 //            NavigationView {
                  VStack {
+                    HStack {
+                        Button(action: {self.showRamenProfile.toggle()}) {
+                            Image(systemName: "chevron.left").resizable().frame(width: 15, height: 20).foregroundColor(Color.blue)
+                        }.padding([.leading])
+                        Spacer()
+                    }
                     VStack {
                         Image(ramen.image).resizable()
                         .scaledToFit()
@@ -189,6 +197,6 @@ struct RamenProfileView: View {
 
 struct RamenProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        RamenProfileView(ramen: AuthenticationState.shared.ramens[6], showRatingForm: .constant(false)).environmentObject(AuthenticationState.shared)
+        RamenProfileView(ramen: AuthenticationState.shared.ramens[6], showRatingForm: .constant(false), cameFromScanner: true, showRamenProfile: .constant(true)).environmentObject(AuthenticationState.shared)
     }
 }

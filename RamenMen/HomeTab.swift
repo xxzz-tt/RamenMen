@@ -11,6 +11,8 @@ import SwiftUI
 struct HomeTab: View {
     @EnvironmentObject var authState: AuthenticationState
     @State private var selection = 0
+    @Binding var showRamenProfile: Bool
+    @Binding var ramen: Ramen?
     var body: some View {
         VStack {
         ZStack {
@@ -23,7 +25,7 @@ struct HomeTab: View {
                 }
             }.tag(1)
         
-            SearchBar().environmentObject(authState)
+            SearchBar(showRamenProfile: self.$showRamenProfile, ramenn: self.$ramen).environmentObject(authState)
                 .padding([.top], 10).padding(0.0)
                 .tabItem {
                     VStack {
@@ -51,6 +53,6 @@ struct HomeTab: View {
 
 struct HomeTab_Previews: PreviewProvider {
     static var previews: some View {
-        HomeTab().environmentObject(AuthenticationState.shared)
+        HomeTab(showRamenProfile: .constant(false), ramen: .constant(Ramen())).environmentObject(AuthenticationState.shared)
     }
 }

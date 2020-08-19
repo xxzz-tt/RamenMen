@@ -12,7 +12,7 @@ struct RatingForm: View {
     @ObservedObject var review: Review
     @ObservedObject var ramen: Ramen
     @Binding var showRatingForm: Bool
-    @EnvironmentObject var env: Environment
+//    @EnvironmentObject var env: Environment
     @EnvironmentObject var authState: AuthenticationState
 
     var dateFormatter: DateFormatter {

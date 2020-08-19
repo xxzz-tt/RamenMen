@@ -10,7 +10,7 @@ import SwiftUI
 
 struct UserProfileView: View {
 //    @Binding var text: String
-    @EnvironmentObject var env: Environment
+//    @EnvironmentObject var env: Environment
     @EnvironmentObject var authState: AuthenticationState
 
     @State var selection = 0
@@ -37,10 +37,7 @@ struct UserProfileView: View {
     }
     func getRamen(id: String) -> Ramen {
         //to be modified
-        return env.ramenData.first{
-            (ramen: Ramen) -> Bool in
-            return ramen.id == id
-            }!
+        return authState.getRamenByName(id: id)
     }
 
     var body: some View {
